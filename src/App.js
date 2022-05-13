@@ -31,7 +31,11 @@ function App() {
       <section id="navigation">
         <nav>
           <div id="logo_wrapper">
-            <img src={logo} className="logo" alt="" />
+            <Link to="/">
+              {" "}
+              <img src={logo} className="logo" alt="" />
+            </Link>
+
             <p>8/8-14/8</p>
           </div>
           <div id="menu" ref={menuRef} className={menuOpen ? null : "inactive"}>
