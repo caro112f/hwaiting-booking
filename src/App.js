@@ -1,5 +1,6 @@
 import { Link, Routes, Route } from "react-router-dom";
 
+import Home from "./routes/Home";
 import Step1 from "./routes/Step1";
 import Step2 from "./routes/Step2";
 import Step3 from "./routes/Step3";
@@ -10,6 +11,11 @@ import Congrats from "./routes/Congrats";
 function App() {
   return (
     <div className="App">
+      <nav>
+        <ul>
+          <Link to="/Home">Home</Link>
+        </ul>
+      </nav>
       <section>
         {" "}
         <Link id="header_link" to="/Step1">
@@ -17,6 +23,7 @@ function App() {
         </Link>
       </section>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="step1" element={<Step1 />} />
         <Route path="step2" element={<Step2 />} />
         <Route path="step3" element={<Step3 />} />
