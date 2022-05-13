@@ -10,7 +10,7 @@ export default function Home(props) {
       >
         <h1>HWAITING</h1>
         <p>Scandinavias biggest K-pop festival</p>
-        <Link to="/Step1">
+        <Link to="/Tickets">
           <button>
             <p className="link-p">BUY TICKETS</p>
           </button>

@@ -37,7 +37,7 @@ function App() {
                 <Link
                   id="header_link"
                   className="nav-link"
-                  to="/Step1"
+                  to="/Tickets"
                   onClick={ToggleBurgermenu}
                 >
                   {" "}
@@ -53,17 +53,14 @@ function App() {
           </div>
         </nav>
       </section>
-      <section>
-        {" "}
-        <Link id="h1-link" to="/Step1"></Link>
-      </section>
+
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="step1" element={<Tickets />} />
-        <Route path="step2" element={<CampingSpots />} />
-        <Route path="step3" element={<Additional />} />
-        <Route path="step4" element={<Information />} />
-        <Route path="step5" element={<Payment />} />
+        <Route path="tickets" element={<Tickets />} />
+        <Route path="camping-spots" element={<CampingSpots />} />
+        <Route path="additional" element={<Additional />} />
+        <Route path="information" element={<Information />} />
+        <Route path="payment" element={<Payment />} />
         <Route path="congrats" element={<Congrats />} />
       </Routes>
     </div>
