@@ -1,7 +1,31 @@
-import "./App.css";
+import { Link, Routes, Route } from "react-router-dom";
+
+import Step1 from "./routes/Step1";
+import Step2 from "./routes/Step2";
+import Step3 from "./routes/Step3";
+import Step4 from "./routes/Step4";
+import Step5 from "./routes/Step5";
+import Congrats from "./routes/Congrats";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <section>
+        {" "}
+        <Link id="header_link" to="/Step1">
+          BUY TICKETS
+        </Link>
+      </section>
+      <Routes>
+        <Route path="step1" element={<Step1 />} />
+        <Route path="step2" element={<Step2 />} />
+        <Route path="step3" element={<Step3 />} />
+        <Route path="step4" element={<Step4 />} />
+        <Route path="step5" element={<Step5 />} />
+        <Route path="congrats" element={<Congrats />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
