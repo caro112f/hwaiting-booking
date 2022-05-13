@@ -4,7 +4,18 @@
 @use "./abstracts/mixins";
 
 .App {
-  background-color: vars.$background-blue;
+  //background-color: vars.$background-blue;
+  #logo_wrapper {
+    margin: 1rem;
+    z-index: 1;
+    height: auto;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .logo {
+    width: 3.5rem;
+  }
   #navigation {
     nav {
       display: flex;
@@ -36,6 +47,7 @@
       position: fixed;
       right: 1rem;
       top: 1.5rem;
+      z-index: 2;
     }
     #bar1,
     #bar2,
@@ -46,7 +58,7 @@
       margin: 5px auto;
       --webkit-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out;
-      background-color: vars.$neonpink;
+      background-color: white;
     }
 
     .active1 {
@@ -61,6 +73,7 @@
 
     #menu {
       position: fixed;
+      z-index: 2;
       right: 0;
       left: 0;
       top: 0;

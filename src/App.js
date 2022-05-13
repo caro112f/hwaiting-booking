@@ -12,6 +12,8 @@ import Information from "./routes/Information";
 import Payment from "./routes/Payment";
 import Congrats from "./routes/Congrats";
 
+import logo from "./images/logo_light.svg";
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   function ToggleBurgermenu() {
@@ -29,7 +31,8 @@ function App() {
       <section id="navigation">
         <nav>
           <div id="logo_wrapper">
-            <img alt="" />
+            <img src={logo} className="logo" alt="" />
+            <p>8/8-14/8</p>
           </div>
           <div id="menu" ref={menuRef} className={menuOpen ? null : "inactive"}>
             <ul>

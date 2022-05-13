@@ -2,15 +2,20 @@
 @use "../abstracts/mixins";
 
 #home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
   #background {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 5rem;
     height: 100vh;
     background-size: cover;
-    padding: 8rem 4rem 8rem 4rem;
+    padding: 10rem 4rem 8rem 4rem;
     @include mixins.bp-medium {
-      padding: 10rem 4rem 8rem 4rem;
+      padding: 12rem 4rem 8rem 4rem;
     }
     text-align: center;
   }
