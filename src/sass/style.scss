@@ -63,8 +63,9 @@
       position: fixed;
       right: 0;
       left: 0;
-      height: 100vw;
-      top: -60px;
+      top: 0;
+      bottom: 0;
+      height: 100vh;
       background-color: vars.$background-blue;
       padding: 10rem 3rem 3rem 3rem;
       text-align: center;
