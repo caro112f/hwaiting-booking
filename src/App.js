@@ -40,7 +40,8 @@ function App() {
                   to="/Step1"
                   onClick={ToggleBurgermenu}
                 >
-                  <button>BUY TICKETS</button>
+                  {" "}
+                  <p className="link-p">BUY TICKETS</p>{" "}
                 </Link>
               </li>
             </ul>
@@ -54,9 +55,7 @@ function App() {
       </section>
       <section>
         {" "}
-        <Link id="h1-link" to="/Step1">
-          <button>BUY TICKETS</button>
-        </Link>
+        <Link id="h1-link" to="/Step1"></Link>
       </section>
       <Routes>
         <Route path="/" element={<Home />} />

@@ -1,78 +1,84 @@
+@use "layout";
 @use "base";
+@use "./abstracts/vars";
+@use "./abstracts/mixins";
 
-#navigation {
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  nav ul {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-  }
-
-  li {
-    list-style: none;
-    transition: 0.2s ease-out;
-  }
-  a {
-    text-decoration: none;
-    color: black;
-  }
-
-  .inactive {
-    display: none;
-  }
-  #burgermenu {
-    display: block;
-    cursor: pointer;
-    position: fixed;
-    right: 1rem;
-    top: 1.5rem;
-  }
-  #bar1,
-  #bar2,
-  #bar3 {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    --webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #101010;
-  }
-
-  .active1 {
-    transform: translateY(8px) rotate(45deg);
-  }
-  .active2 {
-    opacity: 0;
-  }
-  .active3 {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
-  #menu {
-    position: fixed;
-    right: 0;
-    left: 0;
-    height: 100vw;
-    top: -60px;
-    background-color: grey;
-    padding: 10rem 3rem 3rem 3rem;
-    text-align: center;
-    transition: ease-out;
-    box-shadow: 0px 3px 12px darkgrey;
-    ul {
-      padding: 0;
+.App {
+  background-color: vars.$background-blue;
+  #navigation {
+    nav {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
     }
-    li:hover {
-      transform: scale(1.1);
+
+    nav ul {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+
+    li {
+      list-style: none;
+      transition: 0.2s ease-out;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .inactive {
+      display: none;
+    }
+    #burgermenu {
+      display: block;
+      cursor: pointer;
+      position: fixed;
+      right: 1rem;
+      top: 1.5rem;
+    }
+    #bar1,
+    #bar2,
+    #bar3 {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      --webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      background-color: vars.$neonpink;
+    }
+
+    .active1 {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .active2 {
+      opacity: 0;
+    }
+    .active3 {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    #menu {
+      position: fixed;
+      right: 0;
+      left: 0;
+      height: 100vw;
+      top: -60px;
+      background-color: vars.$background-blue;
+      padding: 10rem 3rem 3rem 3rem;
+      text-align: center;
+      transition: ease-out;
+
+      ul {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      li:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }
