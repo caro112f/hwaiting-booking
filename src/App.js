@@ -13,7 +13,7 @@ function App() {
       <section>
         {" "}
         <Link id="header_link" to="/Step1">
-          BUY TICKETS
+          <button>BUY TICKETS</button>
         </Link>
       </section>
       <Routes>
