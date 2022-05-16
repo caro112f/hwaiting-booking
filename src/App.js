@@ -1,16 +1,11 @@
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 
 import { useRef, useState, useEffect } from "react";
 
 import { gsap } from "gsap";
 
 import Home from "./routes/Home";
-import Tickets from "./routes/Tickets";
-import CampingSpots from "./routes/CampingSpots";
-import Additional from "./routes/Additional";
-import Information from "./routes/Information";
-import Payment from "./routes/Payment";
-import Congrats from "./routes/Congrats";
+import Booking from "./routes/Booking";
 
 import logo from "./images/logo_light.svg";
 
@@ -44,7 +39,7 @@ function App() {
                 <Link
                   id="header_link"
                   className="nav-link"
-                  to="/Tickets"
+                  to="/booking"
                   onClick={ToggleBurgermenu}
                 >
                   {" "}
@@ -63,12 +58,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="tickets" element={<Tickets />} />
-        <Route path="camping-spots" element={<CampingSpots />} />
-        <Route path="additional" element={<Additional />} />
-        <Route path="information" element={<Information />} />
-        <Route path="payment" element={<Payment />} />
-        <Route path="congrats" element={<Congrats />} />
+        <Route path="booking/*" element={<Booking />} />
       </Routes>
     </div>
   );

@@ -12,7 +12,7 @@ export default function Home(props) {
           <h1>HWAITING</h1>
           <p>Scandinavias biggest K-pop festival</p>
         </div>
-        <Link to="/Tickets">
+        <Link to="/booking">
           <button>
             <p className="link-p">BUY TICKETS</p>
           </button>

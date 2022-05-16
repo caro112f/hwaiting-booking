@@ -3,8 +3,10 @@
 @use "./abstracts/vars";
 @use "./abstracts/mixins";
 
+body {
+  background-color: vars.$background-blue;
+}
 .App {
-  //background-color: vars.$background-blue;
   #logo_wrapper {
     margin: 1rem;
     z-index: 1;
