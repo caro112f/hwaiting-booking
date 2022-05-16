@@ -2,14 +2,4 @@
 @use "../abstracts/mixins";
 
 #tickets {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  background-color: vars.$background-blue;
-  h1 {
-    padding: 10rem 4rem 8rem 4rem;
-    text-align: center;
-  }
 }

@@ -1,0 +1,7 @@
+@use "../abstracts/vars";
+@use "../abstracts/mixins";
+#booking {
+  .heading-wrapper {
+    text-align: center;
+  }
+}
