@@ -3,6 +3,11 @@
 @use "./abstracts/vars";
 @use "./abstracts/mixins";
 
+.removing {
+  transition: all 1.5s;
+  transform: translateX(500px);
+}
+
 body {
   background-color: vars.$background-blue;
 }

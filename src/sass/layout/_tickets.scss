@@ -1,2 +1,9 @@
 @use "../abstracts/vars";
 @use "../abstracts/mixins";
+
+#tickets {
+  .ticket {
+    border: 2px solid white;
+    padding: 1rem;
+  }
+}
