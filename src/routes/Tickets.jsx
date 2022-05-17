@@ -23,13 +23,15 @@ export default function Step1() {
         <p>Please pick a ticket</p>
       </div>
       <article>
-        <div>
+        <div className="ticket-wrapper">
           {tickets.map((t) => (
             <Ticket key={t.id} ticket={t} />
           ))}
         </div>
       </article>
-      <Link to="/booking/camping-spots">Next</Link>
+      <div className="next-step">
+        <Link to="/booking/camping-spots">Next</Link>
+      </div>
     </section>
   );
 }

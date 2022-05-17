@@ -7,7 +7,10 @@ export default function Step3(props) {
         <h1>Step 3</h1>
         <p>Additionals?</p>
       </div>
-      <Link to="/booking/information">Next</Link>
+
+      <div className="next-step">
+        <Link to="/booking/information">Next</Link>
+      </div>
     </section>
   );
 }

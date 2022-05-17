@@ -7,7 +7,10 @@ export default function Step5(props) {
         <h1>Step 5</h1>
         <p>Card information</p>
       </div>
-      <Link to="/verification">BUY TICKETS</Link>
+
+      <div className="next-step">
+        <Link to="/verification">BUY TICKETS</Link>
+      </div>
     </section>
   );
 }

@@ -11,9 +11,12 @@
 
   .timer-wrapper {
     border: 1px solid white;
+    border-left: none;
+    border-right: none;
     padding: 1rem;
     color: white;
     grid-column: 1/4;
+    text-align: center;
   }
 
   @include mixins.bp-large {
@@ -34,5 +37,9 @@
       grid-column: 2/4;
       grid-row: span 2;
     }
+  }
+
+  .next-step {
+    text-align: center;
   }
 }
