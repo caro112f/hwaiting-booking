@@ -37,17 +37,20 @@ export default function BasketItem({ props, id, amount, type, price }) {
   }
 
   return (
-    <li key={id}>
-      <p>
+    <li className="basket-list" key={id}>
+      <div className="amount-wrapper">
+        <span onClick={() => remove(id)}>
+          <p>-</p>
+        </span>
+        <p>{amount} </p>
+        <span onClick={() => buymore(id)}>
+          <p>+</p>
+        </span>{" "}
+      </div>
+      <p className="basket-font">
         {" "}
-        {amount} x {type} ${price}{" "}
+        {type} {price} DKK{" "}
       </p>
-      <span onClick={() => buymore(id)}>
-        <p>+</p>
-      </span>
-      <span onClick={() => remove(id)}>
-        <p>-</p>
-      </span>
     </li>
   );
 }

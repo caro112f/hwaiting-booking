@@ -19,7 +19,8 @@ export default function Basket(props) {
             return <BasketItem key={item.id} {...item} />;
           })}
         </ul>
-        <p className="totalprice">Total: ${sumWithInitial}</p>
+        <hr />
+        <p className="totalprice">Total: {sumWithInitial} DKK</p>
       </div>
     </article>
   );
