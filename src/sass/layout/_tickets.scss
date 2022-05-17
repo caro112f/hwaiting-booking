@@ -4,6 +4,31 @@
 #tickets {
   .ticket {
     border: 2px solid white;
-    padding: 1rem;
+    padding-inline: 1rem;
+    padding-block: 2rem;
+    text-align: center;
+  }
+}
+
+.ticket-wrapper {
+  @include mixins.bp-large {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 3rem;
+  }
+
+  .buy-ticket {
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    border: 3px solid white;
+    /*  box-shadow: 0px 0px 22px white; */
+    padding: 0.5rem 1rem;
+    color: white;
+    margin-block-start: 2rem;
+  }
+
+  .buy-ticket-wrapper {
+    text-align: center;
   }
 }
