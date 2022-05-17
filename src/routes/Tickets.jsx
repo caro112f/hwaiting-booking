@@ -1,6 +1,21 @@
 import { Link } from "react-router-dom";
 
-export default function Step1(props) {
+import Ticket from "../components/Ticket";
+
+export default function Step1() {
+  const tickets = [
+    {
+      id: 1,
+      type: "Regular",
+      price: 799,
+    },
+    {
+      id: 2,
+      type: "Vip",
+      price: 1299,
+    },
+  ];
+
   return (
     <section id="tickets" className="steps">
       <div className="heading-wrapper">
@@ -8,8 +23,11 @@ export default function Step1(props) {
         <p>Please pick a ticket</p>
       </div>
       <article>
-        <div className="regular"></div>
-        <div className="vip"></div>
+        <div>
+          {tickets.map((t) => (
+            <Ticket key={t.id} ticket={t} />
+          ))}
+        </div>
       </article>
       <Link to="/booking/camping-spots">Next</Link>
     </section>
