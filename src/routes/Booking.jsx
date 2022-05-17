@@ -1,4 +1,5 @@
 import Basket from "../components/Basket";
+import { BasketProvider } from "../contexts/basket";
 import Breadcrumb from "../components/Breadcrumb";
 import Timer from "../components/Timer";
 
@@ -13,11 +14,15 @@ import { Routes, Route } from "react-router-dom";
 export default function Booking(props) {
   return (
     <section id="booking">
-      <h3>This is the booking page</h3>
       <Timer></Timer>
       <section></section>
-      <Basket></Basket>
+
       <Breadcrumb></Breadcrumb>
+
+      <BasketProvider>
+        <Basket></Basket>
+      </BasketProvider>
+
       <Routes>
         <Route path="" element={<Tickets />} />
         <Route path="camping-spots" element={<CampingSpots />} />

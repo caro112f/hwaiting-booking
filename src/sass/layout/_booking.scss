@@ -1,10 +1,38 @@
 @use "../abstracts/vars";
 @use "../abstracts/mixins";
+
 #booking {
   .heading-wrapper {
     text-align: center;
   }
   .timer {
     color: white;
+  }
+
+  .timer-wrapper {
+    border: 1px solid white;
+    padding: 1rem;
+    color: white;
+    grid-column: 1/4;
+  }
+
+  @include mixins.bp-large {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
+
+  .steps {
+    @include mixins.bp-large {
+      grid-column: 1/2;
+    }
+  }
+
+  .basket {
+    border: 1px solid white;
+    padding: 1rem;
+    @include mixins.bp-large {
+      grid-column: 2/4;
+      grid-row: span 2;
+    }
   }
 }
