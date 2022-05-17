@@ -1,29 +1,39 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Timer(props) {
-  //   const [countDown, setCountDown] = useState(0);
+  const { initialMinute = 5, initialSeconds = 0 } = props;
+  const [minutes, setMinutes] = useState(initialMinute);
+  const [seconds, setSeconds] = useState(initialSeconds);
 
-  //   useEffect(() => {
-  //     setCountDown(60 * 5);
-  //     let timerId = setInterval(() => {
-  //       setCountDown((countDown) => countDown - 1);
-  //     }, 1000);
-  //     if (countDown < 0) {
-  //       clearInterval(timerId);
-  //     }
-  //   }, []);
-
-  //   const seconds = String(countDown % 60).padStart(2, 0);
-  //   const minutes = String(Math.floor(countDown / 60)).padStart(2, 0);
-
-  //   console.log(minutes, seconds);
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      if (seconds > 0) {
+        setSeconds(seconds - 1);
+      }
+      if (seconds === 0) {
+        if (minutes === 0) {
+          clearInterval(myInterval);
+        } else {
+          setMinutes(minutes - 1);
+          setSeconds(59);
+        }
+      }
+    }, 1000);
+    return () => {
+      clearInterval(myInterval);
+    };
+  });
 
   return (
-    <section className="timer-wrapper">
-      <p>test</p>
-      {/* <div className="timer">
-        Time: {minutes}:{seconds}
-      </div> */}
-    </section>
+    <div className="timer-wrapper">
+      <div className="timer">
+        {minutes === 0 && seconds === 0 ? null : (
+          <p>
+            {" "}
+            Time left: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+          </p>
+        )}
+      </div>
+    </div>
   );
 }
