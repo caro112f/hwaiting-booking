@@ -20,6 +20,7 @@ export default function Timer(props) {
 
   return (
     <section className="timer-wrapper">
+      <p>test</p>
       {/* <div className="timer">
         Time: {minutes}:{seconds}
       </div> */}
