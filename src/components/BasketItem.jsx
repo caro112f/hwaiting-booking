@@ -38,18 +38,20 @@ export default function BasketItem({ id, amount, type, price }) {
 
   return (
     <li className="basket-list" key={id}>
-      <div className="amount-wrapper">
-        <button className="basket-minus" onClick={() => remove(id)}>
-          <p>-</p>
-        </button>
-        <p>{amount} </p>
-        <button className="basket-plus" onClick={() => buymore(id)}>
-          <p>+</p>
-        </button>{" "}
-      </div>
+      <div className="amount-type-wrapper">
+        <div className="amount-wrapper">
+          <button className="basket-minus" onClick={() => remove(id)}>
+            <p>-</p>
+          </button>
+          <p>{amount} </p>
+          <button className="basket-plus" onClick={() => buymore(id)}>
+            <p>+</p>
+          </button>{" "}
+        </div>
 
-      <div className="type-wrapper">
-        <p className="basket-font"> {type} Ticket </p>
+        <div className="type-wrapper">
+          <p className="basket-font"> {type} Ticket </p>
+        </div>
       </div>
       <div className="price-wrapper">
         <p className="basket-font"> {price} DKK </p>

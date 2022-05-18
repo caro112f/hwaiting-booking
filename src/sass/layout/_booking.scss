@@ -47,8 +47,13 @@
     }
   }
 
-  .basket-font {
+  .basket-font,
+  .basket-price {
     font-size: 1.1rem;
+  }
+
+  .basket-price {
+    font-weight: bold;
   }
   .amount-wrapper,
   .basket-list {
@@ -73,6 +78,11 @@
 
   .next-step {
     text-align: center;
+    margin-block: 4rem;
+
+    @include mixins.bp-large {
+      margin-block: 2rem;
+    }
   }
   .basket-minus,
   .basket-plus {
@@ -92,5 +102,10 @@
 
   button:hover {
     cursor: pointer;
+  }
+
+  .amount-type-wrapper {
+    display: flex;
+    gap: 1rem;
   }
 }

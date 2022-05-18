@@ -24,7 +24,7 @@ export default function Basket(props) {
         <hr />
         <div className="totalprice">
           <p>Total:</p>
-          <p> {sumWithInitial} DKK</p>
+          <p className="basket-price"> {sumWithInitial} DKK</p>
         </div>
       </div>
     </article>
