@@ -41,7 +41,7 @@ export default function Step4(props) {
                 type="text"
                 id="adr"
                 name="address"
-                placeholder="Street Nr. Floor"
+                placeholder="Street Number Floor"
                 required
               ></input>
             </div>
