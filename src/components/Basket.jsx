@@ -22,7 +22,10 @@ export default function Basket(props) {
           })}
         </ul>
         <hr />
-        <p className="totalprice">Total: {sumWithInitial} DKK</p>
+        <div className="totalprice">
+          <p>Total:</p>
+          <p> {sumWithInitial} DKK</p>
+        </div>
       </div>
     </article>
   );

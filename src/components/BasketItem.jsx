@@ -47,10 +47,13 @@ export default function BasketItem({ id, amount, type, price }) {
           <p>+</p>
         </button>{" "}
       </div>
-      <p className="basket-font">
-        {" "}
-        {type} {price} DKK{" "}
-      </p>
+
+      <div className="type-wrapper">
+        <p className="basket-font"> {type} Ticket </p>
+      </div>
+      <div className="price-wrapper">
+        <p className="basket-font"> {price} DKK </p>
+      </div>
     </li>
   );
 }
