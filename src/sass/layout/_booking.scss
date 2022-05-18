@@ -31,12 +31,27 @@
   }
 
   .basket {
-    border: 1px solid white;
     padding: 1rem;
+    background-color: #2d1c67;
     @include mixins.bp-large {
       grid-column: 2/4;
       grid-row: span 2;
     }
+  }
+
+  .basket-font {
+    font-size: 1.1rem;
+  }
+  .amount-wrapper,
+  .basket-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  hr {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: white;
   }
 
   .next-step {

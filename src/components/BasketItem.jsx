@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
 
-export default function BasketItem({ props, id, amount, type, price }) {
+export default function BasketItem({ id, amount, type, price }) {
   const { setBasket } = useContext(BasketContext);
 
   //const { setBasket } = useContext(BasketContext);

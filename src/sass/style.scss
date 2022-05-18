@@ -11,6 +11,9 @@
 body {
   background-color: vars.$background-blue;
 }
+.black-text {
+  color: vars.$background-blue;
+}
 .App {
   #logo_wrapper {
     margin: 1rem;

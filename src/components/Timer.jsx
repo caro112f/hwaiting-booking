@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Timer(props) {
-  const { initialMinute = 5, initialSeconds = 0 } = props;
+  const { initialMinute = 0, initialSeconds = 5 } = props;
   const [minutes, setMinutes] = useState(initialMinute);
   const [seconds, setSeconds] = useState(initialSeconds);
+
+  const [reveal, setReveal] = useState(false);
 
   useEffect(() => {
     let myInterval = setInterval(() => {
@@ -13,6 +16,7 @@ export default function Timer(props) {
       if (seconds === 0) {
         if (minutes === 0) {
           clearInterval(myInterval);
+          showPopup();
         } else {
           setMinutes(minutes - 1);
           setSeconds(59);
@@ -23,7 +27,9 @@ export default function Timer(props) {
       clearInterval(myInterval);
     };
   });
-
+  function showPopup() {
+    setReveal(true);
+  }
   return (
     <div className="timer-wrapper">
       <div className="timer">
@@ -33,6 +39,16 @@ export default function Timer(props) {
             Time left: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
           </p>
         )}
+      </div>
+      <div className={reveal ? null : "hidden"} id="popup">
+        <div className="dialog">
+          <p className="black-text">
+            Sorry, your time is up! Your tickets have been released.
+          </p>
+          <Link to="/">
+            <button>Go to homepage</button>
+          </Link>
+        </div>
       </div>
     </div>
   );
