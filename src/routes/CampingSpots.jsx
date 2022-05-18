@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Step2(props) {
   return (
-    <section>
+    <section className="steps">
       <div className="heading-wrapper">
         <h1>Step 2</h1>
         <p>Please pick a camping spot </p>
