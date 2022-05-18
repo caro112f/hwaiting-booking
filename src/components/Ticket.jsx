@@ -28,8 +28,8 @@ export default function Ticket(props) {
 
   return (
     <div className="ticket">
-      <h3>{props.ticket.type}</h3>
-      <p>{props.ticket.price}</p>
+      <h3>{props.ticket.type} ticket</h3>
+      <p>{props.ticket.price} DKK</p>
       <div className="buy-ticket-wrapper">
         <button onClick={buy} className="buy-ticket">
           Buy ticket

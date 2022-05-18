@@ -39,13 +39,13 @@ export default function BasketItem({ id, amount, type, price }) {
   return (
     <li className="basket-list" key={id}>
       <div className="amount-wrapper">
-        <span onClick={() => remove(id)}>
+        <button className="basket-minus" onClick={() => remove(id)}>
           <p>-</p>
-        </span>
+        </button>
         <p>{amount} </p>
-        <span onClick={() => buymore(id)}>
+        <button className="basket-plus" onClick={() => buymore(id)}>
           <p>+</p>
-        </span>{" "}
+        </button>{" "}
       </div>
       <p className="basket-font">
         {" "}

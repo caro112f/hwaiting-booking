@@ -23,3 +23,12 @@
   background-color: white;
   position: relative;
 }
+button {
+  border: none;
+  background-color: vars.$neonpurple;
+  color: white;
+  border-radius: 5px;
+  //box-shadow: 0px 0px 22px vars.$lightneonpurple;
+  padding: 8px;
+  margin-block-start: 1rem;
+}

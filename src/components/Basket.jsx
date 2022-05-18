@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
 import BasketItem from "./BasketItem";
+import Timer from "./Timer";
 
 export default function Basket(props) {
   const { basket } = useContext(BasketContext);
@@ -14,6 +15,7 @@ export default function Basket(props) {
   return (
     <article className="basket">
       <div>
+        <Timer></Timer>
         <ul>
           {basket.map((item) => {
             return <BasketItem key={item.id} {...item} />;

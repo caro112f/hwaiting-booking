@@ -9,7 +9,7 @@ export default function Home(props) {
         style={{ backgroundImage: `url(${backgroundimage})` }}
       >
         <div>
-          <h1>HWAITING</h1>
+          <h1 id="glow-h1">HWAITING</h1>
           <p>Scandinavias biggest K-pop festival</p>
         </div>
         <Link to="/booking">

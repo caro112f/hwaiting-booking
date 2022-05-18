@@ -30,7 +30,7 @@ export default function Step1() {
         </div>
       </article>
       <div className="next-step">
-        <Link to="/booking/camping-spots">Next</Link>
+        <Link to="/booking/campingspots">Next</Link>
       </div>
     </section>
   );

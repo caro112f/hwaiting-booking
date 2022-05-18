@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Timer(props) {
-  const { initialMinute = 0, initialSeconds = 5 } = props;
+  const { initialMinute = 1, initialSeconds = 0 } = props;
   const [minutes, setMinutes] = useState(initialMinute);
   const [seconds, setSeconds] = useState(initialSeconds);
 
@@ -43,7 +43,7 @@ export default function Timer(props) {
       <div className={reveal ? null : "hidden"} id="popup">
         <div className="dialog">
           <p className="black-text">
-            Sorry, your time is up! Your tickets have been released.
+            Sorry, your time is up! <br /> Your tickets have been released.
           </p>
           <Link to="/">
             <button>Go to homepage</button>
