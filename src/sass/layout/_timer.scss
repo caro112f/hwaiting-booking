@@ -22,6 +22,15 @@
   padding: 2em;
   background-color: white;
   position: relative;
+  width: 85%;
+
+  @include mixins.bp-medium {
+    width: 65%;
+  }
+
+  @include mixins.bp-large {
+    width: 40%;
+  }
 }
 button {
   border: none;

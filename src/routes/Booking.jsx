@@ -18,8 +18,6 @@ export default function Booking() {
       <Breadcrumb></Breadcrumb>
 
       <BasketProvider>
-        <Basket></Basket>
-
         <Routes>
           <Route path="" element={<Tickets />} />
           <Route path="campingspots" element={<CampingSpots />} />
@@ -27,6 +25,7 @@ export default function Booking() {
           <Route path="information" element={<Information />} />
           <Route path="payment" element={<Payment />} />
         </Routes>
+        <Basket></Basket>
       </BasketProvider>
     </section>
   );

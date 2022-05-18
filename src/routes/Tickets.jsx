@@ -11,7 +11,7 @@ export default function Step1() {
     },
     {
       id: 2,
-      type: "Vip",
+      type: "VIP",
       price: 1299,
     },
   ];
@@ -22,7 +22,7 @@ export default function Step1() {
         <h1>Step 1</h1>
         <p>Please pick a ticket</p>
       </div>
-      <article>
+      <article className="ticket-container">
         <div className="ticket-wrapper">
           {tickets.map((t) => (
             <Ticket key={t.id} ticket={t} />

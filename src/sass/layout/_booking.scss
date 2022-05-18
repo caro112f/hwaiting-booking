@@ -28,11 +28,23 @@
   }
 
   .basket {
-    padding: 1rem;
-    background-color: #2d1c67;
+    padding: 2rem;
+    background-color: #e1d9e9;
+    margin-block-start: 2rem;
+    padding-block: 2rem;
     @include mixins.bp-large {
-      grid-column: 2/4;
-      grid-row: span 2;
+      position: fixed;
+      right: 0;
+      height: 100%;
+      top: 0;
+      z-index: 100;
+      width: 25vw;
+      margin-block-start: 0;
+    }
+
+    p,
+    hr {
+      color: vars.$background-blue;
     }
   }
 
@@ -43,12 +55,21 @@
   .basket-list {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    justify-content: space-between;
   }
   hr {
     margin-top: 3rem;
     margin-bottom: 1rem;
     color: white;
+  }
+
+  .totalprice {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .type-price-wrapper {
+    display: flex;
   }
 
   .next-step {
@@ -58,7 +79,18 @@
   .basket-plus {
     background-color: #2e1c6700;
     border: none;
+    margin: 0;
+    padding: 0;
   }
+
+  .basket-minus {
+    margin-right: 0.5rem;
+  }
+
+  .basket-plus {
+    margin-left: 0.5rem;
+  }
+
   button:hover {
     cursor: pointer;
   }
