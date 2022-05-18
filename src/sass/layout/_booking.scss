@@ -79,6 +79,11 @@
 
   .next-step {
     text-align: center;
+    margin-block: 4rem;
+
+    @include mixins.bp-large {
+      margin-block: 2rem;
+    }
   }
   .basket-minus,
   .basket-plus {
