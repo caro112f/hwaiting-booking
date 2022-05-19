@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
 
-export default function BasketItem({ id, amount, type, price }) {
+export default function BITicket({ id, amount, type, price }) {
   const { setBasket } = useContext(BasketContext);
 
   //const { setBasket } = useContext(BasketContext);
@@ -50,7 +50,7 @@ export default function BasketItem({ id, amount, type, price }) {
         </div>
 
         <div className="type-wrapper">
-          <p className="basket-font"> {type} Ticket </p>
+          <p className="basket-font"> {type} </p>
         </div>
       </div>
       <div className="price-wrapper">

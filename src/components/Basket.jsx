@@ -1,14 +1,20 @@
 import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
-import BasketItem from "./BasketItem";
+
+import BICampingSpots from "./BICampingSpots";
+import BITicket from "./BITicket";
 import Timer from "./Timer";
 
-export default function Basket(props) {
+export default function Basket({ dataCamping, ticketData, bookingfee }) {
+  console.log(bookingfee);
   const { basket } = useContext(BasketContext);
+
   const initialValue = 0;
   const sumWithInitial = basket.reduce(
     (previousValue, currentValue) =>
-      previousValue + currentValue.amount * currentValue.price,
+      previousValue +
+      currentValue.amount * currentValue.price +
+      currentValue.bookingfee,
     initialValue
   );
 
@@ -18,8 +24,12 @@ export default function Basket(props) {
         <Timer></Timer>
         <ul>
           {basket.map((item) => {
-            return <BasketItem key={item.id} {...item} />;
+            return <BITicket key={item.id} {...item} />;
           })}
+          <BICampingSpots
+            dataCamping={dataCamping}
+            bookingfee={bookingfee}
+          ></BICampingSpots>
         </ul>
         <hr />
         <div className="totalprice">

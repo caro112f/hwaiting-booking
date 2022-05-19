@@ -93,11 +93,10 @@ export default function Step4(props) {
                 required
               ></input>
             </div>
+            <button type="submit" className="next-step">
+              <Link to="/booking/payment">Next</Link>
+            </button>
           </form>
-        </div>
-
-        <div className="next-step">
-          <Link to="/booking/payment">Next</Link>
         </div>
       </div>
     </section>

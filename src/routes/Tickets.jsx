@@ -2,20 +2,8 @@ import { Link } from "react-router-dom";
 
 import Ticket from "../components/Ticket";
 
-export default function Step1() {
-  const tickets = [
-    {
-      id: 1,
-      type: "Regular",
-      price: 799,
-    },
-    {
-      id: 2,
-      type: "VIP",
-      price: 1299,
-    },
-  ];
-
+export default function Step1(props) {
+  console.log(props.dataCamping);
   return (
     <section id="tickets" className="steps">
       <div className="heading-wrapper">
@@ -24,7 +12,7 @@ export default function Step1() {
       </div>
       <article className="ticket-container">
         <div className="ticket-wrapper">
-          {tickets.map((t) => (
+          {props.ticketData.map((t) => (
             <Ticket key={t.id} ticket={t} />
           ))}
         </div>

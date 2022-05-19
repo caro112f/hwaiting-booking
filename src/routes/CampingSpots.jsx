@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import Spot from "../components/Spot";
+
 export default function Step2(props) {
   return (
     <section className="steps">
@@ -8,14 +10,15 @@ export default function Step2(props) {
         <p>Please pick a camping spot </p>
       </div>
       <article className="map">
-        <div id="nilfheim"></div>
-        <div id="hellheim"></div>
-        <div id="alfheim"></div>
-        <div id="svartheim"></div>
-        <div id="muspelheim"></div>
-        <div id="midgaard-scene"></div>
-        <div id="vanaheim-scene"></div>
-        <div id="jotunheim-scene"></div>
+        <div className="ticket-wrapper">
+          {props.dataCamping.map((s) => (
+            <Spot
+              key={s.available}
+              dataCamping={s}
+              bookingfee={props.bookingfee}
+            />
+          ))}
+        </div>
       </article>
 
       <div className="next-step">
