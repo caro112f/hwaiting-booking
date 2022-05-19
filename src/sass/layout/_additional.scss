@@ -59,11 +59,12 @@
   .customize-option,
   .go-green {
     margin-block: 1rem;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 5px;
 
     @include mixins.bp-large {
       margin-inline: 1rem;
+      padding: 0.5rem;
     }
   }
 
