@@ -12,11 +12,12 @@ export default function Spot(props) {
   }
   return (
     <div
+      class="campingspot"
       onClick={choose}
       style={
         props.dataCamping.available > 1
-          ? { border: "5px solid #20E3E3", boxShadow: "0px 0px 22px #5AFFFF" }
-          : { border: "5px solid #FB3CFF", boxShadow: "0px 0px 22px #FC61FF" }
+          ? { border: "5px solid #20E3E3", boxShadow: "0px 0px 15px #5AFFFF" }
+          : { border: "5px solid #FB3CFF", boxShadow: "0px 0px 15px #FC61FF" }
       }
     >
       <h3>{props.dataCamping.area}</h3>
