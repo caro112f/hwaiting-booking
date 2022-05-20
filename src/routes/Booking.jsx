@@ -14,19 +14,18 @@ import { useEffect, useState } from "react";
 
 export default function Booking() {
   const [campingData, setCampingData] = useState([]);
-
-  const bookingfee = 99;
-
   const tickets = [
     {
       id: 1,
       type: "Regular",
       price: 799,
+      productType: "ticket",
     },
     {
       id: 2,
       type: "VIP",
       price: 1299,
+      productType: "ticket",
     },
   ];
 
@@ -38,8 +37,15 @@ export default function Booking() {
           "https://hwaiting.herokuapp.com/available-spots"
         );
         const data = await res.json();
-        setCampingData(data);
+
+        let fullCampingData = data.map((b) => {
+          b.price = 99;
+          b.productType = "camping";
+          return b;
+        });
+        setCampingData(fullCampingData);
       }
+
       getCampingData();
     },
     [
@@ -60,19 +66,13 @@ export default function Booking() {
           />
           <Route
             path="campingspots"
-            element={
-              <CampingSpots dataCamping={campingData} bookingfee={bookingfee} />
-            }
+            element={<CampingSpots dataCamping={campingData} />}
           />
           <Route path="additional" element={<Additional />} />
           <Route path="information" element={<Information />} />
           <Route path="payment" element={<Payment />} />
         </Routes>
-        <Basket
-          ticketData={tickets}
-          dataCamping={campingData}
-          bookingfee={bookingfee}
-        ></Basket>
+        <Basket ticketData={tickets} dataCamping={campingData}></Basket>
       </BasketProvider>
     </section>
   );

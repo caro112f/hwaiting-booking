@@ -1,9 +1,13 @@
-export default function BICampingSpot(props) {
-  console.log(props.area);
+import { useContext } from "react";
+import { BasketContext } from "../contexts/basket";
+
+export default function BICampingSpot({ dataCamping }) {
+  const { setBasket } = useContext(BasketContext);
+  //console.log(props.area);
   return (
     <li>
-      <p>{props.area}</p>
-      <p>{props.bookingfee}</p>
+      <p>{dataCamping.area}</p>
+      <p>{dataCamping.price}</p>
     </li>
   );
 }

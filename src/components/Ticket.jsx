@@ -3,6 +3,7 @@ import { BasketContext } from "../contexts/basket";
 
 export default function Ticket(props) {
   const { basket, setBasket } = useContext(BasketContext);
+  console.log(props.tickets);
 
   function buy() {
     if (basket.find((ticket) => ticket.id === props.ticket.id)) {
