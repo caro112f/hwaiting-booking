@@ -77,7 +77,6 @@ export default function Booking() {
     ticketsinBasketNo += ticketAmount[i];
   }
 
-  console.log(ticketNo);
   return (
     <section id="booking">
       {/* <Timer></Timer> */}
@@ -97,7 +96,12 @@ export default function Booking() {
         />
         <Route
           path="campingspots"
-          element={<CampingSpots dataCamping={campingData} />}
+          element={
+            <CampingSpots
+              ticketsinBasketNo={ticketsinBasketNo}
+              dataCamping={campingData}
+            />
+          }
         />
         <Route path="additional" element={<Additional />} />
         <Route path="information" element={<Information />} />

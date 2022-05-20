@@ -13,12 +13,21 @@ export default function Basket({
 }) {
   const { basket } = useContext(BasketContext);
 
-  const initialValue = 0;
-  const sumWithInitial = basket.tickets.reduce(
+  //getting ticket price
+  const initialvalue = 0;
+  const ticketSum = basket.tickets.reduce(
     (previousValue, currentValue) =>
       previousValue + currentValue.amount * currentValue.price,
-    initialValue
+    initialvalue
   );
+  //getting booking price
+  const bookingSum = basket.campingSpot.reduce(
+    (previousValue, currentValue) => previousValue + currentValue.price,
+    initialvalue
+  );
+
+  //get full basket price
+  let fullPrice = ticketSum + bookingSum;
 
   return (
     <article className="basket">
@@ -43,7 +52,7 @@ export default function Basket({
         <hr />
         <div className="totalprice">
           <p>Total:</p>
-          <p className="basket-price"> {sumWithInitial} DKK</p>
+          <p className="basket-price"> {fullPrice} DKK</p>
         </div>
       </div>
     </article>

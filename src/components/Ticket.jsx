@@ -3,7 +3,6 @@ import { BasketContext } from "../contexts/basket";
 
 export default function Ticket(props) {
   const { basket, setBasket } = useContext(BasketContext);
-  console.log(props.ticketsinBasketNo);
 
   function buy() {
     //tjekker om der er flere tickets tilbage

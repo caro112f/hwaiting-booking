@@ -14,7 +14,11 @@ export default function Step2(props) {
         <div className="campingspots-wrapper">
           <div className="campingspots-container">
             {props.dataCamping.map((s) => (
-              <Spot key={s.area} spot={s} />
+              <Spot
+                ticketsinBasketNo={props.ticketsinBasketNo}
+                key={s.area}
+                spot={s}
+              />
             ))}
           </div>
         </div>
