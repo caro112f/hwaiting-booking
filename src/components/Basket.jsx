@@ -9,7 +9,7 @@ export default function Basket({ dataCamping, ticketData }) {
   const { basket } = useContext(BasketContext);
 
   const initialValue = 0;
-  const sumWithInitial = basket.reduce(
+  const sumWithInitial = basket.tickets.reduce(
     (previousValue, currentValue) =>
       previousValue + currentValue.amount * currentValue.price,
     initialValue
@@ -20,7 +20,7 @@ export default function Basket({ dataCamping, ticketData }) {
       <div>
         <Timer></Timer>
         <ul>
-          {basket.map((item) => {
+          {basket.tickets.map((item) => {
             if (item.productType === "ticket") {
               return <BITicket key={item.id} {...item} />;
             } else if (item.productType === "camping") {

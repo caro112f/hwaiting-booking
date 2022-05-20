@@ -8,7 +8,7 @@ export default function BITicket({ id, amount, type, price }) {
 
   function remove(id) {
     setBasket((old) => {
-      const mapped = old.map((ticket) => {
+      const mapped = old.tickets.map((ticket) => {
         if (ticket.id === id) {
           const copy = { ...ticket };
           copy.amount = copy.amount - 1;
@@ -17,13 +17,14 @@ export default function BITicket({ id, amount, type, price }) {
         return ticket;
       });
 
-      return mapped.filter((ticket) => ticket.amount > 0);
+      // return mapped.filter((ticket) => ticket.amount > 0);
+      return { ...old, tickets: mapped.filter((ticket) => ticket.amount > 0) };
     });
   }
 
   function buymore(id) {
     setBasket((old) => {
-      const mapped = old.map((ticket) => {
+      const mapped = old.tickets.map((ticket) => {
         if (ticket.id === id) {
           const copy = { ...ticket };
           copy.amount = copy.amount + 1;
@@ -31,8 +32,8 @@ export default function BITicket({ id, amount, type, price }) {
         }
         return ticket;
       });
-
-      return mapped.filter((ticket) => ticket.amount > 0);
+      return { ...old, tickets: mapped.filter((ticket) => ticket.amount > 0) };
+      //return mapped.filter((ticket) => ticket.amount > 0);
     });
   }
 

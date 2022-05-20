@@ -5,11 +5,11 @@ export default function Ticket(props) {
   const { basket, setBasket } = useContext(BasketContext);
 
   function buy() {
-    if (basket.find((ticket) => ticket.id === props.ticket.id)) {
+    if (basket.tickets.find((ticket) => ticket.id === props.ticket.id)) {
       console.log("in basket already");
 
-      setBasket((old) =>
-        old.map((ticket) => {
+      setBasket((old) => {
+        const mapped = old.tickets.map((ticket) => {
           if (ticket.id === props.ticket.id) {
             const copy = { ...ticket };
 
@@ -19,10 +19,15 @@ export default function Ticket(props) {
           }
 
           return ticket;
-        })
-      );
+        });
+        return { ...old, tickets: mapped };
+      });
     } else {
-      setBasket((oldState) => [...oldState, { ...props.ticket, amount: 1 }]);
+      // setBasket((oldState) => [...oldState, { ...props.ticket, amount: 1 }]);
+      setBasket((oldState) => ({
+        ...oldState,
+        tickets: [...oldState.tickets, { ...props.ticket, amount: 1 }],
+      }));
     }
   }
 

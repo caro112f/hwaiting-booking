@@ -2,28 +2,29 @@ import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
 
 export default function Spot(props) {
-  console.log(props.spot);
+  //console.log(props.spot);
 
   const { basket, setBasket } = useContext(BasketContext);
 
   function choose() {
-    console.log("hi im clicked");
-    if (basket.find((spot) => spot.area === props.spot.area)) {
-      console.log("in basket already");
+    if (basket.find((spot) => spot.productType === props.spot.productType)) {
+      alert("stop right there criminal scum");
+      //gem old state med tickets
+      //fjerne old state som indeholder spot
+      //tage hele state filtrere gamle spot fra, tag oldstate uden det gamle og add new spot
+      /*      setBasket((old) =>
+        old.map((item) => {
+          if (!item.productType === props.productType) {
+            const copy = { ...item };
 
-      setBasket((old) =>
-        old.map((spot) => {
-          if (spot.area === props.spot.area) {
-            const copy = { ...spot };
-
-            copy.amount++;
-
+            // copy.starred = !copy.starred;
             return copy;
           }
-
-          return spot;
+          return item;
         })
-      );
+      ); */
+      setBasket((oldState) => [{ ...props.spot, amount: 1 }]);
+      // setBasket((old) => !old);
     } else {
       setBasket((oldState) => [...oldState, { ...props.spot, amount: 1 }]);
     }
