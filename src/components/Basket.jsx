@@ -25,10 +25,7 @@ export default function Basket({ dataCamping, ticketData }) {
               return <BITicket key={item.id} {...item} />;
             } else if (item.productType === "camping") {
               return (
-                <BICampingSpots
-                  key={item.area}
-                  dataCamping={dataCamping}
-                ></BICampingSpots>
+                <BICampingSpots key={item.area} {...item}></BICampingSpots>
               );
             }
             return item;

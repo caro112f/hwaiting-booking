@@ -1,13 +1,9 @@
-import { useContext } from "react";
-import { BasketContext } from "../contexts/basket";
-
-export default function BICampingSpot({ dataCamping }) {
-  const { setBasket } = useContext(BasketContext);
+export default function BICampingSpot({ area, available, price, spots }) {
   //console.log(props.area);
   return (
     <li>
-      <p>{dataCamping.area}</p>
-      <p>{dataCamping.price}</p>
+      <p>{area}</p>
+      <p>{price}</p>
     </li>
   );
 }
