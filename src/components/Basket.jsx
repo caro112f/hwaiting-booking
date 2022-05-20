@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
-
 import BICampingSpots from "./BICampingSpots";
 import BITicket from "./BITicket";
 import Timer from "./Timer";
@@ -20,15 +19,11 @@ export default function Basket({ dataCamping, ticketData }) {
       <div>
         <Timer></Timer>
         <ul>
-          {basket.tickets.map((item) => {
-            if (item.productType === "ticket") {
-              return <BITicket key={item.id} {...item} />;
-            } else if (item.productType === "camping") {
-              return (
-                <BICampingSpots key={item.area} {...item}></BICampingSpots>
-              );
-            }
-            return item;
+          {basket.tickets.map((ticket) => {
+            return <BITicket key={ticket.id} {...ticket}></BITicket>;
+          })}
+          {basket.campingSpot.map((spot) => {
+            return <BICampingSpots key={spot.area} {...spot}></BICampingSpots>;
           })}
         </ul>
         <hr />
