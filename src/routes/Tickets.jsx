@@ -10,6 +10,7 @@ export default function Step1(props) {
         <h1>Step 1</h1>
         <p>Please pick a ticket</p>
       </div>
+
       <article className="ticket-container">
         <div className="ticket-wrapper">
           {props.ticketData.map((t) => (
@@ -17,6 +18,7 @@ export default function Step1(props) {
           ))}
         </div>
       </article>
+
       <div className="next-step">
         <Link to="/booking/campingspots">Next</Link>
       </div>
