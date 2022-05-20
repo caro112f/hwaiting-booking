@@ -1,10 +1,15 @@
 import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
 
-export default function BITicket({ id, amount, type, price }) {
+export default function BITicket({
+  id,
+  amount,
+  type,
+  price,
+  ticketNo,
+  ticketsinBasketNo,
+}) {
   const { setBasket } = useContext(BasketContext);
-
-  //const { setBasket } = useContext(BasketContext);
 
   function remove(id) {
     setBasket((old) => {
@@ -17,24 +22,30 @@ export default function BITicket({ id, amount, type, price }) {
         return ticket;
       });
 
-      // return mapped.filter((ticket) => ticket.amount > 0);
       return { ...old, tickets: mapped.filter((ticket) => ticket.amount > 0) };
     });
   }
 
   function buymore(id) {
-    setBasket((old) => {
-      const mapped = old.tickets.map((ticket) => {
-        if (ticket.id === id) {
-          const copy = { ...ticket };
-          copy.amount = copy.amount + 1;
-          return copy;
-        }
-        return ticket;
+    //tjekker om der er flere tickets tilbage
+    if (ticketsinBasketNo > ticketNo) {
+      alert("0 tickets left");
+    } else {
+      setBasket((old) => {
+        const mapped = old.tickets.map((ticket) => {
+          if (ticket.id === id) {
+            const copy = { ...ticket };
+            copy.amount = copy.amount + 1;
+            return copy;
+          }
+          return ticket;
+        });
+        return {
+          ...old,
+          tickets: mapped.filter((ticket) => ticket.amount > 0),
+        };
       });
-      return { ...old, tickets: mapped.filter((ticket) => ticket.amount > 0) };
-      //return mapped.filter((ticket) => ticket.amount > 0);
-    });
+    }
   }
 
   return (
@@ -46,8 +57,9 @@ export default function BITicket({ id, amount, type, price }) {
           </button>
           <p>{amount} </p>
           <button className="basket-plus" onClick={() => buymore(id)}>
+            {" "}
             <p>+</p>
-          </button>{" "}
+          </button>
         </div>
 
         <div className="type-wrapper">

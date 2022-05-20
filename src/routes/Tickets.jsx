@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Ticket from "../components/Ticket";
 
 export default function Step1(props) {
-  console.log(props.dataCamping);
+  //console.log(props.dataCamping);
   return (
     <section id="tickets" className="steps">
       <div className="heading-wrapper">
@@ -14,7 +14,13 @@ export default function Step1(props) {
       <article className="ticket-container">
         <div className="ticket-wrapper">
           {props.ticketData.map((t) => (
-            <Ticket key={t.id} ticket={t} />
+            <Ticket
+              ticketNo={props.ticketNo}
+              dataCamping={props.dataCamping}
+              key={t.id}
+              ticket={t}
+              ticketsinBasketNo={props.ticketsinBasketNo}
+            />
           ))}
         </div>
       </article>

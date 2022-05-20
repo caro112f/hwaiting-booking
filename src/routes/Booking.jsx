@@ -1,5 +1,4 @@
 import Basket from "../components/Basket";
-import { BasketProvider } from "../contexts/basket";
 
 import Breadcrumb from "../components/Breadcrumb";
 
@@ -12,8 +11,13 @@ import Payment from "./Payment";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+import { useContext } from "react";
+import { BasketContext } from "../contexts/basket";
+
 export default function Booking() {
   const [campingData, setCampingData] = useState([]);
+  const [ticketNo, setTicketNo] = useState(0);
+
   const tickets = [
     {
       id: 1,
@@ -44,6 +48,15 @@ export default function Booking() {
           return b;
         });
         setCampingData(fullCampingData);
+
+        let availableArr = fullCampingData.map(({ available, ...rest }) => {
+          return available;
+        });
+        let ticketNumber = 0;
+        for (let i = 0; i < availableArr.length; i++) {
+          ticketNumber += availableArr[i];
+        }
+        setTicketNo(ticketNumber);
       }
 
       getCampingData();
@@ -53,27 +66,49 @@ export default function Booking() {
     ]
   );
 
+  const { basket } = useContext(BasketContext);
+  //finding number of tickets in basket
+  let ticketAmount = basket.tickets.map(({ amount, ...rest }) => {
+    return amount;
+  });
+  let ticketsinBasketNo = 0;
+
+  for (let i = 0; i < ticketAmount.length; i++) {
+    ticketsinBasketNo += ticketAmount[i];
+  }
+
+  console.log(ticketNo);
   return (
     <section id="booking">
       {/* <Timer></Timer> */}
       <Breadcrumb></Breadcrumb>
 
-      <BasketProvider>
-        <Routes>
-          <Route
-            path=""
-            element={<Tickets ticketData={tickets} dataCamping={campingData} />}
-          />
-          <Route
-            path="campingspots"
-            element={<CampingSpots dataCamping={campingData} />}
-          />
-          <Route path="additional" element={<Additional />} />
-          <Route path="information" element={<Information />} />
-          <Route path="payment" element={<Payment />} />
-        </Routes>
-        <Basket ticketData={tickets} dataCamping={campingData}></Basket>
-      </BasketProvider>
+      <Routes>
+        <Route
+          path=""
+          element={
+            <Tickets
+              ticketNo={ticketNo}
+              ticketData={tickets}
+              dataCamping={campingData}
+              ticketsinBasketNo={ticketsinBasketNo}
+            />
+          }
+        />
+        <Route
+          path="campingspots"
+          element={<CampingSpots dataCamping={campingData} />}
+        />
+        <Route path="additional" element={<Additional />} />
+        <Route path="information" element={<Information />} />
+        <Route path="payment" element={<Payment />} />
+      </Routes>
+      <Basket
+        ticketNo={ticketNo}
+        ticketData={tickets}
+        dataCamping={campingData}
+        ticketsinBasketNo={ticketsinBasketNo}
+      ></Basket>
     </section>
   );
 }

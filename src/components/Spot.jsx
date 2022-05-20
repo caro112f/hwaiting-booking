@@ -35,7 +35,7 @@ export default function Spot(props) {
       }
     >
       <h3>{props.spot.area}</h3>
-      <p>{props.spot.fee}DKK</p>
+      <p>{props.spot.price} DKK</p>
     </div>
   );
 }

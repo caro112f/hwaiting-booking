@@ -3,31 +3,35 @@ import { BasketContext } from "../contexts/basket";
 
 export default function Ticket(props) {
   const { basket, setBasket } = useContext(BasketContext);
+  console.log(props.ticketsinBasketNo);
 
   function buy() {
-    if (basket.tickets.find((ticket) => ticket.id === props.ticket.id)) {
-      console.log("in basket already");
-
-      setBasket((old) => {
-        const mapped = old.tickets.map((ticket) => {
-          if (ticket.id === props.ticket.id) {
-            const copy = { ...ticket };
-
-            copy.amount++;
-
-            return copy;
-          }
-
-          return ticket;
-        });
-        return { ...old, tickets: mapped };
-      });
+    //tjekker om der er flere tickets tilbage
+    if (props.ticketsinBasketNo > props.ticketNo) {
+      alert("0 tickets left");
     } else {
-      // setBasket((oldState) => [...oldState, { ...props.ticket, amount: 1 }]);
-      setBasket((oldState) => ({
-        ...oldState,
-        tickets: [...oldState.tickets, { ...props.ticket, amount: 1 }],
-      }));
+      if (basket.tickets.find((ticket) => ticket.id === props.ticket.id)) {
+        setBasket((old) => {
+          const mapped = old.tickets.map((ticket) => {
+            if (ticket.id === props.ticket.id) {
+              const copy = { ...ticket };
+
+              copy.amount++;
+
+              return copy;
+            }
+
+            return ticket;
+          });
+          return { ...old, tickets: mapped };
+        });
+      } else {
+        // setBasket((oldState) => [...oldState, { ...props.ticket, amount: 1 }]);
+        setBasket((oldState) => ({
+          ...oldState,
+          tickets: [...oldState.tickets, { ...props.ticket, amount: 1 }],
+        }));
+      }
     }
   }
 

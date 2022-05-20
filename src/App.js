@@ -1,7 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom";
 
 import { useRef, useState, useEffect } from "react";
-
+import { BasketProvider } from "./contexts/basket";
 import { gsap } from "gsap";
 
 import Home from "./routes/Home";
@@ -55,11 +55,13 @@ function App() {
           </div>
         </nav>
       </section>
+      <BasketProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="booking/*" element={<Booking />} />
-      </Routes>
+          <Route path="booking/*" element={<Booking />} />
+        </Routes>
+      </BasketProvider>
     </div>
   );
 }

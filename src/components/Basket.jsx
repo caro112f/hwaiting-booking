@@ -4,7 +4,13 @@ import BICampingSpots from "./BICampingSpots";
 import BITicket from "./BITicket";
 import Timer from "./Timer";
 
-export default function Basket({ dataCamping, ticketData }) {
+export default function Basket({
+  dataCamping,
+  ticketData,
+  ticketNo,
+  setTicketNo,
+  ticketsinBasketNo,
+}) {
   const { basket } = useContext(BasketContext);
 
   const initialValue = 0;
@@ -20,7 +26,15 @@ export default function Basket({ dataCamping, ticketData }) {
         <Timer></Timer>
         <ul>
           {basket.tickets.map((ticket) => {
-            return <BITicket key={ticket.id} {...ticket}></BITicket>;
+            return (
+              <BITicket
+                ticketsinBasketNo={ticketsinBasketNo}
+                ticketNo={ticketNo}
+                key={ticket.id}
+                ticketData={ticketData}
+                {...ticket}
+              ></BITicket>
+            );
           })}
           {basket.campingSpot.map((spot) => {
             return <BICampingSpots key={spot.area} {...spot}></BICampingSpots>;
