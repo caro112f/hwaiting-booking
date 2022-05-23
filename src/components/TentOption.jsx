@@ -7,9 +7,9 @@ export default function Additional(props) {
   function choose() {
     console.log("clicked");
 
-    if (basket.additionalsBA.find((add) => add.id === props.add.id)) {
+    if (basket.tentsBA.find((add) => add.id === props.add.id)) {
       setBasket((old) => {
-        const mapped = old.additionalsBA.map((add) => {
+        const mapped = old.tentsBA.map((add) => {
           if (add.id === props.add.id) {
             const copy = { ...add };
 
@@ -20,13 +20,13 @@ export default function Additional(props) {
 
           return add;
         });
-        return { ...old, additionalsBA: mapped };
+        return { ...old, tentsBA: mapped };
       });
     } else {
       // setBasket((oldState) => [...oldState, { ...props.ticket, amount: 1 }]);
       setBasket((oldState) => ({
         ...oldState,
-        additionalsBA: [...oldState.additionalsBA, { ...props.add, amount: 1 }],
+        tentsBA: [...oldState.tentsBA, { ...props.add, amount: 1 }],
       }));
     }
   }

@@ -3,7 +3,8 @@ import { BasketContext } from "../contexts/basket";
 import BICampingSpots from "./BICampingSpots";
 import BITicket from "./BITicket";
 import Timer from "./Timer";
-import BIAdditionals from "./BIAdditionals";
+import BITents from "./BITents";
+import BIGoGreen from "./BIGoGreen";
 
 export default function Basket({
   dataCamping,
@@ -11,6 +12,7 @@ export default function Basket({
   ticketNo,
   setTicketNo,
   ticketsinBasketNo,
+  gogreen,
 }) {
   const { basket } = useContext(BasketContext);
 
@@ -49,9 +51,10 @@ export default function Basket({
           {basket.campingSpot.map((spot) => {
             return <BICampingSpots key={spot.area} {...spot}></BICampingSpots>;
           })}
-          {basket.additionalsBA.map((add) => {
-            return <BIAdditionals key={add.id} {...add}></BIAdditionals>;
+          {basket.tentsBA.map((add) => {
+            return <BITents key={add.id} {...add}></BITents>;
           })}
+          <BIGoGreen green={gogreen} key={gogreen.type}></BIGoGreen>
         </ul>
         <hr />
         <div className="totalprice">

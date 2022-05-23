@@ -39,15 +39,24 @@ export default function Booking() {
       productType: "tent",
       price: 399,
       id: 1,
+      pers: 2,
     },
     {
       type: "3 person tent",
       productType: "tent",
       price: 599,
       id: 2,
+      pers: 3,
     },
-    { type: "go green", productType: "gogreen", price: 249, id: 3 },
   ];
+
+  const gogreen = {
+    type: "Go Green",
+    productType: "gogreen",
+    price: 249,
+    id: 3,
+    added: false,
+  };
 
   useEffect(
     () => {
@@ -121,12 +130,13 @@ export default function Booking() {
         />
         <Route
           path="additional"
-          element={<Additionals additionals={additionals} />}
+          element={<Additionals additionals={additionals} gogreen={gogreen} />}
         />
         <Route path="information" element={<Information />} />
         <Route path="payment" element={<Payment />} />
       </Routes>
       <Basket
+        gogreen={gogreen}
         additionals={additionals}
         ticketNo={ticketNo}
         ticketData={tickets}

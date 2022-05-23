@@ -6,7 +6,8 @@ export const BasketProvider = ({ children }) => {
   const [basket, setBasket] = useState({
     tickets: [],
     campingSpot: [],
-    additionalsBA: [],
+    tentsBA: [],
+    gogreenBA: {},
   });
   const value = { basket, setBasket };
 

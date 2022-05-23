@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import Additional from "../components/Additional";
+import GoGreen from "../components/GoGreen";
+import TentOption from "../components/TentOption";
 
 export default function Step3(props) {
   return (
@@ -14,8 +15,9 @@ export default function Step3(props) {
           <h3>Prepared Tents</h3>
 
           {props.additionals.map((a) => (
-            <Additional add={a} key={a.id} />
+            <TentOption add={a} key={a.id} />
           ))}
+          <GoGreen green={props.gogreen} key={props.gogreen.id}></GoGreen>
         </section>
 
         <section className="go-green">

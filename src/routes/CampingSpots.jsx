@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Basket from "../components/Basket";
 
 import Spot from "../components/Spot";
 
