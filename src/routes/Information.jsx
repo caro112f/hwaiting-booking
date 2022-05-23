@@ -41,6 +41,14 @@ export default function Step4(props) {
                   required
                 ></input>
               </div>
+              <div id="password" className="form-part">
+                <label for="pwd">Password:</label>
+                <p>
+                  Please make a password if you wish to have a profile on our
+                  App
+                </p>
+                <input type="password" id="pwd" name="pwd" />
+              </div>
               <div id="address" className="form-part">
                 <label htmlFor="adr"> Address</label>
                 <input
