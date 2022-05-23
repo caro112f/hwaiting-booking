@@ -18,7 +18,7 @@ export default function BITents({ type, price, amount }) {
         </div>
       </div>
 
-      <p className="basket-font">{price}</p>
+      <p className="basket-font">{price} ,-</p>
     </li>
   );
 }
