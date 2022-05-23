@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
 
-export default function Additional(props) {
+export default function TentOption(props) {
   const { basket, setBasket } = useContext(BasketContext);
 
   function choose() {
@@ -53,7 +53,8 @@ export default function Additional(props) {
         <p>{props.add.type}</p>
         <p>{props.add.price}</p>
         <button className="add" onClick={choose}>
-          +
+          {/* not working */}
+          {basket.tentsBA.amount > 0 ? "-" : "+"}
         </button>
       </div>
     </article>

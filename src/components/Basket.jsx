@@ -38,8 +38,13 @@ export default function Basket({
     gogreenSum = 0;
   }
 
+  const tentSum = basket.tentsBA.reduce(
+    (previousValue, currentValue) => previousValue + currentValue.price,
+    initialvalue
+  );
+
   //get full basket price
-  let fullPrice = ticketSum + bookingSum + gogreenSum;
+  let fullPrice = ticketSum + bookingSum + gogreenSum + tentSum;
 
   return (
     <article className="basket">
