@@ -3,6 +3,7 @@ import { BasketContext } from "../contexts/basket";
 
 export default function GoGreen({ green }) {
   const { basket, setBasket } = useContext(BasketContext);
+  console.log(green);
 
   // onclick set "added" to true and display info in basket
   // add remove function that sets "added" to false and automatically removes from basket
@@ -13,7 +14,7 @@ export default function GoGreen({ green }) {
 
     setBasket((oldState) => ({
       ...oldState,
-      gogreenBA: { ...props.green, amount: -1 },
+      gogreenBA: { ...green, added: true },
     }));
   }
 

@@ -54,7 +54,10 @@ export default function Basket({
           {basket.tentsBA.map((add) => {
             return <BITents key={add.id} {...add}></BITents>;
           })}
-          <BIGoGreen green={gogreen} key={gogreen.type}></BIGoGreen>
+          {basket.gogreenBA.added ? (
+            <BIGoGreen green={gogreen} key={gogreen.type}></BIGoGreen>
+          ) : null}
+          {/*    <BIGoGreen green={gogreen} key={gogreen.type}></BIGoGreen> */}
         </ul>
         <hr />
         <div className="totalprice">
