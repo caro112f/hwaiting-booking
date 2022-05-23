@@ -28,24 +28,7 @@ export default function GoGreen({ green }) {
   }
 
   return (
-    /* 
-    <div className="go-green-text">
-      <h3>Go green</h3>
-      <article>
-        <h4>Green camping</h4>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-          tincidunt accumsan purus, vitae bibendum dolor blandit ut. Suspendisse
-          non orci eget augue pharetra malesuada.{" "}
-        </p>
-
-        <div class="price">
-          <p>249 DKK</p>
-        </div>
-      </article>
-    </div> */
-
-    <div className="go-green-text">
+    <div className="go-green-container">
       <button className="add" onClick={toggleGreen}>
         {basket.gogreenBA.added ? "-" : "+"}
       </button>
@@ -53,7 +36,7 @@ export default function GoGreen({ green }) {
       <h3>{green.type}</h3>
 
       <article>
-        <p>
+        <p className="go-green-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
           tincidunt accumsan purus, vitae bibendum dolor blandit ut. Suspendisse
           non orci eget augue pharetra malesuada.{" "}

@@ -48,8 +48,13 @@
   }
 
   .basket-font,
-  .basket-price {
+  .basket-price,
+  .basket-bold-font {
     font-size: 1.1rem;
+  }
+
+  .basket-bold-font {
+    font-weight: bold;
   }
 
   .basket-price {
@@ -98,6 +103,12 @@
 
   .basket-plus {
     margin-left: 0.5rem;
+  }
+
+  .trashcan {
+    background-color: transparent;
+    color: black;
+    margin: 0;
   }
 
   button:hover {

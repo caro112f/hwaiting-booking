@@ -12,7 +12,7 @@ export default function Step3(props) {
 
       <div className="options-wrapper">
         <section className="prepared-tents">
-          <h3>Prepared Tents</h3>
+          <h3 className="tents-headline">Prepared Tents</h3>
 
           {props.additionals.map((a) => (
             <TentOption add={a} key={a.id} />
