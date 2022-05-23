@@ -17,11 +17,10 @@ export default function Step3(props) {
           {props.additionals.map((a) => (
             <TentOption add={a} key={a.id} />
           ))}
-          <GoGreen green={props.gogreen} key={props.gogreen.id}></GoGreen>
         </section>
 
         <section className="go-green">
-          <button className="add">+</button>
+          <GoGreen green={props.gogreen} key={props.gogreen.id}></GoGreen>
         </section>
       </div>
 
