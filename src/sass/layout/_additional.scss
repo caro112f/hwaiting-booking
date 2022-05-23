@@ -16,7 +16,11 @@
   h3,
   h4,
   p {
-    margin-inline: 1rem;
+    margin: 1rem;
+  }
+
+  .tents-headline {
+    margin-block: 0;
   }
 
   .add {
@@ -49,13 +53,12 @@
     @include mixins.bp-large {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 0.5fr;
+      grid-template-rows: 1fr 0.2fr;
       gap: 1.5rem;
     }
   }
 
-  .tent-option1,
-  .tent-option2,
+  .tent-option,
   .customize-option,
   .go-green {
     margin-block: 1rem;
@@ -68,23 +71,15 @@
     }
   }
 
-  .tent-option1,
-  .tent-option2,
+  .tent-option,
   .customize-option,
   .button-and-product {
     display: flex;
     justify-content: space-between;
   }
 
-  .tent-option1 {
-    border: 5px solid vars.$neonpink;
-    box-shadow: vars.$lightneonpink 0px 0px 15px;
-    margin-block: 2rem;
-  }
-
-  .tent-option2 {
-    border: 5px solid vars.$neonblue;
-    box-shadow: vars.$lightneonblue 0px 0px 15px;
+  .button-and-product {
+    padding: 1rem;
   }
 
   .go-green {
@@ -96,7 +91,12 @@
     }
   }
 
-  .go-green-text {
+  .go-green-container {
     margin-left: 1rem;
+  }
+
+  .go-green-text,
+  .price {
+    margin-right: 2rem;
   }
 }
