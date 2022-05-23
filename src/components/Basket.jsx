@@ -65,7 +65,9 @@ export default function Basket({
           })}
           {basket.gogreenBA.added ? (
             <BIGoGreen green={gogreen} key={gogreen.type}></BIGoGreen>
-          ) : null}
+          ) : (
+            <></>
+          )}
           {/*    <BIGoGreen green={gogreen} key={gogreen.type}></BIGoGreen> */}
         </ul>
         <hr />
