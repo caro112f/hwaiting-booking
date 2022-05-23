@@ -8,22 +8,28 @@ export default function Spot(props) {
 
   function choose() {
     console.log("clicked");
-    if (
-      basket.campingSpot.find(
-        (spot) => spot.productType === props.spot.productType
-      )
-    ) {
-      setBasket((oldState) => ({
-        ...oldState,
-        campingSpot: [{ ...props.spot, amount: 1 }],
-      }));
-      // setBasket((old) => !old);
+    if (props.spot.available < props.ticketsinBasketNo) {
+      alert(
+        "Your number of tickets exceeds the number of available spots, please pick another camp"
+      );
     } else {
-      // setBasket((oldState) => ({...oldState, { ...props.spot, amount: 1 })});
-      setBasket((oldState) => ({
-        ...oldState,
-        campingSpot: [{ ...props.spot, amount: 1 }],
-      }));
+      if (
+        basket.campingSpot.find(
+          (spot) => spot.productType === props.spot.productType
+        )
+      ) {
+        setBasket((oldState) => ({
+          ...oldState,
+          campingSpot: [{ ...props.spot, amount: 1 }],
+        }));
+        // setBasket((old) => !old);
+      } else {
+        // setBasket((oldState) => ({...oldState, { ...props.spot, amount: 1 })});
+        setBasket((oldState) => ({
+          ...oldState,
+          campingSpot: [{ ...props.spot, amount: 1 }],
+        }));
+      }
     }
   }
   return (
@@ -37,7 +43,7 @@ export default function Spot(props) {
       }
     >
       <h3>{props.spot.area}</h3>
-      <p>{props.spot.price} DKK</p>
+      <p>Available: {props.spot.available}</p>
     </div>
   );
 }
