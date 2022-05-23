@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom";
-
+import { BasketContext } from "../contexts/basket";
+import { useContext } from "react";
 import Spot from "../components/Spot";
 
 export default function Step2(props) {
   let campPrice = props.dataCamping.map(({ price, ...rest }) => {
     return price;
   });
+  const { basket } = useContext(BasketContext);
+  console.log(props.ticketsinBasketNo);
+  function nextButton() {
+    if (props.ticketsinBasketNo === 0 || basket.campingSpot.length === 0) {
+      return "none";
+    } else {
+      return "block";
+    }
+  }
 
   return (
     <section id="campingspots" className="steps">
@@ -31,7 +41,9 @@ export default function Step2(props) {
 
       {/* on click event send put request  */}
       <div className="next-step">
-        <Link to="/booking/additional">Next</Link>
+        <Link style={{ display: nextButton() }} to="/booking/additional">
+          Next
+        </Link>
       </div>
     </section>
   );

@@ -26,7 +26,17 @@ export default function Step1(props) {
       </article>
 
       <div className="next-step">
-        <Link to="/booking/campingspots">Next</Link>
+        <Link
+          style={
+            props.ticketsinBasketNo > 0
+              ? { display: "block" }
+              : { display: "none" }
+          }
+          to="/booking/campingspots"
+        >
+          Next
+        </Link>
+        ;
       </div>
     </section>
   );
