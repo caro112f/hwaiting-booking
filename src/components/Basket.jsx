@@ -23,14 +23,23 @@ export default function Basket({
       previousValue + currentValue.amount * currentValue.price,
     initialvalue
   );
+
   //getting booking price
   const bookingSum = basket.campingSpot.reduce(
     (previousValue, currentValue) => previousValue + currentValue.price,
     initialvalue
   );
 
+  //getting green price
+  let gogreenSum;
+  if (basket.gogreenBA.added === true) {
+    gogreenSum = basket.gogreenBA["price"];
+  } else {
+    gogreenSum = 0;
+  }
+
   //get full basket price
-  let fullPrice = ticketSum + bookingSum;
+  let fullPrice = ticketSum + bookingSum + gogreenSum;
 
   return (
     <article className="basket">
