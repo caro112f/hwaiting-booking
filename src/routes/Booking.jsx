@@ -4,7 +4,7 @@ import Breadcrumb from "../components/Breadcrumb";
 
 import Tickets from "./Tickets";
 import CampingSpots from "./CampingSpots";
-import Additional from "./Additional";
+import Additionals from "./Additionals";
 import Information from "./Information";
 import Payment from "./Payment";
 
@@ -31,6 +31,22 @@ export default function Booking() {
       price: 1299,
       productType: "ticket",
     },
+  ];
+
+  const additionals = [
+    {
+      type: "2 person tent",
+      productType: "tent",
+      price: 399,
+      id: 1,
+    },
+    {
+      type: "3 person tent",
+      productType: "tent",
+      price: 599,
+      id: 2,
+    },
+    { type: "go green", productType: "gogreen", price: 249, id: 3 },
   ];
 
   useEffect(
@@ -103,11 +119,15 @@ export default function Booking() {
             />
           }
         />
-        <Route path="additional" element={<Additional />} />
+        <Route
+          path="additional"
+          element={<Additionals additionals={additionals} />}
+        />
         <Route path="information" element={<Information />} />
         <Route path="payment" element={<Payment />} />
       </Routes>
       <Basket
+        additionals={additionals}
         ticketNo={ticketNo}
         ticketData={tickets}
         dataCamping={campingData}

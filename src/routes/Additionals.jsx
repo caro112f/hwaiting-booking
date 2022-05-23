@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import Tent1 from "../components/additional-components/Tent1";
-import Tent2 from "../components/additional-components/Tent2";
-import GoGreen from "../components/additional-components/GoGreen";
+import Additional from "../components/Additional";
 
 export default function Step3(props) {
   return (
@@ -15,13 +13,13 @@ export default function Step3(props) {
         <section className="prepared-tents">
           <h3>Prepared Tents</h3>
 
-          <Tent1 />
-          <Tent2 />
+          {props.additionals.map((a) => (
+            <Additional add={a} key={a.id} />
+          ))}
         </section>
 
         <section className="go-green">
           <button className="add">+</button>
-          <GoGreen />
         </section>
       </div>
 

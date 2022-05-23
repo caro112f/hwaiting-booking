@@ -3,6 +3,7 @@ import { BasketContext } from "../contexts/basket";
 import BICampingSpots from "./BICampingSpots";
 import BITicket from "./BITicket";
 import Timer from "./Timer";
+import BIAdditionals from "./BIAdditionals";
 
 export default function Basket({
   dataCamping,
@@ -47,6 +48,9 @@ export default function Basket({
           })}
           {basket.campingSpot.map((spot) => {
             return <BICampingSpots key={spot.area} {...spot}></BICampingSpots>;
+          })}
+          {basket.additionalsBA.map((add) => {
+            return <BIAdditionals key={add.id} {...add}></BIAdditionals>;
           })}
         </ul>
         <hr />
