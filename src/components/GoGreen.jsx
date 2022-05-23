@@ -31,7 +31,9 @@ export default function GoGreen({ green }) {
     <div>
       <p>{green.type}</p>
       <p>{green.price}</p>
-      <button onClick={toggleGreen}>+</button>
+      <button onClick={toggleGreen}>
+        {basket.gogreenBA.added ? "-" : "+"}
+      </button>
     </div>
   );
 }
