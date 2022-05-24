@@ -38,8 +38,11 @@ export default function Basket({
     gogreenSum = 0;
   }
 
+  //getting tent price
+
   const tentSum = basket.tentsBA.reduce(
-    (previousValue, currentValue) => previousValue + currentValue.price,
+    (previousValue, currentValue) =>
+      previousValue + currentValue.amount * currentValue.price,
     initialvalue
   );
 
