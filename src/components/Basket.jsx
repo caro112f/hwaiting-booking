@@ -13,6 +13,7 @@ export default function Basket({
   setTicketNo,
   ticketsinBasketNo,
   gogreen,
+  fullAmountOfPers,
 }) {
   const { basket } = useContext(BasketContext);
 
