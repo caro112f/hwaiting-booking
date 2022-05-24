@@ -1,6 +1,31 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Step4(props) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const nameChanged = (e) => {
+    setName(e.target.value);
+  };
+
+  const emailChanged = (e) => {
+    setEmail(e.target.value);
+  };
+
+  /* 
+    preventdefault makes sure it does not refresh the page when submitting */
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    /*    postInformation({
+      firstname: name,
+      lastname: name,
+      email: email,
+    }); */
+  };
+
   return (
     <section id="step4-section" className="steps">
       <div id="step4-wrapper">
@@ -8,10 +33,12 @@ export default function Step4(props) {
           <h1>Step 4</h1>
           <p>Your information</p>
         </div>
+
         <div id="form-information">
-          <form action="">
+          <form onSubmit={onSubmit}>
             <section id="ticket-holder">
               <h2>Ticket holder</h2>
+
               <div id="firstname" className="form-part">
                 <label htmlFor="fname">First name</label>
                 <input
@@ -20,8 +47,11 @@ export default function Step4(props) {
                   name="firstname"
                   placeholder="John M."
                   required
+                  onChange={nameChanged}
+                  value={name}
                 />
               </div>
+
               <div id="lastname" className="form-part">
                 <label htmlFor="lname">Last name</label>
                 <input
@@ -29,8 +59,11 @@ export default function Step4(props) {
                   id="lname"
                   name="lastname"
                   placeholder="Doe"
+                  onChange={nameChanged}
+                  value={name}
                 />
               </div>
+
               <div id="email" className="form-part">
                 <label htmlFor="email"> Email</label>
                 <input
@@ -39,8 +72,11 @@ export default function Step4(props) {
                   name="email"
                   placeholder="john@example.com"
                   required
+                  onChange={emailChanged}
+                  value={email}
                 ></input>
               </div>
+
               <div id="password" className="form-part">
                 <label for="pwd">Password:</label>
                 <p>
@@ -49,6 +85,7 @@ export default function Step4(props) {
                 </p>
                 <input type="password" id="pwd" name="pwd" />
               </div>
+
               <div id="address" className="form-part">
                 <label htmlFor="adr"> Address</label>
                 <input
@@ -59,6 +96,7 @@ export default function Step4(props) {
                   required
                 ></input>
               </div>
+
               <div id="postal" className="form-part">
                 <label htmlFor="postal"> Postal code</label>
                 <input
@@ -70,6 +108,7 @@ export default function Step4(props) {
                   required
                 ></input>
               </div>
+
               <div id="city" className="form-part">
                 <label htmlFor="city"> City</label>
                 <input
@@ -81,6 +120,8 @@ export default function Step4(props) {
                 ></input>
               </div>
             </section>
+
+            {/* show additional guest info if theres more than one ticket selected. The number of additional guest number depends on the amount of tickets selcted */}
             <section id="guest">
               <h2>Guest 1</h2>
 
