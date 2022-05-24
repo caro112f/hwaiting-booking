@@ -39,8 +39,29 @@ export default function Step2(props) {
         </div>
       </article>
 
-      {/* on click event send put request  */}
       <div className="next-step">
+        {/* on click put reguest, gather basket data on ticket amount and camping choice, send data to a database
+
+      from Jonas slides:
+      const payLoad = {
+      	  header: "This is awesome",
+      	  body: "sure is",
+      	};
+      	const id = 49;
+      	const postData = JSON.stringify(payLoad);
+
+      	fetch(`/endpoint/${id}`, {
+      	  method: "put",
+      	  headers: {
+      	    "Content-Type": "application/json",
+      	  },
+      	  body: postData,
+      	})
+      	  .then((res) => res.json())
+      	  .then((d) => {
+      	    console.log(d);
+      	  }); */}
+
         <Link style={{ display: nextButton() }} to="/booking/additional">
           Next
         </Link>
