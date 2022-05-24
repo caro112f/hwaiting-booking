@@ -81,7 +81,7 @@ export default function Step4(props) {
               </div>
 
               <div id="password" className="form-part">
-                <label for="pwd">Password:</label>
+                <label htmlFor="pwd">Password:</label>
                 <p>
                   Please make a password if you wish to have a profile on our
                   App

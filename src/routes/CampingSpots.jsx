@@ -4,11 +4,42 @@ import { useContext } from "react";
 import Spot from "../components/Spot";
 
 export default function Step2(props) {
+  const { basket } = useContext(BasketContext);
+
+  //console.log(basket.campingSpot);
+
+  let areaInBasket = basket.campingSpot.map(({ area, ...rest }) => {
+    return JSON.stringify(area);
+  });
+
+  let areaAsString = areaInBasket.shift();
+
+  console.log(areaAsString);
+  console.log(props.ticketsinBasketNo);
+
+  function reserve() {
+    console.log("im clicked");
+    fetch("https://hwaiting.herokuapp.com/reserve-spot", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        area: areaAsString,
+        amount: props.ticketInBasketNo,
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => console.log("LOOK HERE", data))
+      .catch((err) => console.error(err));
+  }
+
   let campPrice = props.dataCamping.map(({ price, ...rest }) => {
     return price;
   });
-  const { basket } = useContext(BasketContext);
-  console.log(props.ticketsinBasketNo);
+
   function nextButton() {
     if (props.ticketsinBasketNo === 0 || basket.campingSpot.length === 0) {
       return "none";
@@ -40,29 +71,11 @@ export default function Step2(props) {
       </article>
 
       <div className="next-step">
-        {/* on click put reguest, gather basket data on ticket amount and camping choice, send data to a database
-
-      from Jonas slides:
-      const payLoad = {
-      	  header: "This is awesome",
-      	  body: "sure is",
-      	};
-      	const id = 49;
-      	const postData = JSON.stringify(payLoad);
-
-      	fetch(`/endpoint/${id}`, {
-      	  method: "put",
-      	  headers: {
-      	    "Content-Type": "application/json",
-      	  },
-      	  body: postData,
-      	})
-      	  .then((res) => res.json())
-      	  .then((d) => {
-      	    console.log(d);
-      	  }); */}
-
-        <Link style={{ display: nextButton() }} to="/booking/additional">
+        <Link
+          onClick={reserve}
+          style={{ display: nextButton() }}
+          to="/booking/additional"
+        >
           Next
         </Link>
       </div>
