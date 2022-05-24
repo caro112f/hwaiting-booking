@@ -11,7 +11,7 @@ export default function TentOption(props) {
       props.fullAmountOfPers >= props.ticketsinBasketNo ||
       props.add.pers > props.ticketsinBasketNo
     ) {
-      alert("the number of tickets does not match the size of the tents");
+      alert("The number of tickets does not match the size of the tents");
     } else {
       if (basket.tentsBA.find((add) => add.id === props.add.id)) {
         setBasket((old) => {
