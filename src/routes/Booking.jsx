@@ -102,6 +102,26 @@ export default function Booking() {
     ticketsinBasketNo += ticketAmount[i];
   }
 
+  //check how many tents are selected
+  let tentsAmount = basket.tentsBA.map(({ amount, ...rest }) => {
+    return amount;
+  });
+
+  //check how many persons that tent can fit so we can compare it to number of tickets
+  let persAmount = basket.tentsBA.map(({ pers, ...rest }) => {
+    return pers;
+  });
+  let allPersInBasketNo = 0;
+
+  for (let i = 0; i < persAmount.length; i++) {
+    allPersInBasketNo += persAmount[i];
+
+    /*  console.log("det er mig du skal kigge på", allPersInBasketNo);
+      console.log("juhu, det er mig", tentsAmount); */
+  }
+
+  let fullAmountOfPers = tentsAmount * allPersInBasketNo;
+
   return (
     <section id="booking">
       {/* <Timer></Timer> */}
@@ -130,7 +150,14 @@ export default function Booking() {
         />
         <Route
           path="additional"
-          element={<Additionals additionals={additionals} gogreen={gogreen} />}
+          element={
+            <Additionals
+              additionals={additionals}
+              gogreen={gogreen}
+              ticketsinBasketNo={ticketsinBasketNo}
+              fullAmountOfPers={fullAmountOfPers}
+            />
+          }
         />
         <Route path="information" element={<Information />} />
         <Route path="payment" element={<Payment />} />

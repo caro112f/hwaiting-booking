@@ -15,7 +15,12 @@ export default function Step3(props) {
           <h3 className="tents-headline">Prepared Tents</h3>
 
           {props.additionals.map((a) => (
-            <TentOption add={a} key={a.id} />
+            <TentOption
+              add={a}
+              key={a.id}
+              ticketsinBasketNo={props.ticketsinBasketNo}
+              fullAmountOfPers={props.fullAmountOfPers}
+            />
           ))}
         </section>
 
