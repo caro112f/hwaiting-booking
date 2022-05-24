@@ -5,6 +5,9 @@ export default function Step4(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+  const url = "https://hwaitingusers-33d4.restdb.io/rest/information";
+  const apikey = "98060cc9ca4c1e0b4f5349b52d27c4d51fb6c";
+
   const nameChanged = (e) => {
     setName(e.target.value);
   };
