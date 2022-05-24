@@ -36,6 +36,28 @@ export default function Spot(props) {
     <div
       className="campingspot"
       onClick={choose}
+      // on click put reguest, gather basket data on ticket amount and camping choice, send data to a database
+
+      //from Jonas slides:
+      // const payLoad = {
+      // 	  header: "This is awesome",
+      // 	  body: "sure is",
+      // 	};
+      // 	const id = 49;
+      // 	const postData = JSON.stringify(payLoad);
+
+      // 	fetch(`/endpoint/${id}`, {
+      // 	  method: "put",
+      // 	  headers: {
+      // 	    "Content-Type": "application/json",
+      // 	  },
+      // 	  body: postData,
+      // 	})
+      // 	  .then((res) => res.json())
+      // 	  .then((d) => {
+      // 	    console.log(d);
+      // 	  });
+
       style={
         props.spot.available > 1
           ? { border: "5px solid #20E3E3", boxShadow: "0px 0px 15px #5AFFFF" }
