@@ -31,6 +31,7 @@ export default function Step4(props) {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    // Whatever method we wanna use to post our stuff
     /*    postInformation({
       firstname: name,
       lastname: name,
@@ -89,15 +90,6 @@ export default function Step4(props) {
                 ></input>
               </div>
 
-              <div id="password" className="form-part">
-                <label htmlFor="pwd">Password:</label>
-                <p>
-                  Please make a password if you wish to have a profile on our
-                  App
-                </p>
-                <input type="password" id="pwd" name="pwd" />
-              </div>
-
               <div id="address" className="form-part">
                 <label htmlFor="adr"> Address</label>
                 <input
@@ -130,6 +122,22 @@ export default function Step4(props) {
                   placeholder="København"
                   required
                 ></input>
+              </div>
+
+              <p id="login-info">
+                Please make a username and a password if you wish to have a
+                profile on our app
+              </p>
+              <div id="username" className="form-part">
+                <label htmlFor="username">Username:</label>
+
+                <input type="text" id="username" name="username" />
+              </div>
+
+              <div id="password" className="form-part">
+                <label htmlFor="pwd">Password:</label>
+
+                <input type="password" id="pwd" name="pwd" />
               </div>
             </section>
             {/* show additional guest info if theres more than one ticket selected. The number of additional guest number depends on the amount of tickets selcted */}
