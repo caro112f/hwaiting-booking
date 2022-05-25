@@ -123,22 +123,6 @@ export default function Step4(props) {
                   required
                 ></input>
               </div>
-
-              <p id="login-info">
-                Please make a username and a password if you wish to have a
-                profile on our app
-              </p>
-              <div id="username" className="form-part">
-                <label htmlFor="username">Username:</label>
-
-                <input type="text" id="username" name="username" />
-              </div>
-
-              <div id="password" className="form-part">
-                <label htmlFor="pwd">Password:</label>
-
-                <input type="password" id="pwd" name="pwd" />
-              </div>
             </section>
             {/* show additional guest info if theres more than one ticket selected. The number of additional guest number depends on the amount of tickets selcted */}
             {props.ticketsinBasketNo < 2

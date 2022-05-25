@@ -74,7 +74,7 @@ export default function Step2(props) {
         <Link
           onClick={reserve}
           style={{ display: nextButton() }}
-          to="/booking/additional"
+          to="/booking/login"
         >
           Next
         </Link>
