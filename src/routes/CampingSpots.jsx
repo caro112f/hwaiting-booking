@@ -9,7 +9,7 @@ export default function Step2(props) {
   //console.log(basket.campingSpot);
 
   let areaInBasket = basket.campingSpot.map(({ area, ...rest }) => {
-    return JSON.stringify(area);
+    return area.toString();
   });
 
   let areaAsString = areaInBasket.shift();
@@ -26,7 +26,7 @@ export default function Step2(props) {
       },
       body: JSON.stringify({
         area: areaAsString,
-        amount: props.ticketInBasketNo,
+        amount: props.ticketsinBasketNo,
       }),
     })
       .then((response) => {
