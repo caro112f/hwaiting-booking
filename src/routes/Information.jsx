@@ -132,12 +132,10 @@ export default function Step4(props) {
                 ></input>
               </div>
             </section>
-
             {/* show additional guest info if theres more than one ticket selected. The number of additional guest number depends on the amount of tickets selcted */}
             {props.ticketsinBasketNo < 2
-              ? "No guests"
+              ? console.log("No guests")
               : guestsAmount.map((a) => <GuestSection />)}
-
             <button type="submit" className="next-step" id="info-sub">
               <Link type="submit" to="/booking/payment">
                 Next
