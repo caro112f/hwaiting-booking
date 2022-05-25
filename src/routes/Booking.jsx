@@ -19,6 +19,7 @@ export default function Booking() {
   const [ticketNo, setTicketNo] = useState(0);
   const [reservationData, setReservationData] = useState();
   console.log(reservationData);
+
   const tickets = [
     {
       id: 1,
