@@ -1,12 +1,21 @@
 import { Link } from "react-router-dom";
+// import { BasketContext } from "../contexts/basket";
+// import { useContext } from "react";
 import { useState } from "react";
+import GuestSection from "../components/GuestSection";
 
 export default function Step4(props) {
+  //const { basket } = useContext(BasketContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  const url = "https://hwaitingusers-33d4.restdb.io/rest/information";
-  const apikey = "98060cc9ca4c1e0b4f5349b52d27c4d51fb6c";
+  const N = props.ticketsinBasketNo - 1;
+  const guestsAmount = Array.from({ length: N }, (_, index) => index + 1);
+
+  console.log(guestsAmount);
+
+  //const url = "https://hwaitingusers-33d4.restdb.io/rest/information";
+  //const apikey = "98060cc9ca4c1e0b4f5349b52d27c4d51fb6c";
 
   const nameChanged = (e) => {
     setName(e.target.value);
@@ -125,41 +134,14 @@ export default function Step4(props) {
             </section>
 
             {/* show additional guest info if theres more than one ticket selected. The number of additional guest number depends on the amount of tickets selcted */}
-            <section id="guest">
-              <h2>Guest 1</h2>
+            {props.ticketsinBasketNo < 2
+              ? "No guests"
+              : guestsAmount.map((a) => <GuestSection />)}
 
-              <div id="firstname" className="form-part">
-                <label htmlFor="fname">First name</label>
-                <input
-                  type="text"
-                  id="fname"
-                  name="firstname"
-                  placeholder="John M."
-                  required
-                />
-              </div>
-              <div id="lastname" className="form-part">
-                <label htmlFor="lname">Last name</label>
-                <input
-                  type="text"
-                  id="lname"
-                  name="lastname"
-                  placeholder="Doe"
-                />
-              </div>
-              <div id="guest-email" className="form-part">
-                <label htmlFor="email"> Email</label>
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  placeholder="john@example.com"
-                  required
-                ></input>
-              </div>
-            </section>
             <button type="submit" className="next-step" id="info-sub">
-              <Link to="/booking/payment">Next</Link>
+              <Link type="submit" to="/booking/payment">
+                Next
+              </Link>
             </button>
           </form>
         </div>

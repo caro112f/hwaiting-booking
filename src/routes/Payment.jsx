@@ -17,6 +17,7 @@ export default function Step5(props) {
               id="name"
               name="name"
               autocomplete="cc-name"
+              placeholder="Ex. John Doe"
             />
           </div>
           <div className="card-number">
@@ -28,6 +29,7 @@ export default function Step5(props) {
               name="card-number"
               inputmode="numeric"
               autcomplete="cc-number"
+              placeholder="0000 0000 0000 0000"
               pattern="[0-9]{13,16}"
             />
           </div>
@@ -56,12 +58,15 @@ export default function Step5(props) {
               inputmode="numeric"
               minlength="3"
               maxlength="4"
+              placeholder="000"
               pattern="[0-9]+"
             />
           </div>
 
           <button type="submit" className="next-step">
-            <Link to="/verification">Buy Tickets</Link>
+            <Link type="submit" to="/verification">
+              Buy Tickets
+            </Link>
           </button>
         </form>
       </div>

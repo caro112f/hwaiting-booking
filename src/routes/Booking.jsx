@@ -98,6 +98,7 @@ export default function Booking() {
   let ticketAmount = basket.tickets.map(({ amount, ...rest }) => {
     return amount;
   });
+
   let ticketsinBasketNo = 0;
 
   for (let i = 0; i < ticketAmount.length; i++) {
@@ -163,7 +164,10 @@ export default function Booking() {
             />
           }
         />
-        <Route path="information" element={<Information />} />
+        <Route
+          path="information"
+          element={<Information ticketsinBasketNo={ticketsinBasketNo} />}
+        />
         <Route path="payment" element={<Payment />} />
       </Routes>
       <Basket
