@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { BasketContext } from "../contexts/basket";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Spot from "../components/Spot";
 
 export default function Step2(props) {
@@ -32,7 +32,7 @@ export default function Step2(props) {
       .then((response) => {
         return response.json();
       })
-      .then((data) => console.log("LOOK HERE", data))
+      .then((data) => props.setReservationData(data))
       .catch((err) => console.error(err));
   }
 

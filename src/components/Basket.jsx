@@ -14,6 +14,7 @@ export default function Basket({
   ticketsinBasketNo,
   gogreen,
   fullAmountOfPers,
+  reservationData,
 }) {
   const { basket } = useContext(BasketContext);
 
@@ -53,7 +54,7 @@ export default function Basket({
   return (
     <article className="basket">
       <div>
-        <Timer></Timer>
+        <Timer reservationData={reservationData}></Timer>
         <ul>
           {basket.tickets.map((ticket) => {
             return (

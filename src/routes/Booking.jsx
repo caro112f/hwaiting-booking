@@ -17,17 +17,18 @@ import { BasketContext } from "../contexts/basket";
 export default function Booking() {
   const [campingData, setCampingData] = useState([]);
   const [ticketNo, setTicketNo] = useState(0);
-
+  const [reservationData, setReservationData] = useState();
+  console.log(reservationData);
   const tickets = [
     {
       id: 1,
-      type: "Regular",
+      type: "Regular Ticket",
       price: 799,
       productType: "ticket",
     },
     {
       id: 2,
-      type: "VIP",
+      type: "VIP Ticket",
       price: 1299,
       productType: "ticket",
     },
@@ -145,6 +146,8 @@ export default function Booking() {
             <CampingSpots
               ticketsinBasketNo={ticketsinBasketNo}
               dataCamping={campingData}
+              reservationData={reservationData}
+              setReservationData={setReservationData}
             />
           }
         />
@@ -169,6 +172,7 @@ export default function Booking() {
         ticketData={tickets}
         dataCamping={campingData}
         ticketsinBasketNo={ticketsinBasketNo}
+        reservationData={reservationData}
       ></Basket>
     </section>
   );
