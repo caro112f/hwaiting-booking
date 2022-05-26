@@ -54,7 +54,10 @@ export default function Basket({
   return (
     <article className="basket">
       <div>
-        <Timer reservationData={reservationData}></Timer>
+        {reservationData !== undefined ? (
+          <Timer reservationData={reservationData}></Timer>
+        ) : null}
+
         <ul>
           {basket.tickets.map((ticket) => {
             return (

@@ -18,6 +18,7 @@ export default function Booking() {
   const [campingData, setCampingData] = useState([]);
   const [ticketNo, setTicketNo] = useState(0);
   const [reservationData, setReservationData] = useState();
+
   // console.log(reservationData);
 
   const tickets = [
