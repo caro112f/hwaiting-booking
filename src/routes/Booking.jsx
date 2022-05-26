@@ -18,6 +18,7 @@ export default function Booking() {
   const [campingData, setCampingData] = useState([]);
   const [ticketNo, setTicketNo] = useState(0);
   const [reservationData, setReservationData] = useState();
+  const [freezeTickets, setFreezeTickets] = useState(false);
 
   // console.log(reservationData);
 
@@ -140,6 +141,7 @@ export default function Booking() {
               ticketData={tickets}
               dataCamping={campingData}
               ticketsinBasketNo={ticketsinBasketNo}
+              setFreezeTickets={setFreezeTickets}
             />
           }
         />
@@ -180,6 +182,7 @@ export default function Booking() {
         dataCamping={campingData}
         ticketsinBasketNo={ticketsinBasketNo}
         reservationData={reservationData}
+        freezeTickets={freezeTickets}
       ></Basket>
     </section>
   );

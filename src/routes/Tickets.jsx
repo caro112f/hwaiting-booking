@@ -4,6 +4,10 @@ import Ticket from "../components/Ticket";
 
 export default function Step1(props) {
   //console.log(props.dataCamping);
+  function freezeTickets() {
+    props.setFreezeTickets(true);
+  }
+
   return (
     <section id="tickets" className="steps">
       <div className="heading-wrapper">
@@ -27,6 +31,7 @@ export default function Step1(props) {
 
       <div className="next-step">
         <Link
+          onClick={freezeTickets}
           style={
             props.ticketsinBasketNo > 0
               ? { display: "block" }

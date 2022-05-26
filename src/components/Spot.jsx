@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
 
 export default function Spot(props) {
-  // console.log(props.ticketsinBasketNo);
+  console.log(props.ticketsinBasketNo);
 
   const { basket, setBasket } = useContext(BasketContext);
 
@@ -36,7 +36,7 @@ export default function Spot(props) {
       className="campingspot"
       onClick={choose}
       style={
-        props.spot.available > 1
+        props.spot.available >= props.ticketsinBasketNo
           ? { border: "5px solid #20E3E3", boxShadow: "0px 0px 15px #5AFFFF" }
           : { border: "5px solid #FB3CFF", boxShadow: "0px 0px 15px #FC61FF" }
       }

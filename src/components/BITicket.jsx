@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
-//import { useLocation } from "react-router-dom";
 
 export default function BITicket({
   id,
@@ -9,10 +8,11 @@ export default function BITicket({
   price,
   ticketNo,
   ticketsinBasketNo,
+  freezeTickets,
 }) {
   const { setBasket } = useContext(BasketContext);
 
-  //const currentlocation = useLocation();
+  //lyt til at vi er på campingspot
 
   function remove(id) {
     setBasket((old) => {
@@ -56,11 +56,7 @@ export default function BITicket({
       <div className="amount-type-wrapper">
         <div className="amount-wrapper">
           <div
-            style={
-              window.location.href === "http://localhost:3000/booking"
-                ? { display: "block" }
-                : { display: "none" }
-            }
+            style={freezeTickets ? { display: "none" } : { display: "block" }}
           >
             <button className="basket-minus" onClick={() => remove(id)}>
               <p>-</p>
@@ -68,11 +64,7 @@ export default function BITicket({
           </div>
           <p>{amount}</p>
           <div
-            style={
-              window.location.href === "http://localhost:3000/booking"
-                ? { display: "block" }
-                : { display: "none" }
-            }
+            style={freezeTickets ? { display: "none" } : { display: "block" }}
           >
             <button className="basket-plus" onClick={() => buymore(id)}>
               {" "}

@@ -15,6 +15,7 @@ export default function Basket({
   gogreen,
   fullAmountOfPers,
   reservationData,
+  freezeTickets,
 }) {
   const { basket } = useContext(BasketContext);
 
@@ -67,6 +68,7 @@ export default function Basket({
                 key={ticket.id}
                 ticketData={ticketData}
                 {...ticket}
+                freezeTickets={freezeTickets}
               ></BITicket>
             );
           })}
