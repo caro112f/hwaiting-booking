@@ -1,4 +1,17 @@
+import { useState } from "react";
+
 export default function GuestSection(props) {
+  const [guestfName, guestSetFname] = useState("");
+  const [guestlName, guestSetLname] = useState("");
+
+  const guestfNameChanged = (e) => {
+    guestSetFname(e.target.value);
+  };
+
+  const guestlNameChanged = (e) => {
+    guestSetLname(e.target.value);
+  };
+
   return (
     <section id="guest">
       <h2>Guest</h2>
@@ -11,21 +24,21 @@ export default function GuestSection(props) {
           name="firstname"
           placeholder="John M."
           required
+          onChange={guestfNameChanged}
+          value={guestfName}
         />
       </div>
       <div id="lastname" className="form-part">
         <label htmlFor="lname">Last name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Doe" />
-      </div>
-      <div id="guest-email" className="form-part">
-        <label htmlFor="email"> Email</label>
         <input
           type="text"
-          id="email"
-          name="email"
-          placeholder="john@example.com"
+          id="lname"
+          name="lastname"
+          placeholder="Doe"
           required
-        ></input>
+          onChange={guestlNameChanged}
+          value={guestlName}
+        />
       </div>
     </section>
   );

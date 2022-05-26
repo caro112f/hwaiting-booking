@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
-// import { BasketContext } from "../contexts/basket";
-// import { useContext } from "react";
-import { useState } from "react";
+import Select from "react-select";
+import countryList from "react-select-country-list";
+import { useNavigate } from "react-router-dom";
+import { useState, useMemo } from "react";
 import GuestSection from "../components/GuestSection";
 
 export default function Step4(props) {
@@ -21,6 +21,7 @@ export default function Step4(props) {
   //const url = "https://hwaitingusers-33d4.restdb.io/rest/information";
   //const apikey = "98060cc9ca4c1e0b4f5349b52d27c4d51fb6c";
 
+  //preventdefault makes sure it does not refresh the page when submitting
   const fNameChanged = (e) => {
     setFname(e.target.value);
   };
@@ -33,8 +34,11 @@ export default function Step4(props) {
     setEmail(e.target.value);
   };
 
-  /* 
-    preventdefault makes sure it does not refresh the page when submitting */
+  const options = useMemo(() => countryList().getData(), []);
+
+  const countryChanged = (value) => {
+    setCountry(value);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -99,17 +103,14 @@ export default function Step4(props) {
                   value={email}
                 ></input>
               </div>
-
-              <div id="country" className="form-part">
-                <label htmlFor="country">Country</label>
-                <input
-                  type="country"
-                  id="country"
-                  name="country"
-                  placeholder="Denmark"
-                  required
-                ></input>
-              </div>
+              <Select
+                id="country"
+                className="form-part"
+                options={options}
+                value={country}
+                onChange={countryChanged}
+                required
+              />
 
               <div id="city" className="form-part">
                 <label htmlFor="city"> City/State</label>
@@ -117,6 +118,7 @@ export default function Step4(props) {
                   type="text"
                   id="city"
                   name="city"
+                  pattern="^[\p{L}\s-]+$"
                   placeholder="København"
                   required
                 ></input>
