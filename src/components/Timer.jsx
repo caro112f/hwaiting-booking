@@ -25,7 +25,7 @@ export default function Timer({ reservationData }) {
   const [reveal, setReveal] = useState(false);
 
   useEffect(() => {
-    console.log(timerMinutes, timerSeconds);
+    // console.log(timerMinutes, timerSeconds);
     let myInterval = setInterval(() => {
       if (timerSeconds > 0) {
         setTimerSeconds(timerSeconds - 1);
