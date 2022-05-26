@@ -1,10 +1,14 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Step5({ reservationData, ticketHolderData }) {
+export default function Step5({
+  reservationData,
+  ticketHolderData,
+  guestData,
+}) {
   const navigate = useNavigate();
   let id = reservationData["id"];
 
-  //console.log(ticketHolderData);
+  console.log(guestData);
 
   const onSubmit = (e) => {
     e.preventDefault();

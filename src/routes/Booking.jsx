@@ -187,6 +187,7 @@ export default function Booking() {
             <Payment
               reservationData={reservationData}
               ticketHolderData={ticketHolderData}
+              guestData={guestData}
             />
           }
         />

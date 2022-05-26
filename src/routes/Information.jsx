@@ -61,33 +61,24 @@ export default function Step4({
       bookingId: id,
     });
     if (ticketsinBasketNo >= 2) {
-      let currentGuestData = [];
+      let guestFirstNames = [];
       e.target.elements.guestfirstname.forEach((n) => {
-        currentGuestData.push(n.value);
-        //console.log(n.value);
+        guestFirstNames.push(n.value);
       });
 
+      let guestLastNames = [];
       e.target.elements.guestlastname.forEach((n) => {
-        currentGuestData.push(n.value);
-        //console.log(n.value);
+        guestLastNames.push(n.value);
       });
-      console.log(currentGuestData);
-    }
 
-    /* if (ticketsinBasketNo >= 2) {
-      let currentGuestData;
-      e.target.elements.gFname.forEach((g) => {
-        console.log(g.value);
-        currentGuestData.push(g.value);
-        console.log(currentGuestData);
-        //currentGuestData.push(g);
-      });
-      e.target.elements.gLname.value.forEach((g) => {
-        //currentGuestData.push(g);
-      });
-      //console.log(currentGuestData);
-    } */
-    //frej@live.dk
+      // map igennem firstnames: e=value i array, i=index i array
+      //matcher current e med e i andet array med samme index + et mellemrum
+      let guestNameData = guestFirstNames.map(
+        (e, i) => e + " " + guestLastNames[i]
+      );
+      //console.log(guestNameData);
+      setGuestData(guestNameData);
+    }
 
     navigate("/booking/payment");
   };
