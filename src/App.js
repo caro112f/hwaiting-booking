@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 
 import Home from "./routes/Home";
 import Booking from "./routes/Booking";
+import Confirmation from "./routes/Confirmation";
 
 import logo from "./images/logo_light.svg";
 
@@ -60,6 +61,8 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="booking/*" element={<Booking />} />
+
+          <Route path="confirmation" element={<Confirmation />} />
         </Routes>
       </BasketProvider>
     </div>

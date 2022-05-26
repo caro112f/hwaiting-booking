@@ -1,6 +1,14 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Step5(props) {
+  const navigate = useNavigate();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    //POST HER
+    navigate("/confirmation");
+  };
+
   return (
     <section className="steps" id="step5-section">
       <div id="step5-wrapper">
@@ -8,7 +16,7 @@ export default function Step5(props) {
           <h1>Step 5</h1>
           <p>Card information</p>
         </div>
-        <form>
+        <form onSubmit={onSubmit}>
           <div className="cardname">
             <label for="name">Name on card</label>
             <input
@@ -62,11 +70,8 @@ export default function Step5(props) {
               pattern="[0-9]+"
             />
           </div>
-
-          <button type="submit" className="next-step">
-            <Link type="submit" to="/verification">
-              Buy Tickets
-            </Link>
+          <button type="submit" className="next-step" id="info-sub">
+            Confirm payment
           </button>
         </form>
       </div>
