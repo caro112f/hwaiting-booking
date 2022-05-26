@@ -19,6 +19,7 @@ export default function Booking() {
   const [ticketNo, setTicketNo] = useState(0);
   const [reservationData, setReservationData] = useState();
   const [freezeTickets, setFreezeTickets] = useState(false);
+  const [ticketHolderData, setTicketHolderData] = useState({});
 
   // console.log(reservationData);
 
@@ -170,11 +171,22 @@ export default function Booking() {
         />
         <Route
           path="information"
-          element={<Information ticketsinBasketNo={ticketsinBasketNo} />}
+          element={
+            <Information
+              reservationData={reservationData}
+              ticketsinBasketNo={ticketsinBasketNo}
+              setTicketHolderData={setTicketHolderData}
+            />
+          }
         />
         <Route
           path="payment"
-          element={<Payment reservationData={reservationData} />}
+          element={
+            <Payment
+              reservationData={reservationData}
+              ticketHolderData={ticketHolderData}
+            />
+          }
         />
       </Routes>
       <Basket

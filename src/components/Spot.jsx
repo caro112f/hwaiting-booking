@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
 
 export default function Spot(props) {
-  console.log(props.ticketsinBasketNo);
+  //console.log(props.ticketsinBasketNo);
 
   const { basket, setBasket } = useContext(BasketContext);
 

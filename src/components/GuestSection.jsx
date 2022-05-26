@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function GuestSection(props) {
+export default function GuestSection({ guestsAmount }) {
   const [guestfName, guestSetFname] = useState("");
   const [guestlName, guestSetLname] = useState("");
 

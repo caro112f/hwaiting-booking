@@ -4,22 +4,24 @@ import { useNavigate } from "react-router-dom";
 import { useState, useMemo } from "react";
 import GuestSection from "../components/GuestSection";
 
-export default function Step4(props) {
+export default function Step4({
+  setTicketHolderData,
+  ticketsinBasketNo,
+  reservationData,
+}) {
   //const { basket } = useContext(BasketContext);
   const [fName, setFname] = useState("");
   const [lName, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
 
   const navigate = useNavigate();
 
-  const N = props.ticketsinBasketNo - 1;
+  const N = ticketsinBasketNo - 1;
   const guestsAmount = Array.from({ length: N }, (_, index) => index + 1);
 
-  //console.log(guestsAmount);
-
-  //const url = "https://hwaitingusers-33d4.restdb.io/rest/information";
-  //const apikey = "98060cc9ca4c1e0b4f5349b52d27c4d51fb6c";
+  let id = reservationData["id"];
 
   //preventdefault makes sure it does not refresh the page when submitting
   const fNameChanged = (e) => {
@@ -40,8 +42,21 @@ export default function Step4(props) {
     setCountry(value);
   };
 
+  const cityChanged = (e) => {
+    setCity(e.target.value);
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
+    //  console.log(e.target.elements.fName);
+    setTicketHolderData({
+      firstName: e.target.elements.firstname.value,
+      lastName: e.target.elements.lastname.value,
+      email: e.target.elements.email.value,
+      country: e.target.elements.country.value,
+      city: e.target.elements.city.value,
+      bookingId: id,
+    });
     navigate("/booking/payment");
 
     // Whatever method we wanna use to post our stuff
@@ -105,6 +120,7 @@ export default function Step4(props) {
               </div>
               <Select
                 id="country"
+                name="country"
                 className="form-part"
                 options={options}
                 value={country}
@@ -120,14 +136,18 @@ export default function Step4(props) {
                   name="city"
                   pattern="^[\p{L}\s-]+$"
                   placeholder="København"
+                  onChange={cityChanged}
+                  value={city}
                   required
                 ></input>
               </div>
             </section>
             {/* show additional guest info if theres more than one ticket selected. The number of additional guest number depends on the amount of tickets selcted */}
-            {props.ticketsinBasketNo < 2
+            {ticketsinBasketNo < 2
               ? null
-              : guestsAmount.map((a) => <GuestSection />)}
+              : guestsAmount.map((a) => (
+                  <GuestSection guestsAmount={guestsAmount} />
+                ))}
             <button type="submit" className="next-step" id="info-sub">
               NEXT
             </button>
