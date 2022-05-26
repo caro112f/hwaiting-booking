@@ -1,11 +1,27 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Step5(props) {
+export default function Step5({ reservationData }) {
   const navigate = useNavigate();
+  let id = reservationData["id"];
+
+  console.log(id);
 
   const onSubmit = (e) => {
     e.preventDefault();
     //POST HER
+
+    fetch("https://hwaiting.herokuapp.com/fullfill-reservation", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: id,
+      }),
+    })
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
+
     navigate("/confirmation");
   };
 
@@ -18,13 +34,13 @@ export default function Step5(props) {
         </div>
         <form onSubmit={onSubmit}>
           <div className="cardname">
-            <label for="name">Name on card</label>
+            <label htmlFor="name">Name on card</label>
             <input
               required
               type="text"
               id="name"
               name="name"
-              autocomplete="cc-name"
+              autoComplete="cc-name"
               placeholder="Ex. John Doe"
             />
           </div>
@@ -35,7 +51,7 @@ export default function Step5(props) {
               type="text"
               id="card-number"
               name="card-number"
-              inputmode="numeric"
+              inputMode="numeric"
               autcomplete="cc-number"
               placeholder="0000 0000 0000 0000"
               pattern="[0-9]{13,16}"
@@ -43,29 +59,29 @@ export default function Step5(props) {
           </div>
 
           <div className="expire">
-            <label for="expiry-date">Expiry date</label>
+            <label htmlFor="expiry-date">Expiry date</label>
             <input
               required
               type="text"
               id="expiry-date"
               name="expiry-date"
-              class="expiry-date"
-              autocomplete="cc-exp"
+              className="expiry-date"
+              autoComplete="cc-exp"
               placeholder="MM/YY"
-              minlength="4"
+              minLength="4"
               pattern="[0-9/]+"
             />
           </div>
           <div className="code">
-            <label for="security-code">Security code</label>
+            <label htmlFor="security-code">Security code</label>
             <input
               required
               type="text"
               id="security-code"
               name="security-code"
-              inputmode="numeric"
-              minlength="3"
-              maxlength="4"
+              inputMode="numeric"
+              minLength="3"
+              maxLength="4"
               placeholder="000"
               pattern="[0-9]+"
             />

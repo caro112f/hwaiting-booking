@@ -126,7 +126,7 @@ export default function Step4(props) {
             </section>
             {/* show additional guest info if theres more than one ticket selected. The number of additional guest number depends on the amount of tickets selcted */}
             {props.ticketsinBasketNo < 2
-              ? console.log("No guests")
+              ? null
               : guestsAmount.map((a) => <GuestSection />)}
             <button type="submit" className="next-step" id="info-sub">
               NEXT

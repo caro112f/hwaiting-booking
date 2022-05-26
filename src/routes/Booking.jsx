@@ -172,7 +172,10 @@ export default function Booking() {
           path="information"
           element={<Information ticketsinBasketNo={ticketsinBasketNo} />}
         />
-        <Route path="payment" element={<Payment />} />
+        <Route
+          path="payment"
+          element={<Payment reservationData={reservationData} />}
+        />
       </Routes>
       <Basket
         gogreen={gogreen}
