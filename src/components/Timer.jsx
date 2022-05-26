@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { BasketContext } from "../contexts/basket";
 
 export default function Timer({ reservationData }) {
+  const { setBasket } = useContext(BasketContext);
+
   let timer = reservationData["timeout"];
   //console.log(timer);
 
@@ -10,8 +14,13 @@ export default function Timer({ reservationData }) {
 
   let newSec = parseInt(seconds);
 
+  //REAL DATA TIMER
   const [timerMinutes, setTimerMinutes] = useState(minutes);
   const [timerSeconds, setTimerSeconds] = useState(newSec);
+
+  //FOR TESTING
+  //const [timerMinutes, setTimerMinutes] = useState(0);
+  //const [timerSeconds, setTimerSeconds] = useState(5);
 
   const [reveal, setReveal] = useState(false);
 
@@ -38,6 +47,14 @@ export default function Timer({ reservationData }) {
 
   function showPopup() {
     setReveal(true);
+    //empty basket
+    setBasket((oldState) => ({
+      oldState,
+      tickets: [],
+      campingSpot: [],
+      tentsBA: [],
+      gogreenBA: {},
+    }));
   }
   return (
     <div className="timer-wrapper">

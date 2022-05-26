@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 import { BasketContext } from "../contexts/basket";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import Spot from "../components/Spot";
 
 export default function Step2(props) {
   const { basket } = useContext(BasketContext);
-
-  //console.log(basket.campingSpot);
 
   let areaInBasket = basket.campingSpot.map(({ area, ...rest }) => {
     return area.toString();
