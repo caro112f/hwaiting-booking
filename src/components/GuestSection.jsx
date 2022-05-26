@@ -1,43 +1,43 @@
 import { useState } from "react";
 
 export default function GuestSection({ guestsAmount }) {
-  const [guestfName, guestSetFname] = useState("");
-  const [guestlName, guestSetLname] = useState("");
+  const [guestFirstName, setGuestFirstName] = useState("");
+  const [guestLastName, setGuestLastName] = useState("");
 
-  const guestfNameChanged = (e) => {
-    guestSetFname(e.target.value);
+  const gFirstNameChanged = (e) => {
+    setGuestFirstName(e.target.value);
   };
 
-  const guestlNameChanged = (e) => {
-    guestSetLname(e.target.value);
+  const gLastNameChanged = (e) => {
+    setGuestLastName(e.target.value);
   };
 
   return (
-    <section id="guest">
+    <section className="guest">
       <h2>Guest</h2>
 
-      <div id="firstname" className="form-part">
-        <label htmlFor="fname">First name</label>
+      <div className="form-part">
+        <label htmlFor="gfname">First name</label>
         <input
           type="text"
-          id="fname"
-          name="firstname"
+          className="gFname"
+          name="guestfirstname"
           placeholder="John M."
           required
-          onChange={guestfNameChanged}
-          value={guestfName}
+          onChange={gFirstNameChanged}
+          value={guestFirstName}
         />
       </div>
-      <div id="lastname" className="form-part">
-        <label htmlFor="lname">Last name</label>
+      <div className="form-part">
+        <label htmlFor="gLname">Last name</label>
         <input
           type="text"
-          id="lname"
-          name="lastname"
+          className="gLname"
+          name="guestlastname"
           placeholder="Doe"
           required
-          onChange={guestlNameChanged}
-          value={guestlName}
+          onChange={gLastNameChanged}
+          value={guestLastName}
         />
       </div>
     </section>

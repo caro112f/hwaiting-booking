@@ -20,6 +20,7 @@ export default function Booking() {
   const [reservationData, setReservationData] = useState();
   const [freezeTickets, setFreezeTickets] = useState(false);
   const [ticketHolderData, setTicketHolderData] = useState({});
+  const [guestData, setGuestData] = useState([]);
 
   // console.log(reservationData);
 
@@ -173,6 +174,7 @@ export default function Booking() {
           path="information"
           element={
             <Information
+              setGuestData={setGuestData}
               reservationData={reservationData}
               ticketsinBasketNo={ticketsinBasketNo}
               setTicketHolderData={setTicketHolderData}

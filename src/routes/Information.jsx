@@ -8,6 +8,7 @@ export default function Step4({
   setTicketHolderData,
   ticketsinBasketNo,
   reservationData,
+  setGuestData,
 }) {
   //const { basket } = useContext(BasketContext);
   const [fName, setFname] = useState("");
@@ -48,7 +49,9 @@ export default function Step4({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    //  console.log(e.target.elements.fName);
+
+    //console.log(e.target.elements);
+
     setTicketHolderData({
       firstName: e.target.elements.firstname.value,
       lastName: e.target.elements.lastname.value,
@@ -57,14 +60,36 @@ export default function Step4({
       city: e.target.elements.city.value,
       bookingId: id,
     });
-    navigate("/booking/payment");
+    if (ticketsinBasketNo >= 2) {
+      let currentGuestData = [];
+      e.target.elements.guestfirstname.forEach((n) => {
+        currentGuestData.push(n.value);
+        //console.log(n.value);
+      });
 
-    // Whatever method we wanna use to post our stuff
-    /*    postInformation({
-      firstname: name,
-      lastname: name,
-      email: email,
-    }); */
+      e.target.elements.guestlastname.forEach((n) => {
+        currentGuestData.push(n.value);
+        //console.log(n.value);
+      });
+      console.log(currentGuestData);
+    }
+
+    /* if (ticketsinBasketNo >= 2) {
+      let currentGuestData;
+      e.target.elements.gFname.forEach((g) => {
+        console.log(g.value);
+        currentGuestData.push(g.value);
+        console.log(currentGuestData);
+        //currentGuestData.push(g);
+      });
+      e.target.elements.gLname.value.forEach((g) => {
+        //currentGuestData.push(g);
+      });
+      //console.log(currentGuestData);
+    } */
+    //frej@live.dk
+
+    navigate("/booking/payment");
   };
 
   return (
