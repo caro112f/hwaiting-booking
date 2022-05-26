@@ -4,7 +4,6 @@ import Breadcrumb from "../components/Breadcrumb";
 
 import Tickets from "./Tickets";
 import CampingSpots from "./CampingSpots";
-import Login from "./Login";
 import Additionals from "./Additionals";
 import Information from "./Information";
 import Payment from "./Payment";
@@ -19,7 +18,7 @@ export default function Booking() {
   const [campingData, setCampingData] = useState([]);
   const [ticketNo, setTicketNo] = useState(0);
   const [reservationData, setReservationData] = useState();
-  console.log(reservationData);
+  // console.log(reservationData);
 
   const tickets = [
     {
@@ -154,7 +153,7 @@ export default function Booking() {
             />
           }
         />
-        <Route path="login" element={<Login />} />
+
         <Route
           path="additional"
           element={

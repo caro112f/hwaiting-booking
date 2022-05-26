@@ -14,11 +14,7 @@ export default function Step2(props) {
 
   let areaAsString = areaInBasket.shift();
 
-  console.log(areaAsString);
-  console.log(props.ticketsinBasketNo);
-
   function reserve() {
-    console.log("im clicked");
     fetch("https://hwaiting.herokuapp.com/reserve-spot", {
       method: "PUT",
       headers: {
@@ -74,7 +70,7 @@ export default function Step2(props) {
         <Link
           onClick={reserve}
           style={{ display: nextButton() }}
-          to="/booking/login"
+          to="/booking/additional"
         >
           Next
         </Link>

@@ -7,7 +7,6 @@ export default function Spot(props) {
   const { basket, setBasket } = useContext(BasketContext);
 
   function choose() {
-    console.log("clicked");
     if (props.spot.available < props.ticketsinBasketNo) {
       alert(
         "Your number of tickets exceeds the number of available spots, please pick another camp"
