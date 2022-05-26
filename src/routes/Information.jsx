@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { BasketContext } from "../contexts/basket";
 // import { useContext } from "react";
 import { useState } from "react";
@@ -6,19 +6,27 @@ import GuestSection from "../components/GuestSection";
 
 export default function Step4(props) {
   //const { basket } = useContext(BasketContext);
-  const [name, setName] = useState("");
+  const [fName, setFname] = useState("");
+  const [lName, setLname] = useState("");
   const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
+
+  const navigate = useNavigate();
 
   const N = props.ticketsinBasketNo - 1;
   const guestsAmount = Array.from({ length: N }, (_, index) => index + 1);
 
-  console.log(guestsAmount);
+  //console.log(guestsAmount);
 
   //const url = "https://hwaitingusers-33d4.restdb.io/rest/information";
   //const apikey = "98060cc9ca4c1e0b4f5349b52d27c4d51fb6c";
 
-  const nameChanged = (e) => {
-    setName(e.target.value);
+  const fNameChanged = (e) => {
+    setFname(e.target.value);
+  };
+
+  const lNameChanged = (e) => {
+    setLname(e.target.value);
   };
 
   const emailChanged = (e) => {
@@ -30,6 +38,7 @@ export default function Step4(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    navigate("/booking/payment");
 
     // Whatever method we wanna use to post our stuff
     /*    postInformation({
@@ -60,8 +69,8 @@ export default function Step4(props) {
                   name="firstname"
                   placeholder="John M."
                   required
-                  onChange={nameChanged}
-                  value={name}
+                  onChange={fNameChanged}
+                  value={fName}
                 />
               </div>
 
@@ -72,15 +81,16 @@ export default function Step4(props) {
                   id="lname"
                   name="lastname"
                   placeholder="Doe"
-                  onChange={nameChanged}
-                  value={name}
+                  required
+                  onChange={lNameChanged}
+                  value={lName}
                 />
               </div>
 
               <div id="email" className="form-part">
-                <label htmlFor="email"> Email</label>
+                <label htmlFor="email">Email</label>
                 <input
-                  type="text"
+                  type="email"
                   id="email"
                   name="email"
                   placeholder="john@example.com"
@@ -90,31 +100,19 @@ export default function Step4(props) {
                 ></input>
               </div>
 
-              <div id="address" className="form-part">
-                <label htmlFor="adr"> Address</label>
+              <div id="country" className="form-part">
+                <label htmlFor="country">Country</label>
                 <input
-                  type="text"
-                  id="adr"
-                  name="address"
-                  placeholder="Street Number Floor"
-                  required
-                ></input>
-              </div>
-
-              <div id="postal" className="form-part">
-                <label htmlFor="postal"> Postal code</label>
-                <input
-                  type="text"
-                  id="postal"
-                  name="postal"
-                  placeholder="0000"
-                  pattern="[0-9]{3,4}"
+                  type="country"
+                  id="country"
+                  name="country"
+                  placeholder="Denmark"
                   required
                 ></input>
               </div>
 
               <div id="city" className="form-part">
-                <label htmlFor="city"> City</label>
+                <label htmlFor="city"> City/State</label>
                 <input
                   type="text"
                   id="city"
@@ -129,9 +127,7 @@ export default function Step4(props) {
               ? console.log("No guests")
               : guestsAmount.map((a) => <GuestSection />)}
             <button type="submit" className="next-step" id="info-sub">
-              <Link type="submit" to="/booking/payment">
-                Next
-              </Link>
+              NEXT
             </button>
           </form>
         </div>
