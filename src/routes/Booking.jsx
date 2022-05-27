@@ -178,6 +178,7 @@ export default function Booking() {
               reservationData={reservationData}
               ticketsinBasketNo={ticketsinBasketNo}
               setTicketHolderData={setTicketHolderData}
+              guestData={guestData}
             />
           }
         />

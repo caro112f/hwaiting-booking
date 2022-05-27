@@ -9,6 +9,7 @@ export default function Step4({
   ticketsinBasketNo,
   reservationData,
   setGuestData,
+  guestData,
 }) {
   //const { basket } = useContext(BasketContext);
   const [fName, setFname] = useState("");
@@ -52,14 +53,6 @@ export default function Step4({
 
     //console.log(e.target.elements);
 
-    setTicketHolderData({
-      firstName: e.target.elements.firstname.value,
-      lastName: e.target.elements.lastname.value,
-      email: e.target.elements.email.value,
-      country: e.target.elements.country.value,
-      city: e.target.elements.city.value,
-      bookingId: id,
-    });
     if (ticketsinBasketNo >= 2) {
       let guestFirstNames = [];
       e.target.elements.guestfirstname.forEach((n) => {
@@ -91,6 +84,16 @@ export default function Step4({
 
       setGuestData(fullGuestData);
     }
+
+    setTicketHolderData({
+      firstName: e.target.elements.firstname.value,
+      lastName: e.target.elements.lastname.value,
+      email: e.target.elements.email.value,
+      country: e.target.elements.country.value,
+      city: e.target.elements.city.value,
+      bookingId: id,
+      guests: guestData,
+    });
 
     navigate("/booking/payment");
   };

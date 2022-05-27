@@ -1,21 +1,14 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Step5({
-  reservationData,
-  ticketHolderData,
-  guestData,
-}) {
+export default function Step5({ reservationData, ticketHolderData }) {
   const navigate = useNavigate();
   let id = reservationData["id"];
-
-  console.log(guestData);
-  console.log(ticketHolderData);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     //POST RESERVATION
-    fetch("https://hwaiting.herokuapp.com/fullfill-reservation", {
+    /*  fetch("https://hwaiting.herokuapp.com/fullfill-reservation", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +18,9 @@ export default function Step5({
       }),
     })
       .then((response) => console.log(response))
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err)); */
+
+    postPersonalData();
 
     //POST PERSONALBOOKINGINFO
     /* const bookingData = {
@@ -35,25 +30,29 @@ export default function Step5({
       country: "",
       city: "",
       bookingId: 0,
+      guests:
     }; */
     //firstname, lastname, email, country, city, bookingid stringify
     //array, post guest objects
-    const postBookingData = JSON.stringify(ticketHolderData);
+  };
 
+  function postPersonalData() {
+    const postFullData = JSON.stringify(ticketHolderData);
+    console.log(ticketHolderData);
     fetch("https://hwaitingbookings-94dc.restdb.io/rest/bookings", {
-      method: "post",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         "x-apikey": "1f66c721de2bacf388b8f84f033e339b2c0ec",
       },
-      body: postBookingData,
-      guests: "",
+      body: postFullData,
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    //.catch((err) => console.error(err));
 
-    navigate("/confirmation");
-  };
+    //navigate("/confirmation");
+  }
 
   return (
     <section className="steps" id="step5-section">
