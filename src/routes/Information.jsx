@@ -122,7 +122,20 @@ export default function Step4({
 
     navigate("/booking/payment");
   };
-
+  const selectstyles = {
+    control: (styles) => ({
+      ...styles,
+      backgroundColor: "white",
+    }),
+    option: (styles, { isDisabled }) => {
+      return {
+        ...styles,
+        backgroundColor: isDisabled ? "red" : "white",
+        color: "black",
+        cursor: isDisabled ? "not-allowed" : "default",
+      };
+    },
+  };
   return (
     <section id="step4-section" className="steps">
       <div id="step4-wrapper">
@@ -174,15 +187,19 @@ export default function Step4({
                   value={email}
                 ></input>
               </div>
-              <Select
-                id="country"
-                name="country"
-                className="form-part"
-                options={options}
-                value={country}
-                onChange={countryChanged}
-                required
-              />
+              <div id="fcountry" className="form-part">
+                <label htmlFor="">Country</label>
+                <Select
+                  id="country"
+                  name="country"
+                  //className="form-part"
+                  options={options}
+                  value={country}
+                  onChange={countryChanged}
+                  styles={selectstyles}
+                  required
+                />
+              </div>
 
               <div id="city" className="form-part">
                 <label htmlFor="city"> City/State</label>
@@ -205,7 +222,7 @@ export default function Step4({
                 ))
               : null}
             <button type="submit" className="next-step" id="info-sub">
-              NEXT
+              Next
             </button>
           </form>
         </div>

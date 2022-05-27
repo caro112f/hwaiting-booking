@@ -12,17 +12,20 @@
   }
 }
 #form-information {
-  margin: 4rem 0rem 1rem 0rem;
-  #ticket-holder,
-  #guest {
+  margin: 4rem 1rem 1rem 1rem;
+  #ticket-holder {
+    display: flex;
+    flex-direction: column;
     margin: 1rem 0rem 2rem 0rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     color: white;
-    gap: 1rem;
-    align-items: center;
+    gap: 5px;
+
+    min-width: 300px;
     @include mixins.bp-medium {
-      width: 600px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 600px;
+      gap: 1rem;
     }
   }
   .form-part {
@@ -64,6 +67,28 @@
   input {
     border: none;
     padding: 8px;
+    @include mixins.bp-medium {
+      padding: 11px;
+    }
     border-radius: 5px;
+  }
+  #info-sub {
+    max-width: 8rem;
+  }
+}
+.guest {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 300px;
+
+  @include mixins.bp-medium {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  #gemail {
+    grid-column: 1/3;
   }
 }

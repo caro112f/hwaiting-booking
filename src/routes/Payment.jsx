@@ -73,6 +73,7 @@ export default function Step5({ reservationData, ticketHolderData }) {
               autcomplete="cc-number"
               placeholder="0000 0000 0000 0000"
               pattern="[0-9]{13,16}"
+              data-inputmask="'mask': '9999 9999 9999 9999'"
             />
           </div>
 
@@ -104,7 +105,7 @@ export default function Step5({ reservationData, ticketHolderData }) {
               pattern="[0-9]+"
             />
           </div>
-          <button type="submit" className="next-step" id="info-sub">
+          <button type="submit" className="next-step" id="payment-sub">
             Confirm payment
           </button>
         </form>
