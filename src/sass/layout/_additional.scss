@@ -14,9 +14,12 @@
   }
 
   h3,
-  h4,
-  p {
+  h4 {
     margin: 1rem;
+  }
+
+  h3 {
+    margin-inline: 0;
   }
 
   .tents-headline {
@@ -30,14 +33,21 @@
     margin-block-start: 0;
   }
 
-  .price {
+  .green-price {
     text-align: end;
-    font-weight: bold;
+
     margin-block-start: 1rem;
+    margin: 1rem;
+    margin-block-start: 0;
   }
 
-  .price > p {
+  .green-price > p {
     font-size: 1.7rem;
+  }
+
+  .price,
+  .green-price {
+    font-weight: bold;
   }
 
   .prepared-tents {
@@ -49,54 +59,73 @@
   }
 
   .options-wrapper {
-    margin-block-start: 2rem;
+    margin-block-start: 1.5rem;
     @include mixins.bp-large {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      justify-items: center;
-      gap: 1rem;
+      grid-template-columns: 0.7fr 1fr;
+      /*  justify-items: center; */
+      gap: 5rem;
     }
   }
 
+  .tents-container {
+    margin-block: 2rem;
+  }
+
   .tent-option,
-  .customize-option,
-  .go-green {
+  .go-green-container {
     /*     margin-block: 1rem; */
-    padding: 0.5rem;
+    padding: 1rem;
     border-radius: 5px;
 
     @include mixins.bp-large {
-      margin-inline: 1rem;
+      /*      margin-inline: 1rem; */
       padding: 0.5rem;
     }
   }
 
-  .tent-option,
-  .customize-option,
-  .button-and-product {
+  .tent-option {
     display: flex;
     justify-content: space-between;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 100%;
   }
 
-  .button-and-product {
-    padding: 1rem;
+  .product-and-button {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .product-and-button,
+  .price {
+    margin: 1rem;
   }
 
   .go-green {
-    border: 5px solid vars.$neongreen;
-    box-shadow: vars.$lightneongreen 0px 0px 15px;
     @include mixins.bp-large {
       grid-column: 2/3;
-      grid-row: 1 / span 2;
     }
   }
 
   .go-green-container {
-    margin-left: 1rem;
+    border: 5px solid vars.$neongreen;
+    box-shadow: vars.$lightneongreen 0px 0px 15px;
+    margin-block-start: 1.5rem;
   }
 
   .go-green-text,
-  .price {
-    margin-right: 2rem;
+  .go-green-header {
+    margin-left: 2rem;
+    margin-right: 1rem;
+  }
+
+  .go-green-header {
+    margin-block-start: 0;
+  }
+
+  .go-green-text {
+    font-size: 1.1rem;
+    margin-bottom: 0;
   }
 }

@@ -43,7 +43,7 @@ export default function Ticket(props) {
           : { border: "5px solid #FB3CFF", boxShadow: "0px 0px 15px #FC61FF" }
       }
     >
-      <h3>{props.ticket.type} ticket</h3>
+      <h3>{props.ticket.type}</h3>
       <p>{props.ticket.price} DKK</p>
       <div className="buy-ticket-wrapper">
         <button

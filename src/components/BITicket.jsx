@@ -78,7 +78,7 @@ export default function BITicket({
         </div>
       </div>
       <div className="price-wrapper">
-        <p className="basket-font"> {price} </p>
+        <p className="basket-font"> {price} ,-</p>
       </div>
     </li>
   );

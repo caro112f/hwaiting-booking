@@ -13,15 +13,16 @@ export default function Step3(props) {
       <div className="options-wrapper">
         <section className="prepared-tents">
           <h3 className="tents-headline">Prepared Tents</h3>
-
-          {props.additionals.map((a) => (
-            <TentOption
-              add={a}
-              key={a.id}
-              ticketsinBasketNo={props.ticketsinBasketNo}
-              fullAmountOfPers={props.fullAmountOfPers}
-            />
-          ))}
+          <div className="tents-container">
+            {props.additionals.map((a) => (
+              <TentOption
+                add={a}
+                key={a.id}
+                ticketsinBasketNo={props.ticketsinBasketNo}
+                fullAmountOfPers={props.fullAmountOfPers}
+              />
+            ))}
+          </div>
         </section>
 
         <section className="go-green">
