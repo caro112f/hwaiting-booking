@@ -72,12 +72,24 @@ export default function Step4({
       });
 
       // map igennem firstnames: e=value i array, i=index i array
-      //matcher current e med e i andet array med samme index + et mellemrum
+      //matcher current e med e i andet array med samme index + et mellemru
       let guestNameData = guestFirstNames.map(
         (e, i) => e + " " + guestLastNames[i]
       );
-      //console.log(guestNameData);
-      setGuestData(guestNameData);
+
+      let guestEmails = [];
+      e.target.elements.guestemail.forEach((e) => {
+        guestEmails.push(e.value);
+      });
+
+      let fullGuestData = guestEmails.map((email, index) => {
+        return {
+          fullName: guestNameData[index],
+          email: email,
+        };
+      });
+
+      setGuestData(fullGuestData);
     }
 
     navigate("/booking/payment");

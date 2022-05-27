@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function GuestSection({ guestsAmount }) {
   const [guestFirstName, setGuestFirstName] = useState("");
   const [guestLastName, setGuestLastName] = useState("");
+  const [guestemail, setGuestEmail] = useState("");
 
   const gFirstNameChanged = (e) => {
     setGuestFirstName(e.target.value);
@@ -10,6 +11,10 @@ export default function GuestSection({ guestsAmount }) {
 
   const gLastNameChanged = (e) => {
     setGuestLastName(e.target.value);
+  };
+
+  const gEmailChanged = (e) => {
+    setGuestEmail(e.target.value);
   };
 
   return (
@@ -39,6 +44,18 @@ export default function GuestSection({ guestsAmount }) {
           onChange={gLastNameChanged}
           value={guestLastName}
         />
+      </div>
+      <div className="form-part">
+        <label htmlFor="gEmail">Email</label>
+        <input
+          type="email"
+          className="guestEmail"
+          name="guestemail"
+          placeholder="john@example.com"
+          required
+          onChange={gEmailChanged}
+          value={guestemail}
+        ></input>
       </div>
     </section>
   );

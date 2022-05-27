@@ -9,6 +9,7 @@ export default function Step5({
   let id = reservationData["id"];
 
   console.log(guestData);
+  console.log(ticketHolderData);
 
   const onSubmit = (e) => {
     e.preventDefault();

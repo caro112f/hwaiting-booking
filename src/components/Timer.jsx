@@ -15,12 +15,12 @@ export default function Timer({ reservationData }) {
   let newSec = parseInt(seconds);
 
   //REAL DATA TIMER
-  const [timerMinutes, setTimerMinutes] = useState(minutes);
-  const [timerSeconds, setTimerSeconds] = useState(newSec);
+  //const [timerMinutes, setTimerMinutes] = useState(minutes);
+  //  const [timerSeconds, setTimerSeconds] = useState(newSec);
 
   //FOR TESTING
-  //const [timerMinutes, setTimerMinutes] = useState(15);
-  // const [timerSeconds, setTimerSeconds] = useState(5);
+  const [timerMinutes, setTimerMinutes] = useState(15);
+  const [timerSeconds, setTimerSeconds] = useState(5);
 
   const [reveal, setReveal] = useState(false);
 
