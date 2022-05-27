@@ -31,7 +31,7 @@ export default function BIGoGreen({ green }) {
         {/*     <p className="basket-font">{green.amount}</p> */}
         <p className="basket-bold-font">{green.type}</p>
       </div>
-      <p className="basket-font">{green.price}</p>
+      <p className="basket-font">{green.price} ,-</p>
     </li>
   );
 }

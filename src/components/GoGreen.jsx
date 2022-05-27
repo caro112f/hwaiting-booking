@@ -33,16 +33,15 @@ export default function GoGreen({ green }) {
         {basket.gogreenBA.added ? "-" : "+"}
       </button>
 
-      <h3>{green.type}</h3>
+      <h3 className="go-green-header">{green.type}</h3>
 
       <article>
         <p className="go-green-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-          tincidunt accumsan purus, vitae bibendum dolor blandit ut.{" "}
+          To make your festival experience more eco-friendly. This helps us
+          clean the area and plant trees when the party's over.{" "}
         </p>
-        <div className="price">
-          <p>{green.price} DKK</p>
-        </div>
+
+        <p className="green-price">{green.price} DKK</p>
       </article>
     </div>
   );
