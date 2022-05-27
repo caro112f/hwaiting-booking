@@ -51,9 +51,19 @@ export default function Step4({
   const onSubmit = (e) => {
     e.preventDefault();
 
-    //console.log(e.target.elements);
-
-    if (ticketsinBasketNo >= 2) {
+    //if we only have 1 guest we cannot map
+    if (ticketsinBasketNo === 2) {
+      let oneGuest = {
+        fullName: e.target.elements.guestfirstname.value.concat(
+          " ",
+          e.target.elements.guestlastname.value
+        ),
+        email: e.target.elements.guestemail.value,
+      };
+      setData(oneGuest);
+    } else if (ticketsinBasketNo >= 3) {
+      console.log("3 tickets");
+      //if more than one guest
       let guestFirstNames = [];
       e.target.elements.guestfirstname.forEach((n) => {
         guestFirstNames.push(n.value);
@@ -82,10 +92,25 @@ export default function Step4({
         };
       });
 
-      setGuestData(fullGuestData);
+      setData(fullGuestData);
+    } else if (ticketsinBasketNo === 1) {
+      setData();
     }
 
-    setTicketHolderData({
+    function setData(data) {
+      setTicketHolderData({
+        firstName: e.target.elements.firstname.value,
+        lastName: e.target.elements.lastname.value,
+        email: e.target.elements.email.value,
+        country: e.target.elements.country.value,
+        city: e.target.elements.city.value,
+        bookingId: id,
+        guests: data,
+      });
+    }
+
+    //console.log(guestData);
+    /*     setTicketHolderData({
       firstName: e.target.elements.firstname.value,
       lastName: e.target.elements.lastname.value,
       email: e.target.elements.email.value,
@@ -93,7 +118,7 @@ export default function Step4({
       city: e.target.elements.city.value,
       bookingId: id,
       guests: guestData,
-    });
+    }); */
 
     navigate("/booking/payment");
   };
@@ -174,11 +199,11 @@ export default function Step4({
               </div>
             </section>
             {/* show additional guest info if theres more than one ticket selected. The number of additional guest number depends on the amount of tickets selcted */}
-            {ticketsinBasketNo < 2
-              ? null
-              : guestsAmount.map((a) => (
+            {guestsAmount.length >= 1
+              ? guestsAmount.map((a) => (
                   <GuestSection guestsAmount={guestsAmount} />
-                ))}
+                ))
+              : null}
             <button type="submit" className="next-step" id="info-sub">
               NEXT
             </button>

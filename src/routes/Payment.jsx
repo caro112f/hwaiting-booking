@@ -4,11 +4,13 @@ export default function Step5({ reservationData, ticketHolderData }) {
   const navigate = useNavigate();
   let id = reservationData["id"];
 
+  console.log(ticketHolderData);
+
   const onSubmit = (e) => {
     e.preventDefault();
 
     //POST RESERVATION
-    /*  fetch("https://hwaiting.herokuapp.com/fullfill-reservation", {
+    fetch("https://hwaiting.herokuapp.com/fullfill-reservation", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,22 +20,9 @@ export default function Step5({ reservationData, ticketHolderData }) {
       }),
     })
       .then((response) => console.log(response))
-      .catch((err) => console.error(err)); */
+      .catch((err) => console.error(err));
 
     postPersonalData();
-
-    //POST PERSONALBOOKINGINFO
-    /* const bookingData = {
-      firstName: "Jonas",
-      lastName: "jofh@kea.dk",
-      email: 40,
-      country: "",
-      city: "",
-      bookingId: 0,
-      guests:
-    }; */
-    //firstname, lastname, email, country, city, bookingid stringify
-    //array, post guest objects
   };
 
   function postPersonalData() {
@@ -43,7 +32,7 @@ export default function Step5({ reservationData, ticketHolderData }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-apikey": "1f66c721de2bacf388b8f84f033e339b2c0ec",
+        "x-apikey": "6290a5a6ccc2033946f4ab6b",
       },
       body: postFullData,
     })
@@ -51,7 +40,7 @@ export default function Step5({ reservationData, ticketHolderData }) {
       .then((data) => console.log(data));
     //.catch((err) => console.error(err));
 
-    //navigate("/confirmation");
+    navigate("/confirmation");
   }
 
   return (
