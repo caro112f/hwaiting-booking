@@ -25,6 +25,8 @@ export default function Step3(props) {
         </section>
 
         <section className="go-green">
+          <h3 className="tents-headline">Green Camping</h3>
+
           <GoGreen green={props.gogreen} key={props.gogreen.id}></GoGreen>
         </section>
       </div>

@@ -38,8 +38,7 @@ export default function GoGreen({ green }) {
       <article>
         <p className="go-green-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-          tincidunt accumsan purus, vitae bibendum dolor blandit ut. Suspendisse
-          non orci eget augue pharetra malesuada.{" "}
+          tincidunt accumsan purus, vitae bibendum dolor blandit ut.{" "}
         </p>
         <div className="price">
           <p>{green.price} DKK</p>
