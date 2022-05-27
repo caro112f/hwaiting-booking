@@ -45,7 +45,7 @@ export default function GuestSection({ guestsAmount }) {
           value={guestLastName}
         />
       </div>
-      <div className="form-part">
+      <div id="gemail" className="form-part">
         <label htmlFor="gEmail">Email</label>
         <input
           type="email"

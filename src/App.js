@@ -40,6 +40,17 @@ function App() {
                 <Link
                   id="header_link"
                   className="nav-link"
+                  to="/"
+                  onClick={ToggleBurgermenu}
+                >
+                  {" "}
+                  <p className="link-p">HOME</p>{" "}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  id="header_link"
+                  className="nav-link"
                   to="/booking"
                   onClick={ToggleBurgermenu}
                 >
