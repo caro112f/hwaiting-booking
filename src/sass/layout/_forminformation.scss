@@ -13,6 +13,10 @@
 }
 #form-information {
   margin: 4rem 1rem 1rem 1rem;
+  form {
+    min-width: 500px;
+    max-width: 600px;
+  }
   #ticket-holder {
     display: flex;
     flex-direction: column;
@@ -20,11 +24,10 @@
     color: white;
     gap: 5px;
 
-    min-width: 300px;
     @include mixins.bp-medium {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      max-width: 600px;
+
       gap: 1rem;
     }
   }

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import InputMask from "react-input-mask";
 
 export default function Step5({ reservationData, ticketHolderData }) {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ export default function Step5({ reservationData, ticketHolderData }) {
           </div>
           <div className="card-number">
             <label>Card number</label>
-            <input
+            <InputMask
               required
               type="text"
               id="card-number"
@@ -73,13 +74,13 @@ export default function Step5({ reservationData, ticketHolderData }) {
               autcomplete="cc-number"
               placeholder="0000 0000 0000 0000"
               pattern="[0-9]{13,16}"
-              data-inputmask="'mask': '9999 9999 9999 9999'"
+              mask="9999 9999 9999 9999"
             />
           </div>
 
           <div className="expire">
             <label htmlFor="expiry-date">Expiry date</label>
-            <input
+            <InputMask
               required
               type="text"
               id="expiry-date"
@@ -89,6 +90,7 @@ export default function Step5({ reservationData, ticketHolderData }) {
               placeholder="MM/YY"
               minLength="4"
               pattern="[0-9/]+"
+              mask="99/99"
             />
           </div>
           <div className="code">
