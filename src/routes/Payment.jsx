@@ -43,6 +43,8 @@ export default function Step5({ reservationData, ticketHolderData }) {
 
     navigate("/confirmation");
   }
+  const now = new Date();
+  const until = new Date(now.getFullYear() + 10, now.getMonth());
 
   return (
     <section className="steps" id="step5-section">
@@ -74,23 +76,26 @@ export default function Step5({ reservationData, ticketHolderData }) {
               autcomplete="cc-number"
               placeholder="0000 0000 0000 0000"
               pattern="[0-9]{13,16}"
-              mask="9999 9999 9999 9999"
+              //mask="9999 9999 9999 9999"
             />
           </div>
 
           <div className="expire">
             <label htmlFor="expiry-date">Expiry date</label>
-            <InputMask
+            <input
               required
-              type="text"
+              type="month"
               id="expiry-date"
               name="expiry-date"
               className="expiry-date"
               autoComplete="cc-exp"
-              placeholder="MM/YY"
-              minLength="4"
+              //placeholder="MM/YY"
+              //minLength="4"
               pattern="[0-9/]+"
-              mask="99/99"
+              //mask="99/99"
+              //views={["month", "year"]}
+              min={now}
+              max={until}
             />
           </div>
           <div className="code">
