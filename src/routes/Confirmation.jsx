@@ -26,7 +26,7 @@ export default function Confirmation(
   props
 ) {
   const { basket } = useContext(BasketContext);
-
+  console.log("test");
   return (
     <div>
       <h1>Congratulations</h1>
