@@ -1,7 +1,5 @@
 import Basket from "../components/Basket";
 
-import Breadcrumb from "../components/Breadcrumb";
-
 import Tickets from "./Tickets";
 import CampingSpots from "./CampingSpots";
 import Additionals from "./Additionals";
@@ -168,7 +166,6 @@ export default function Booking() {
   return (
     <section id="booking">
       {/* <Timer></Timer> */}
-      <Breadcrumb></Breadcrumb>
 
       <Routes>
         <Route

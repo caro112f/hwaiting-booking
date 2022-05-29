@@ -3,7 +3,10 @@ export default function TentsReceipt({ type, price, amount, id }) {
     <li className="basket-list">
       <div className="amount-type-wrapper">
         <div className="amount-wrapper">
-          <p>{amount} </p>
+          <div className="amount-container">
+            <p className="amount-p">{amount} </p>
+            <p>x</p>
+          </div>
         </div>
 
         <div className="type-wrapper">
