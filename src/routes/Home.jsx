@@ -18,9 +18,6 @@ export default function Home(props) {
           </button>
         </Link>
       </section>
-      <section id="highlights">
-        <h2>2021 highlights</h2>
-      </section>
     </section>
   );
 }
