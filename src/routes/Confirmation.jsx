@@ -10,23 +10,44 @@ import TicketReceipt from "../components/TicketReceipt";
 import TentsReceipt from "../components/TentsReceipt";
 import GoGreenReciept from "../components/GoGreenReciept";
 
-export default function Confirmation({
-  dataCamping,
-  ticketData,
-  ticketNo,
-  setTicketNo,
-  ticketsinBasketNo,
-  gogreen,
-  fullAmountOfPers,
-  reservationData,
-  freezeTickets,
-  fullPrice,
-  setFreezeTickets,
-  ticketAmount,
-}) {
+export default function Confirmation({ ticketData, fullPrice }) {
   const { basket } = useContext(BasketContext);
-  console.log(basket.gogreenBA.added);
-  console.log("goGreen:", gogreen);
+
+  function getFullPrice() {
+    //getting ticket price
+    const initialvalue = 0;
+    const ticketSum = basket.tickets.reduce(
+      (previousValue, currentValue) =>
+        previousValue + currentValue.amount * currentValue.price,
+      initialvalue
+    );
+
+    //getting booking price
+    const bookingSum = basket.campingSpot.reduce(
+      (previousValue, currentValue) => previousValue + currentValue.price,
+      initialvalue
+    );
+
+    //getting green price
+    let gogreenSum;
+    if (basket.gogreenBA.added === true) {
+      gogreenSum = basket.gogreenBA["price"];
+    } else {
+      gogreenSum = 0;
+    }
+
+    //getting tent price
+
+    const tentSum = basket.tentsBA.reduce(
+      (previousValue, currentValue) =>
+        previousValue + currentValue.amount * currentValue.price,
+      initialvalue
+    );
+
+    //get full basket price
+    return ticketSum + bookingSum + gogreenSum + tentSum;
+  }
+
   return (
     <section id="confirmation">
       <div id="confirmation-wrapper">
@@ -62,7 +83,7 @@ export default function Confirmation({
           <hr />
           <div className="totalprice">
             <p>Total:</p>
-            <p className="basket-price"> {fullPrice} DKK</p>
+            <p className="basket-price">{getFullPrice()} DKK</p>
           </div>
         </div>
         <div className="next-step">

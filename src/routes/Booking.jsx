@@ -224,21 +224,7 @@ export default function Booking() {
           }
         />
         <Route
-          element={
-            <Confirmation
-              gogreen={gogreen}
-              additionals={additionals}
-              ticketNo={ticketNo}
-              ticketData={tickets}
-              dataCamping={campingData}
-              ticketsinBasketNo={ticketsinBasketNo}
-              reservationData={reservationData}
-              freezeTickets={freezeTickets}
-              fullPrice={fullPrice}
-              setFreezeTickets={setFreezeTickets}
-              ticketAmount={ticketAmount}
-            />
-          }
+          element={<Confirmation ticketData={tickets} fullPrice={fullPrice} />}
         />
       </Routes>
       <Basket
