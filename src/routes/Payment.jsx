@@ -1,36 +1,58 @@
 import { useNavigate } from "react-router-dom";
 import InputMask from "react-input-mask";
 import NumberFormat from "react-number-format";
+import { useState } from "react";
 
 export default function Step5({ reservationData, ticketHolderData }) {
+  const [expireDate, setExpireDate] = useState(false);
   const navigate = useNavigate();
   let id = reservationData["id"];
 
-  console.log(ticketHolderData);
-
   const onSubmit = (e) => {
     e.preventDefault();
+    setExpireDate(false);
 
-    function currentMonth() {
-      const now = new Date();
-      console.log("full date", now);
-      const realMonth = now.getMonth() + 1;
+    //CURRENT MONTH
+    const now = new Date();
 
-      if (realMonth < 10) {
-        return 0 + realMonth;
-      } else {
-        return realMonth;
-      }
+    let currentMonth = now.getMonth() + 1;
+
+    /*     let currentMonth;
+    if (month > 0) {
+      currentMonth = "0" + month;
+    } else {
+      currentMonth = month;
+    } */
+
+    //CURRENT YEAR
+    let year = now.getFullYear().toString();
+    let currentYear = year.slice(2, 4);
+
+    //Indtastet month og year
+    let valueMonth = e.target.elements.expirydate.value.slice(0, 2);
+    let valueYear = e.target.elements.expirydate.value.slice(3, 5);
+
+    let cleanCurrentMonth = Number(currentMonth);
+    let cleanCurrentYear = Number(currentYear);
+    let cleanValueMonth = Number(valueMonth);
+    let cleanValueYear = Number(valueYear);
+
+    if (cleanValueYear < cleanCurrentYear) {
+      setExpireDate(true);
+    } else if (
+      cleanValueMonth < cleanCurrentMonth &&
+      cleanCurrentYear === cleanValueYear
+    ) {
+      setExpireDate(true);
+    } else {
+      paymentConfirmed();
     }
-    console.log("only month", currentMonth);
+    //if current year > valueyear == return false
+    //if current month > valuemonth && current year === value year false
+    //else true
+  };
 
-    function currentYear() {
-      const now = new Date();
-      const onlyYear = now.getYear();
-      return onlyYear;
-    }
-    console.log("only year", currentYear);
-
+  function paymentConfirmed() {
     //POST RESERVATION
     fetch("https://hwaiting.herokuapp.com/fullfill-reservation", {
       method: "POST",
@@ -45,7 +67,7 @@ export default function Step5({ reservationData, ticketHolderData }) {
       .catch((err) => console.error(err));
 
     postPersonalData();
-  };
+  }
 
   function postPersonalData() {
     const postFullData = JSON.stringify(ticketHolderData);
@@ -64,18 +86,6 @@ export default function Step5({ reservationData, ticketHolderData }) {
 
     navigate("/confirmation");
   }
-  // const now = new Date();
-  // const until = new Date(now.getFullYear() + 10, now.getMonth());
-
-  // function checkMonth() {
-  //   let currentMonth = now.getMonth() + 1;
-  //   if (currentMonth < 10) {
-  //     return 0 + currentMonth;
-  //   } else {
-  //     return currentMonth;
-  //   }
-  // }
-  //console.log(checkMonth);
 
   function limit(val, max) {
     if (val.length === 1 && val[0] > max[0]) {
@@ -142,11 +152,13 @@ export default function Step5({ reservationData, ticketHolderData }) {
             <NumberFormat
               required
               id="expiry-date"
-              name="expiry-date"
+              name="expirydate"
               className="expiry-date"
               format={cardExpiry}
             />
-
+            {expireDate ? (
+              <p className="error-msg">Invalid expiry date</p>
+            ) : null}
             {/* <input
               required
               type="month"
