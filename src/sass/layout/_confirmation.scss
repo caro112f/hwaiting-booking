@@ -9,7 +9,7 @@
     margin: 2rem 0rem 2rem 0rem;
     text-align: center;
   }
-  .next-step {
+  .finished-step {
     text-align: center;
     margin-block: 2rem;
     margin-inline: auto;
@@ -17,6 +17,7 @@
     max-width: 10rem;
     border-radius: 5px;
     padding: 8px;
+    cursor: pointer;
     @include mixins.bp-large {
       margin-block: 2rem;
     }

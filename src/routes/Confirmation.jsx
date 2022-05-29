@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import BICampingSpots from "../components/BICampingSpots";
 //import BITicket from "../components/BITicket";
@@ -11,7 +11,8 @@ import TentsReceipt from "../components/TentsReceipt";
 import GoGreenReciept from "../components/GoGreenReciept";
 
 export default function Confirmation({ ticketData, fullPrice }) {
-  const { basket } = useContext(BasketContext);
+  const navigateFinished = useNavigate();
+  const { basket, setBasket } = useContext(BasketContext);
 
   function getFullPrice() {
     //getting ticket price
@@ -46,6 +47,20 @@ export default function Confirmation({ ticketData, fullPrice }) {
 
     //get full basket price
     return ticketSum + bookingSum + gogreenSum + tentSum;
+  }
+
+  function transactionComplete() {
+    console.log("oops");
+
+    setBasket((oldState) => ({
+      oldState,
+      tickets: [],
+      campingSpot: [],
+      tentsBA: [],
+      gogreenBA: {},
+    }));
+
+    navigateFinished("/");
   }
 
   return (
@@ -86,8 +101,8 @@ export default function Confirmation({ ticketData, fullPrice }) {
             <p className="basket-price">{getFullPrice()} DKK</p>
           </div>
         </div>
-        <div className="next-step">
-          <Link to="/">Back to home</Link>
+        <div className="finished-step" onClick={transactionComplete}>
+          <p>Back to home</p>
         </div>
       </div>
     </section>
