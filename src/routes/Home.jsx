@@ -24,15 +24,24 @@ export default function Home(props) {
         <p>화이팅</p>
       </section>
       <section id="home-program-section">
-        <h2>Curious about the festivals lineup?</h2>
+        <h2>Curious about the festival's lineup?</h2>
         <p id="home-program-text">Check out the amazing artists here</p>
-        <Link
+        {/*     <Link
           id="home-program-link"
           to={{ pathname: "https://www.youtube.com/" }}
           target="_blank"
         >
           <img id="home-program-img" src={vinylImg} alt="Vinyl"></img>
-        </Link>
+        </Link> */}
+        <a
+          id="home-program-link"
+          href="https://www.youtube.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {" "}
+          <img id="home-program-img" src={vinylImg} alt="Vinyl"></img>
+        </a>
       </section>
     </main>
   );
