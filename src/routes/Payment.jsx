@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import InputMask from "react-input-mask";
+import NumberFormat from "react-number-format";
 
 export default function Step5({ reservationData, ticketHolderData }) {
   const navigate = useNavigate();
@@ -43,12 +44,47 @@ export default function Step5({ reservationData, ticketHolderData }) {
 
     navigate("/confirmation");
   }
-  const now = new Date();
-  const until = new Date(now.getFullYear() + 10, now.getMonth());
+  // const now = new Date();
+  // const until = new Date(now.getFullYear() + 10, now.getMonth());
+
+  // function checkMonth() {
+  //   let currentMonth = now.getMonth() + 1;
+  //   if (currentMonth < 10) {
+  //     return 0 + currentMonth;
+  //   } else {
+  //     return currentMonth;
+  //   }
+  // }
+  //console.log(checkMonth);
+
+  function limit(val, max) {
+    if (val.length === 1 && val[0] > max[0]) {
+      val = "0" + val;
+    }
+
+    if (val.length === 2) {
+      if (Number(val) === 0) {
+        val = "01";
+
+        //this can happen when user paste number
+      } else if (val > max) {
+        val = max;
+      }
+    }
+
+    return val;
+  }
+
+  function cardExpiry(val) {
+    let month = limit(val.substring(0, 2), "12");
+    let year = val.substring(2, 4);
+
+    return month + (year.length ? "/" + year : "");
+  }
 
   return (
     <section className="steps" id="step5-section">
-      <div id="step5-wrapper">
+      <div id="step-wrapper">
         <div className="heading-wrapper">
           <h1>Step 5</h1>
           <p>Card information</p>
@@ -67,7 +103,8 @@ export default function Step5({ reservationData, ticketHolderData }) {
           </div>
           <div className="card-number">
             <label>Card number</label>
-            <InputMask
+            <NumberFormat format="#### #### #### ####" mask="_" />
+            {/* <InputMask
               required
               type="text"
               id="card-number"
@@ -77,26 +114,34 @@ export default function Step5({ reservationData, ticketHolderData }) {
               placeholder="0000 0000 0000 0000"
               pattern="[0-9]{13,16}"
               //mask="9999 9999 9999 9999"
-            />
+            /> */}
           </div>
 
           <div className="expire">
             <label htmlFor="expiry-date">Expiry date</label>
-            <input
+            <NumberFormat
+              required
+              id="expiry-date"
+              name="expiry-date"
+              className="expiry-date"
+              format={cardExpiry}
+            />
+
+            {/* <input
               required
               type="month"
               id="expiry-date"
               name="expiry-date"
               className="expiry-date"
               autoComplete="cc-exp"
-              //placeholder="MM/YY"
-              //minLength="4"
+              placeholder="MM/YY"
+              minLength="4"
               pattern="[0-9/]+"
-              //mask="99/99"
-              //views={["month", "year"]}
+              mask="99/99"
+              views={["month", "year"]}
               min={now}
               max={until}
-            />
+            /> */}
           </div>
           <div className="code">
             <label htmlFor="security-code">Security code</label>
