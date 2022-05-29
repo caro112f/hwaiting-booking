@@ -7,6 +7,7 @@ import CampingSpots from "./CampingSpots";
 import Additionals from "./Additionals";
 import Information from "./Information";
 import Payment from "./Payment";
+import Confirmation from "./Confirmation";
 
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -157,7 +158,6 @@ export default function Booking() {
             />
           }
         />
-
         <Route
           path="additional"
           element={
@@ -185,6 +185,20 @@ export default function Booking() {
             <Payment
               reservationData={reservationData}
               ticketHolderData={ticketHolderData}
+            />
+          }
+        />
+        <Route
+          element={
+            <Confirmation
+              gogreen={gogreen}
+              additionals={additionals}
+              ticketNo={ticketNo}
+              ticketData={tickets}
+              dataCamping={campingData}
+              ticketsinBasketNo={ticketsinBasketNo}
+              reservationData={reservationData}
+              freezeTickets={freezeTickets}
             />
           }
         />
