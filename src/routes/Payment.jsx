@@ -11,6 +11,26 @@ export default function Step5({ reservationData, ticketHolderData }) {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    function currentMonth() {
+      const now = new Date();
+      console.log("full date", now);
+      const realMonth = now.getMonth() + 1;
+
+      if (realMonth < 10) {
+        return 0 + realMonth;
+      } else {
+        return realMonth;
+      }
+    }
+    console.log("only month", currentMonth);
+
+    function currentYear() {
+      const now = new Date();
+      const onlyYear = now.getYear();
+      return onlyYear;
+    }
+    console.log("only year", currentYear);
+
     //POST RESERVATION
     fetch("https://hwaiting.herokuapp.com/fullfill-reservation", {
       method: "POST",
