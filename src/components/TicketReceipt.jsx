@@ -3,7 +3,9 @@ export default function TicketReceipt({ id, amount, type, price }) {
     <li className="basket-list" key={id}>
       <div className="amount-type-wrapper">
         <div className="amount-wrapper">
-          <p>{amount}</p>
+          <div className="amount-container">
+            <p>{amount} </p> <p>x</p>
+          </div>
         </div>
 
         <div className="type-wrapper">
