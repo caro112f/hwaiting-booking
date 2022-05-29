@@ -14,25 +14,28 @@
   #background {
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    justify-content: center;
+    gap: 2rem;
     height: 100vh;
     background-size: cover;
-    padding: 10rem 4rem 8rem 4rem;
+    padding: 4rem 4rem 8rem 4rem;
     @include mixins.bp-medium {
-      padding: 12rem 4rem 8rem 4rem;
+      padding: 4rem 4rem 8rem 4rem;
     }
     text-align: center;
   }
   button {
-    background-color: rgba(255, 255, 255, 0);
+    //background-color: rgba(255, 255, 255, 0);
+    background-color: vars.$neonpink;
     border-radius: 5px;
-    border: 5px solid vars.$neonblue;
-    box-shadow: 0px 0px 22px vars.$lightneonblue;
-    padding: 6px 8px 6px 8px;
+    //border: 5px solid vars.$neonblue;
+    box-shadow: 0px 0px 10px vars.$lightneonpink;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   }
 
   button:hover {
     cursor: pointer;
+    box-shadow: 0px 0px 22px vars.$lightneonpink;
   }
 
   h2 {
