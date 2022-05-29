@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import InputMask from "react-input-mask";
+//import InputMask from "react-input-mask";
 import NumberFormat from "react-number-format";
 import { useState } from "react";
 
-export default function Step5({ reservationData, ticketHolderData }) {
+export default function Step5({
+  reservationData,
+  ticketHolderData,
+  setFreezeTickets,
+}) {
   const [expireDate, setExpireDate] = useState(false);
   const navigate = useNavigate();
   let id = reservationData["id"];
@@ -74,6 +78,10 @@ export default function Step5({ reservationData, ticketHolderData }) {
       .then((data) => console.log(data));
     //.catch((err) => console.error(err));
 
+    setFreezeTickets(true);
+    navigateto();
+  }
+  function navigateto() {
     navigate("/confirmation");
   }
 
@@ -106,7 +114,9 @@ export default function Step5({ reservationData, ticketHolderData }) {
     <section className="steps" id="step5-section">
       <div id="step-wrapper">
         <div className="heading-wrapper">
-          <h1>Step 5</h1>
+          <h1 className="h1margin">
+            Step 5 <span className="fullsteps">/ 5</span>
+          </h1>
           <p>Card information</p>
         </div>
         <form onSubmit={onSubmit}>

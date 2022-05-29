@@ -3,13 +3,22 @@ import GoGreen from "../components/GoGreen";
 import TentOption from "../components/TentOption";
 
 export default function Step3(props) {
+  function freezeTents() {
+    props.setFreezeTents(true);
+  }
   return (
     <section id="additional" className="steps">
       <div className="heading-wrapper">
-        <h1>Step 3</h1>
+        <h1 className="h1margin">
+          Step 3 <span className="fullsteps">/ 5</span>
+        </h1>
         <p>Additionals?</p>
       </div>
-
+      <div className="next-step" id="extrapadding">
+        <Link to="/booking/information" onClick={freezeTents}>
+          Next
+        </Link>
+      </div>
       <div className="options-wrapper">
         <section className="prepared-tents">
           <h3 className="tents-headline">Prepared Tents</h3>
@@ -30,10 +39,6 @@ export default function Step3(props) {
 
           <GoGreen green={props.gogreen} key={props.gogreen.id}></GoGreen>
         </section>
-      </div>
-
-      <div className="next-step">
-        <Link to="/booking/information">Next</Link>
       </div>
     </section>
   );

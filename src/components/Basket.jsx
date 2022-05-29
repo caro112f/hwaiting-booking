@@ -16,41 +16,10 @@ export default function Basket({
   fullAmountOfPers,
   reservationData,
   freezeTickets,
+  fullPrice,
+  freezeTents,
 }) {
   const { basket } = useContext(BasketContext);
-
-  //getting ticket price
-  const initialvalue = 0;
-  const ticketSum = basket.tickets.reduce(
-    (previousValue, currentValue) =>
-      previousValue + currentValue.amount * currentValue.price,
-    initialvalue
-  );
-
-  //getting booking price
-  const bookingSum = basket.campingSpot.reduce(
-    (previousValue, currentValue) => previousValue + currentValue.price,
-    initialvalue
-  );
-
-  //getting green price
-  let gogreenSum;
-  if (basket.gogreenBA.added === true) {
-    gogreenSum = basket.gogreenBA["price"];
-  } else {
-    gogreenSum = 0;
-  }
-
-  //getting tent price
-
-  const tentSum = basket.tentsBA.reduce(
-    (previousValue, currentValue) =>
-      previousValue + currentValue.amount * currentValue.price,
-    initialvalue
-  );
-
-  //get full basket price
-  let fullPrice = ticketSum + bookingSum + gogreenSum + tentSum;
 
   return (
     <article className="basket">
@@ -76,7 +45,13 @@ export default function Basket({
             return <BICampingSpots key={spot.area} {...spot}></BICampingSpots>;
           })}
           {basket.tentsBA.map((add) => {
-            return <BITents key={add.id} {...add}></BITents>;
+            return (
+              <BITents
+                key={add.id}
+                {...add}
+                freezeTents={freezeTents}
+              ></BITents>
+            );
           })}
           {basket.gogreenBA.added ? (
             <BIGoGreen green={gogreen} key={gogreen.type}></BIGoGreen>

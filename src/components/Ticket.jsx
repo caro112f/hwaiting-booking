@@ -49,6 +49,7 @@ export default function Ticket(props) {
         <button
           onClick={buy}
           className="buy-ticket"
+          id="ticket-buy"
           style={
             props.ticket.id === 1
               ? {

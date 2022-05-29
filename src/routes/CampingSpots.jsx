@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { BasketContext } from "../contexts/basket";
 import { useContext } from "react";
 import Spot from "../components/Spot";
+import { ArrowLeftOutlined } from "@ant-design/icons";
 
 export default function Step2(props) {
   const { basket } = useContext(BasketContext);
@@ -44,12 +45,26 @@ export default function Step2(props) {
 
   return (
     <section id="campingspots" className="steps">
+      <div className="back-step">
+        <Link to="/booking/" id="back-link">
+          {" "}
+          <ArrowLeftOutlined id="arrowleft" /> Back
+        </Link>
+      </div>
       <div className="heading-wrapper">
-        <h1>Step 2</h1>
+        <h1>
+          Step 2 <span className="fullsteps">/ 5</span>
+        </h1>
         <p>Please pick a camping spot </p>
         <p>Booking fee: {campPrice[0]} DKK</p>
       </div>
-
+      <section>
+        <div className="next-step" style={{ display: nextButton() }}>
+          <Link onClick={reserve} to="/booking/additional">
+            Next
+          </Link>
+        </div>
+      </section>
       <article className="map">
         <div className="campingspots-wrapper">
           <div className="campingspots-container">
@@ -63,16 +78,6 @@ export default function Step2(props) {
           </div>
         </div>
       </article>
-
-      <div className="next-step">
-        <Link
-          onClick={reserve}
-          style={{ display: nextButton() }}
-          to="/booking/additional"
-        >
-          Next
-        </Link>
-      </div>
     </section>
   );
 }

@@ -32,11 +32,19 @@
   }
 
   .campingspot {
+    position: relative;
+    top: 0;
     margin-block: 2rem;
     padding: 1rem;
     text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
     @include mixins.bp-large {
       margin: 0;
     }
+  }
+  .campingspot:hover {
+    top: -2px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
   }
 }

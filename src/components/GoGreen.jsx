@@ -28,10 +28,8 @@ export default function GoGreen({ green }) {
   }
 
   return (
-    <div className="go-green-container">
-      <button className="add" onClick={toggleGreen}>
-        {basket.gogreenBA.added ? "-" : "+"}
-      </button>
+    <div className="go-green-container" onClick={toggleGreen}>
+      <button className="add">+</button>
 
       <h3 className="go-green-header">{green.type}</h3>
 
