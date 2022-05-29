@@ -20,7 +20,9 @@ export default function Booking() {
   const [ticketNo, setTicketNo] = useState(0);
   const [reservationData, setReservationData] = useState();
   const [freezeTickets, setFreezeTickets] = useState(false);
+  const [freezeTents, setFreezeTents] = useState(false);
   const [ticketHolderData, setTicketHolderData] = useState({});
+  const { basket } = useContext(BasketContext);
 
   // console.log(reservationData);
 
@@ -97,7 +99,6 @@ export default function Booking() {
     ]
   );
 
-  const { basket } = useContext(BasketContext);
   //finding number of tickets in basket
   let ticketAmount = basket.tickets.map(({ amount, ...rest }) => {
     return amount;
@@ -128,6 +129,41 @@ export default function Booking() {
   }
 
   let fullAmountOfPers = tentsAmount * allPersInBasketNo;
+
+  //---- full amount in basket calculation-----
+
+  //getting ticket price
+  const initialvalue = 0;
+  const ticketSum = basket.tickets.reduce(
+    (previousValue, currentValue) =>
+      previousValue + currentValue.amount * currentValue.price,
+    initialvalue
+  );
+
+  //getting booking price
+  const bookingSum = basket.campingSpot.reduce(
+    (previousValue, currentValue) => previousValue + currentValue.price,
+    initialvalue
+  );
+
+  //getting green price
+  let gogreenSum;
+  if (basket.gogreenBA.added === true) {
+    gogreenSum = basket.gogreenBA["price"];
+  } else {
+    gogreenSum = 0;
+  }
+
+  //getting tent price
+
+  const tentSum = basket.tentsBA.reduce(
+    (previousValue, currentValue) =>
+      previousValue + currentValue.amount * currentValue.price,
+    initialvalue
+  );
+
+  //get full basket price
+  let fullPrice = ticketSum + bookingSum + gogreenSum + tentSum;
 
   return (
     <section id="booking">
@@ -166,6 +202,7 @@ export default function Booking() {
               gogreen={gogreen}
               ticketsinBasketNo={ticketsinBasketNo}
               fullAmountOfPers={fullAmountOfPers}
+              setFreezeTents={setFreezeTents}
             />
           }
         />
@@ -185,6 +222,7 @@ export default function Booking() {
             <Payment
               reservationData={reservationData}
               ticketHolderData={ticketHolderData}
+              setFreezeTickets={setFreezeTickets}
             />
           }
         />
@@ -199,6 +237,9 @@ export default function Booking() {
               ticketsinBasketNo={ticketsinBasketNo}
               reservationData={reservationData}
               freezeTickets={freezeTickets}
+              fullPrice={fullPrice}
+              setFreezeTickets={setFreezeTickets}
+              ticketAmount={ticketAmount}
             />
           }
         />
@@ -212,6 +253,8 @@ export default function Booking() {
         ticketsinBasketNo={ticketsinBasketNo}
         reservationData={reservationData}
         freezeTickets={freezeTickets}
+        fullPrice={fullPrice}
+        freezeTents={freezeTents}
       ></Basket>
     </section>
   );

@@ -25,7 +25,9 @@
       grid-column: 1/2;
     }
   }
-
+  .h1margin {
+    margin-block-start: 3rem;
+  }
   .basket {
     padding: 2rem;
     background-color: #e1d9e9;
@@ -84,10 +86,29 @@
   .next-step {
     text-align: center;
     margin-block: 2rem;
-
+    margin-inline: auto;
+    background-color: vars.$neonpurple;
+    max-width: 5rem;
+    border-radius: 5px;
+    padding: 8px;
     @include mixins.bp-large {
       margin-block: 2rem;
     }
+  }
+  .back-step {
+    display: flex;
+    margin-block-start: 2rem;
+    max-width: 5rem;
+    border-radius: 5px;
+    padding: 8px;
+  }
+  #back-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  #arrowleft {
+    font-size: 2rem;
   }
   .basket-minus,
   .basket-plus {

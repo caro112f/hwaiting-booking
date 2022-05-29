@@ -140,7 +140,9 @@ export default function Step4({
     <section id="step4-section" className="steps">
       <div id="step4-wrapper">
         <div className="heading-wrapper">
-          <h1>Step 4</h1>
+          <h1 className="h1margin">
+            Step 4 <span className="fullsteps">/ 5</span>
+          </h1>
           <p>Your information</p>
         </div>
 

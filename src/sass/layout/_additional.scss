@@ -90,6 +90,14 @@
     padding: 0.5rem;
     border-radius: 5px;
     width: 100%;
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+  }
+  .tent-option:hover,
+  .go-green-container:hover {
+    top: -2px;
   }
 
   .product-and-button {
@@ -112,6 +120,10 @@
     border: 5px solid vars.$neongreen;
     box-shadow: vars.$lightneongreen 0px 0px 15px;
     margin-block-start: 1.5rem;
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
   }
 
   .go-green-text,
@@ -127,5 +139,8 @@
   .go-green-text {
     font-size: 1.1rem;
     margin-bottom: 0;
+  }
+  #extrapadding {
+    padding: 9px 17px 9px 17px;
   }
 }

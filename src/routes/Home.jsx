@@ -13,7 +13,7 @@ export default function Home(props) {
           <p>Scandinavias biggest K-pop festival</p>
         </div>
         <Link to="/booking">
-          <button>
+          <button id="home-buylink">
             <p className="link-p">BUY TICKETS</p>
           </button>
         </Link>

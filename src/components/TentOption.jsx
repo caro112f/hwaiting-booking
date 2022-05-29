@@ -41,6 +41,7 @@ export default function TentOption(props) {
   return (
     <article
       className="tent-option"
+      onClick={choose}
       style={
         props.add.type === "2 person tent"
           ? {
@@ -55,10 +56,7 @@ export default function TentOption(props) {
       }
     >
       <div className="product-and-button">
-        <button className="add" onClick={choose}>
-          {/* not working */}
-          {basket.tentsBA.amount > 0 ? "-" : "+"}
-        </button>
+        <button className="add">+</button>
 
         <p>{props.add.type}</p>
       </div>
