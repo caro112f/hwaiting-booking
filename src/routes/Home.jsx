@@ -14,7 +14,7 @@ export default function Home(props) {
         </div>
         <Link to="/booking">
           <button id="home-buylink">
-            <p className="link-p">BUY TICKETS</p>
+            <p>Buy Tickets</p>
           </button>
         </Link>
       </section>
