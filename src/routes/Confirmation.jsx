@@ -5,29 +5,28 @@ import { Link } from "react-router-dom";
 import BICampingSpots from "../components/BICampingSpots";
 //import BITicket from "../components/BITicket";
 //import BITents from "../components/BITents";
-import BIGoGreen from "../components/BIGoGreen";
+
 import TicketReceipt from "../components/TicketReceipt";
 import TentsReceipt from "../components/TentsReceipt";
+import GoGreenReciept from "../components/GoGreenReciept";
 
-export default function Confirmation(
-  {
-    dataCamping,
-    ticketData,
-    ticketNo,
-    setTicketNo,
-    ticketsinBasketNo,
-    gogreen,
-    fullAmountOfPers,
-    reservationData,
-    freezeTickets,
-    fullPrice,
-    setFreezeTickets,
-    ticketAmount,
-  },
-  props
-) {
+export default function Confirmation({
+  dataCamping,
+  ticketData,
+  ticketNo,
+  setTicketNo,
+  ticketsinBasketNo,
+  gogreen,
+  fullAmountOfPers,
+  reservationData,
+  freezeTickets,
+  fullPrice,
+  setFreezeTickets,
+  ticketAmount,
+}) {
   const { basket } = useContext(BasketContext);
-  console.log(fullPrice);
+  console.log(basket.gogreenBA.added);
+  console.log("goGreen:", gogreen);
   return (
     <section id="confirmation">
       <div id="confirmation-wrapper">
@@ -58,11 +57,7 @@ export default function Confirmation(
             {basket.tentsBA.map((add) => {
               return <TentsReceipt key={add.id} {...add}></TentsReceipt>;
             })}
-            {basket.gogreenBA.added ? (
-              <BIGoGreen green={gogreen} key={gogreen.type}></BIGoGreen>
-            ) : (
-              <></>
-            )}
+            {basket.gogreenBA.added ? <GoGreenReciept></GoGreenReciept> : null}
           </ul>
           <hr />
           <div className="totalprice">

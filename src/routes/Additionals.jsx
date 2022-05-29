@@ -3,6 +3,8 @@ import GoGreen from "../components/GoGreen";
 import TentOption from "../components/TentOption";
 
 export default function Step3(props) {
+  console.log("goGreen:", props.gogreen);
+
   function freezeTents() {
     props.setFreezeTents(true);
   }
