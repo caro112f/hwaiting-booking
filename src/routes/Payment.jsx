@@ -17,13 +17,6 @@ export default function Step5({ reservationData, ticketHolderData }) {
 
     let currentMonth = now.getMonth() + 1;
 
-    /*     let currentMonth;
-    if (month > 0) {
-      currentMonth = "0" + month;
-    } else {
-      currentMonth = month;
-    } */
-
     //CURRENT YEAR
     let year = now.getFullYear().toString();
     let currentYear = year.slice(2, 4);
@@ -47,9 +40,6 @@ export default function Step5({ reservationData, ticketHolderData }) {
     } else {
       paymentConfirmed();
     }
-    //if current year > valueyear == return false
-    //if current month > valuemonth && current year === value year false
-    //else true
   };
 
   function paymentConfirmed() {
