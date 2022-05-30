@@ -37,8 +37,8 @@ export default function Spot(props) {
       onClick={choose}
       style={
         props.spot.available >= props.ticketsinBasketNo
-          ? { border: "5px solid #20E3E3", boxShadow: "0px 0px 15px #5AFFFF" }
-          : { border: "5px solid #FB3CFF", boxShadow: "0px 0px 15px #FC61FF" }
+          ? { border: "5px solid #20E3E3", boxShadow: "0px 0px 10px #5AFFFF" }
+          : { border: "5px solid #FB3CFF", boxShadow: "0px 0px 10px #FC61FF" }
       }
     >
       <h3>{props.spot.area}</h3>

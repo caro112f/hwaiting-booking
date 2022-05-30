@@ -11,16 +11,23 @@
     text-shadow: 0px 0px 22px vars.$lightneonpurple;
     font-family: vars.$displayfont;
   }
+  .heading-wrapper {
+    margin: 1rem 0rem 3rem 0rem;
+    gap: 7px;
+    display: flex;
+    flex-direction: column;
+  }
   #background {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 2rem;
-    height: 100vh;
+    height: 100%;
     background-size: cover;
-    padding: 4rem 4rem 8rem 4rem;
+    padding: 10rem 1rem 8rem 1rem;
     @include mixins.bp-medium {
       padding: 4rem 4rem 8rem 4rem;
+      height: 100vh;
     }
     text-align: center;
   }
@@ -30,7 +37,10 @@
     border-radius: 5px;
     //border: 5px solid vars.$neonblue;
     box-shadow: 0px 0px 10px vars.$lightneonpink;
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    padding: 4px 8px 4px 8px;
+    @include mixins.bp-medium {
+      padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    }
   }
 
   button:hover {
@@ -40,7 +50,10 @@
 
   h2 {
     text-align: center;
-    padding: 6rem 0rem 10px 0rem;
+    padding: 3rem 0rem 10px 0rem;
+    @include mixins.bp-medium {
+      padding: 6rem 0rem 10px 0rem;
+    }
   }
   #highlights {
     background-color: vars.$background-blue;
@@ -48,6 +61,13 @@
   #home-buylink {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    p {
+      font-size: 1rem;
+
+      @include mixins.bp-medium {
+        font-size: 1.2rem;
+      }
+    }
   }
   #home-buylink:hover {
     transform: scale(1.05);

@@ -19,7 +19,7 @@ export default function GuestSection({ guestsAmount }) {
 
   return (
     <section className="guest">
-      <h2>Guest</h2>
+      <h2 className="pm_font">Guest</h2>
 
       <div className="form-part">
         <label htmlFor="gfname">First name</label>

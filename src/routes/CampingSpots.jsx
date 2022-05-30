@@ -45,26 +45,14 @@ export default function Step2(props) {
 
   return (
     <section id="campingspots" className="steps">
-      <div className="back-step">
-        <Link to="/booking/" id="back-link">
-          {" "}
-          <ArrowLeftOutlined id="arrowleft" /> Back
-        </Link>
-      </div>
       <div className="heading-wrapper">
-        <h1>
+        <h2>
           Step 2 <span className="fullsteps">/ 5</span>
-        </h1>
+        </h2>
         <p>Please pick a camping spot </p>
         <p>Booking fee: {campPrice[0]} DKK</p>
       </div>
-      <section>
-        <div className="next-step" style={{ display: nextButton() }}>
-          <Link onClick={reserve} to="/booking/additional">
-            Next
-          </Link>
-        </div>
-      </section>
+
       <div>
         <article className="map">
           <div className="campingspots-wrapper">
@@ -85,6 +73,24 @@ export default function Step2(props) {
             here
           </Link>
         </p>
+      </div>
+      <div id="spot-buttons">
+        <div className="back-step">
+          <Link to="/booking/" id="back-link">
+            {" "}
+            <ArrowLeftOutlined id="arrowleft" />
+          </Link>
+        </div>
+        <div>
+          <Link
+            id="cs-next"
+            style={{ display: nextButton() }}
+            onClick={reserve}
+            to="/booking/additional"
+          >
+            Next
+          </Link>
+        </div>
       </div>
     </section>
   );
