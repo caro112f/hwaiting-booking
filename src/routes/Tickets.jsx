@@ -16,18 +16,7 @@ export default function Step1(props) {
         </h1>
         <p>Please pick a ticket</p>
       </div>
-      <div
-        className="next-step"
-        style={
-          props.ticketsinBasketNo > 0
-            ? { display: "block" }
-            : { display: "none" }
-        }
-      >
-        <Link onClick={freezeTickets} to="/booking/campingspots">
-          Next
-        </Link>
-      </div>
+
       <article className="ticket-container">
         <div className="ticket-wrapper">
           {props.ticketData.map((t) => (
@@ -41,6 +30,18 @@ export default function Step1(props) {
           ))}
         </div>
       </article>
+      <div
+        className="next-step"
+        style={
+          props.ticketsinBasketNo > 0
+            ? { display: "block" }
+            : { display: "none" }
+        }
+      >
+        <Link onClick={freezeTickets} to="/booking/campingspots">
+          Next
+        </Link>
+      </div>
     </section>
   );
 }
