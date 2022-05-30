@@ -65,19 +65,27 @@ export default function Step2(props) {
           </Link>
         </div>
       </section>
-      <article className="map">
-        <div className="campingspots-wrapper">
-          <div className="campingspots-container">
-            {props.dataCamping.map((s) => (
-              <Spot
-                ticketsinBasketNo={props.ticketsinBasketNo}
-                key={s.area}
-                spot={s}
-              />
-            ))}
+      <div>
+        <article className="map">
+          <div className="campingspots-wrapper">
+            <div className="campingspots-container">
+              {props.dataCamping.map((s) => (
+                <Spot
+                  ticketsinBasketNo={props.ticketsinBasketNo}
+                  key={s.area}
+                  spot={s}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+        <p id="cs-link-text">
+          Not sure? Read more about our campingspots{" "}
+          <Link id="cs-link" to="/camping-info">
+            here
+          </Link>
+        </p>
+      </div>
     </section>
   );
 }

@@ -5,6 +5,7 @@ import { BasketProvider } from "./contexts/basket";
 import { gsap } from "gsap";
 
 import Home from "./routes/Home";
+import CampingInfo from "./routes/CampingInfo";
 import Booking from "./routes/Booking";
 import Confirmation from "./routes/Confirmation";
 
@@ -51,6 +52,17 @@ function App() {
                 <Link
                   id="header_link"
                   className="nav-link"
+                  to="/camping-info"
+                  onClick={ToggleBurgermenu}
+                >
+                  {" "}
+                  <p className="link-p">CAMPING INFO</p>{" "}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  id="header_link"
+                  className="nav-link"
                   to="/booking"
                   onClick={ToggleBurgermenu}
                 >
@@ -70,6 +82,7 @@ function App() {
       <BasketProvider>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="camping-info" element={<CampingInfo />} />
 
           <Route path="booking/*" element={<Booking />} />
 

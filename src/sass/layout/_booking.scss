@@ -2,6 +2,8 @@
 @use "../abstracts/mixins";
 
 #booking {
+  overflow-y: hidden;
+
   @include mixins.bp-large {
     display: grid;
     grid-template-columns: 3fr 1fr;
