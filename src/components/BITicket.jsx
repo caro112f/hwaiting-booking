@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { BasketContext } from "../contexts/basket";
 
 export default function BITicket({
@@ -11,6 +11,7 @@ export default function BITicket({
   freezeTickets,
 }) {
   const { setBasket } = useContext(BasketContext);
+  //const [bTicketError, setBTicketError] = useState(false);
 
   //lyt til at vi er på campingspot
 
@@ -52,34 +53,36 @@ export default function BITicket({
   }
 
   return (
-    <li className="basket-list" key={id}>
-      <div className="amount-type-wrapper">
-        <div className="amount-wrapper">
-          <div
-            style={freezeTickets ? { display: "none" } : { display: "block" }}
-          >
-            <button className="basket-minus" onClick={() => remove(id)}>
-              <p>-</p>
-            </button>
+    <>
+      <li className="basket-list" key={id}>
+        <div className="amount-type-wrapper">
+          <div className="amount-wrapper">
+            <div
+              style={freezeTickets ? { display: "none" } : { display: "block" }}
+            >
+              <button className="basket-minus" onClick={() => remove(id)}>
+                <p>-</p>
+              </button>
+            </div>
+            <p>{amount}</p>
+            <div
+              style={freezeTickets ? { display: "none" } : { display: "block" }}
+            >
+              <button className="basket-plus" onClick={() => buymore(id)}>
+                {" "}
+                <p>+</p>
+              </button>
+            </div>
           </div>
-          <p>{amount}</p>
-          <div
-            style={freezeTickets ? { display: "none" } : { display: "block" }}
-          >
-            <button className="basket-plus" onClick={() => buymore(id)}>
-              {" "}
-              <p>+</p>
-            </button>
-          </div>
-        </div>
 
-        <div className="type-wrapper">
-          <p className="basket-font"> {type} </p>
+          <div className="type-wrapper">
+            <p className="basket-font"> {type} </p>
+          </div>
         </div>
-      </div>
-      <div className="price-wrapper">
-        <p className="basket-font"> {price} ,-</p>
-      </div>
-    </li>
+        <div className="price-wrapper">
+          <p className="basket-font"> {price} ,-</p>
+        </div>
+      </li>
+    </>
   );
 }
