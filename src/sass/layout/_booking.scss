@@ -90,28 +90,16 @@
     margin-block: 2rem;
     margin-inline: auto;
     background-color: vars.$neonpurple;
+    //box-shadow: 0px 0px 10px white;
     max-width: 5rem;
     border-radius: 5px;
     padding: 8px;
+    cursor: pointer;
     @include mixins.bp-large {
       margin-block: 2rem;
     }
   }
-  .back-step {
-    display: flex;
-    margin-block-start: 2rem;
-    max-width: 5rem;
-    border-radius: 5px;
-    padding: 8px;
-  }
-  #back-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  #arrowleft {
-    font-size: 2rem;
-  }
+
   .basket-minus,
   .basket-plus {
     background-color: #2e1c6700;

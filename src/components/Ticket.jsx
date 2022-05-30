@@ -36,18 +36,20 @@ export default function Ticket(props) {
 
   return (
     <div
+      onClick={buy}
       className="ticket"
       style={
         props.ticket.id === 1
-          ? { border: "5px solid #20E3E3", boxShadow: "0px 0px 15px #5AFFFF" }
-          : { border: "5px solid #FB3CFF", boxShadow: "0px 0px 15px #FC61FF" }
+          ? { border: "5px solid #20E3E3", boxShadow: "0px 0px 10px #5AFFFF" }
+          : { border: "5px solid #FB3CFF", boxShadow: "0px 0px 10px #FC61FF" }
       }
     >
+      <button className="add">+</button>
+
       <h3>{props.ticket.type}</h3>
       <p>{props.ticket.price} DKK</p>
       <div className="buy-ticket-wrapper">
-        <button
-          onClick={buy}
+        {/* <button
           className="buy-ticket"
           id="ticket-buy"
           style={
@@ -63,7 +65,7 @@ export default function Ticket(props) {
           }
         >
           Buy ticket
-        </button>
+        </button> */}
       </div>
     </div>
   );

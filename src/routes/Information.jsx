@@ -140,16 +140,16 @@ export default function Step4({
     <section id="step4-section" className="steps">
       <div id="step4-wrapper">
         <div className="heading-wrapper">
-          <h1 className="h1margin">
+          <h2 className="h1margin">
             Step 4 <span className="fullsteps">/ 5</span>
-          </h1>
+          </h2>
           <p>Your information</p>
         </div>
 
         <div id="form-information">
           <form onSubmit={onSubmit}>
             <section id="ticket-holder">
-              <h2>Ticket holder</h2>
+              <h2 className="pm_font">Ticket holder</h2>
 
               <div id="firstname" className="form-part">
                 <label htmlFor="fname">First name</label>

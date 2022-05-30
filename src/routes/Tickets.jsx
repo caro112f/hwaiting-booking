@@ -11,9 +11,9 @@ export default function Step1(props) {
   return (
     <section id="tickets" className="steps">
       <div className="heading-wrapper">
-        <h1 className="h1margin">
+        <h2 className="h1margin">
           Step 1 / <span className="fullsteps">5</span>
-        </h1>
+        </h2>
         <p>Please pick a ticket</p>
       </div>
 
@@ -30,15 +30,17 @@ export default function Step1(props) {
           ))}
         </div>
       </article>
-      <div
-        className="next-step"
-        style={
-          props.ticketsinBasketNo > 0
-            ? { display: "block" }
-            : { display: "none" }
-        }
-      >
-        <Link onClick={freezeTickets} to="/booking/campingspots">
+      <div>
+        <Link
+          className="next-step"
+          style={
+            props.ticketsinBasketNo > 0
+              ? { display: "block" }
+              : { display: "none" }
+          }
+          onClick={freezeTickets}
+          to="/booking/campingspots"
+        >
           Next
         </Link>
       </div>

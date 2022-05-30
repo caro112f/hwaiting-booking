@@ -25,8 +25,10 @@ export default function Home(props) {
       </section>
       <section id="home-program-section">
         <div>
-          <h2>Curious about the festival's lineup?</h2>
-          <p id="home-program-text">Check out the amazing artists here</p>
+          <h2 className="pm_font">Curious about the lineup?</h2>
+          <p id="home-program-text">
+            Click on the vinyl record and check it out!
+          </p>
         </div>
         {/*     <Link
           id="home-program-link"

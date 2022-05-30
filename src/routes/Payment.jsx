@@ -114,9 +114,9 @@ export default function Step5({
     <section className="steps" id="step5-section">
       <div id="step-wrapper">
         <div className="heading-wrapper">
-          <h1 className="h1margin">
+          <h2 className="h1margin">
             Step 5 <span className="fullsteps">/ 5</span>
-          </h1>
+          </h2>
           <p>Card information</p>
         </div>
         <form onSubmit={onSubmit}>

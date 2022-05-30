@@ -2,7 +2,7 @@
 @use "../abstracts/mixins";
 
 h1 {
-  font-family: vars.$paragraphfont;
+  font-family: vars.$displayfont;
   font-weight: 800;
   font-size: 3rem;
 
@@ -15,8 +15,8 @@ h1 {
 }
 
 h2 {
-  font-family: vars.$displayfont;
-  font-weight: 200;
+  font-family: vars.$paragraphfont;
+  font-weight: 800;
   font-size: 2rem;
   @include mixins.bp-medium {
     font-size: 3rem;

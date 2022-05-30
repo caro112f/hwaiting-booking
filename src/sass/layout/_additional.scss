@@ -59,7 +59,8 @@
   }
 
   .options-wrapper {
-    margin-block-start: 1.5rem;
+    margin-block-start: 2rem;
+    margin-block-end: 2rem;
     @include mixins.bp-large {
       display: grid;
       grid-template-columns: 0.7fr 1fr;
@@ -118,7 +119,7 @@
 
   .go-green-container {
     border: 5px solid vars.$neongreen;
-    box-shadow: vars.$lightneongreen 0px 0px 15px;
+    box-shadow: vars.$lightneongreen 0px 0px 10px;
     margin-block-start: 1.5rem;
     position: relative;
     top: 0;
@@ -142,5 +143,6 @@
   }
   #extrapadding {
     padding: 9px 17px 9px 17px;
+    display: block;
   }
 }

@@ -11,16 +11,12 @@ export default function Step3(props) {
   return (
     <section id="additional" className="steps">
       <div className="heading-wrapper">
-        <h1 className="h1margin">
+        <h2 className="h1margin">
           Step 3 <span className="fullsteps">/ 5</span>
-        </h1>
+        </h2>
         <p>Additionals?</p>
       </div>
-      <div className="next-step" id="extrapadding">
-        <Link to="/booking/information" onClick={freezeTents}>
-          Next
-        </Link>
-      </div>
+
       <div className="options-wrapper">
         <section className="prepared-tents">
           <h3 className="tents-headline">Prepared Tents</h3>
@@ -41,6 +37,16 @@ export default function Step3(props) {
 
           <GoGreen green={props.gogreen} key={props.gogreen.id}></GoGreen>
         </section>
+      </div>
+      <div>
+        <Link
+          className="next-step"
+          id="extrapadding"
+          to="/booking/information"
+          onClick={freezeTents}
+        >
+          Next
+        </Link>
       </div>
     </section>
   );

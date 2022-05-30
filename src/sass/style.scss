@@ -14,7 +14,9 @@ body {
 .black-text {
   color: vars.$background-blue;
 }
-
+.pm_font {
+  font-family: "Permanent Marker", sans-serif;
+}
 .App {
   #logo_wrapper {
     margin: 1rem;
