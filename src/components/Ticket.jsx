@@ -46,9 +46,11 @@ export default function Ticket(props) {
     >
       <button className="add">+</button>
 
-      <h3>{props.ticket.type}</h3>
-      <p>{props.ticket.price} DKK</p>
-      <div className="buy-ticket-wrapper">
+      <div className="ticket-text">
+        <h3>{props.ticket.type}</h3>
+
+        <p>{props.ticket.price} DKK</p>
+
         {/* <button
           className="buy-ticket"
           id="ticket-buy"
