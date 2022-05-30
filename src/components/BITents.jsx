@@ -41,8 +41,6 @@ export default function BITents({ type, price, amount, id, freezeTents }) {
         <div className="amount-wrapper">
           <div style={freezeTents ? { display: "none" } : { display: "block" }}>
             <button className="basket-minus" onClick={() => remove(id)}>
-              <p>-</p>
-
               <button className="trashcan" onClick={remove}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
