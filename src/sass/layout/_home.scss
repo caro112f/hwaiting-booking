@@ -40,7 +40,7 @@
 
   h2 {
     text-align: center;
-    padding: 6rem 0rem 3rem 0rem;
+    padding: 6rem 0rem 10px 0rem;
   }
   #highlights {
     background-color: vars.$background-blue;
@@ -78,13 +78,16 @@
 }
 
 #home-program-img {
-  margin-top: 2rem;
+  margin-top: 3rem;
   max-width: 12rem;
   margin-inline: auto;
   border-radius: 100%;
   box-shadow: 0px 0px 10px vars.$lightneonpink;
   transition: transform 0.7s ease-in-out;
   -webkit-transition: 0.7s ease-in-out;
+  @include mixins.bp-medium {
+    margin-top: 5rem;
+  }
 
   &:hover {
     box-shadow: 0px 0px 22px vars.$lightneonpink;

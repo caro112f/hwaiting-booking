@@ -24,8 +24,10 @@ export default function Home(props) {
         <p>화이팅</p>
       </section>
       <section id="home-program-section">
-        <h2>Curious about the festival's lineup?</h2>
-        <p id="home-program-text">Check out the amazing artists here</p>
+        <div>
+          <h2>Curious about the festival's lineup?</h2>
+          <p id="home-program-text">Check out the amazing artists here</p>
+        </div>
         {/*     <Link
           id="home-program-link"
           to={{ pathname: "https://www.youtube.com/" }}
