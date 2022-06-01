@@ -50,24 +50,6 @@ export default function Ticket(props) {
         <h3>{props.ticket.type}</h3>
 
         <p>{props.ticket.price} DKK</p>
-
-        {/* <button
-          className="buy-ticket"
-          id="ticket-buy"
-          style={
-            props.ticket.id === 1
-              ? {
-                  border: "4px solid #20E3E3",
-                  boxShadow: "0px 0px 15px #5AFFFF",
-                }
-              : {
-                  border: "4px solid #FB3CFF",
-                  boxShadow: "0px 0px 15px #FC61FF",
-                }
-          }
-        >
-          Buy ticket
-        </button> */}
       </div>
     </div>
   );

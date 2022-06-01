@@ -109,17 +109,6 @@ export default function Step4({
       });
     }
 
-    //console.log(guestData);
-    /*     setTicketHolderData({
-      firstName: e.target.elements.firstname.value,
-      lastName: e.target.elements.lastname.value,
-      email: e.target.elements.email.value,
-      country: e.target.elements.country.value,
-      city: e.target.elements.city.value,
-      bookingId: id,
-      guests: guestData,
-    }); */
-
     navigate("/booking/payment");
   };
   const selectstyles = {

@@ -134,17 +134,6 @@ export default function Step5({
           <div className="card-number">
             <label>Card number</label>
             <NumberFormat format="#### #### #### ####" mask="_" />
-            {/* <InputMask
-              required
-              type="text"
-              id="card-number"
-              name="card-number"
-              inputMode="numeric"
-              autcomplete="cc-number"
-              placeholder="0000 0000 0000 0000"
-              pattern="[0-9]{13,16}"
-              //mask="9999 9999 9999 9999"
-            /> */}
           </div>
 
           <div className="expire">
@@ -159,21 +148,6 @@ export default function Step5({
             {expireDate ? (
               <p className="error-msg">Invalid expiry date</p>
             ) : null}
-            {/* <input
-              required
-              type="month"
-              id="expiry-date"
-              name="expiry-date"
-              className="expiry-date"
-              autoComplete="cc-exp"
-              placeholder="MM/YY"
-              minLength="4"
-              pattern="[0-9/]+"
-              mask="99/99"
-              views={["month", "year"]}
-              min={now}
-              max={until}
-            /> */}
           </div>
           <div className="code">
             <label htmlFor="security-code">Security code</label>

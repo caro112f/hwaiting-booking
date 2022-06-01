@@ -30,13 +30,7 @@ export default function Home(props) {
             Click on the vinyl record and check it out!
           </p>
         </div>
-        {/*     <Link
-          id="home-program-link"
-          to={{ pathname: "https://www.youtube.com/" }}
-          target="_blank"
-        >
-          <img id="home-program-img" src={vinylImg} alt="Vinyl"></img>
-        </Link> */}
+
         <a
           id="home-program-link"
           href="https://www.youtube.com/"
