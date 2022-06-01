@@ -13,11 +13,13 @@ import logo from "./images/logo_light.svg";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+
   function ToggleBurgermenu() {
     setMenuOpen((old) => !old);
   }
 
   const menuRef = useRef();
+
   useEffect(() => {
     gsap.from(menuRef.current, { x: 1500 });
     gsap.to(menuRef.current, { duration: 1, x: 0 });
