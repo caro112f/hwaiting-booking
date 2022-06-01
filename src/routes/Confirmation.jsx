@@ -67,7 +67,7 @@ export default function Confirmation({ ticketData, fullPrice }) {
     <section id="confirmation">
       <div id="confirmation-wrapper">
         <div className="heading-wrapper">
-          <h1>Congratulations</h1>
+          <h1>Thank you!</h1>
           <p>
             Your order is complete and the receipt will be sent to your email
             shortly

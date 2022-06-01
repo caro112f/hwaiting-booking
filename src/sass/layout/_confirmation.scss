@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: auto minmax(0, 1000px) auto;
   place-content: center;
+  margin-inline: 1rem;
   .heading-wrapper {
     margin: 2rem 0rem 2rem 0rem;
     text-align: center;
