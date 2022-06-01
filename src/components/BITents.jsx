@@ -18,22 +18,6 @@ export default function BITents({ type, price, amount, id, freezeTents }) {
       return { ...old, tentsBA: mapped.filter((add) => add.amount > 0) };
     });
   }
-  function buymore(id) {
-    setBasket((old) => {
-      const mapped = old.tentsBA.map((add) => {
-        if (add.id === id) {
-          const copy = { ...add };
-          copy.amount = copy.amount + 1;
-          return copy;
-        }
-        return add;
-      });
-      return {
-        ...old,
-        tentsBA: mapped.filter((add) => add.amount > 0),
-      };
-    });
-  }
 
   return (
     <li className="basket-list">
@@ -56,11 +40,6 @@ export default function BITents({ type, price, amount, id, freezeTents }) {
             </button>
           </div>
           <p>{amount} x </p>
-          <div style={freezeTents ? { display: "none" } : { display: "block" }}>
-            {/*  <button className="basket-plus" onClick={() => buymore(id)}>
-              <p>+</p>
-            </button> */}
-          </div>
         </div>
 
         <div className="type-wrapper">

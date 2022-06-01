@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { BasketContext } from "../contexts/basket";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import BICampingSpots from "../components/BICampingSpots";
 //import BITicket from "../components/BITicket";
