@@ -21,8 +21,8 @@ function App() {
   const menuRef = useRef();
 
   useEffect(() => {
-    gsap.from(menuRef.current, { x: 1500 });
-    gsap.to(menuRef.current, { duration: 1, x: 0 });
+    gsap.from(menuRef.current, { x: 1200 });
+    gsap.to(menuRef.current, { duration: 0.8, x: 0 });
   });
 
   return (
