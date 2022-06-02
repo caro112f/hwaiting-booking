@@ -33,7 +33,7 @@ export default function Home(props) {
 
         <a
           id="home-program-link"
-          href="https://www.youtube.com/"
+          href="https://hwaiting.pandapoob.com/"
           target="_blank"
           rel="noreferrer"
         >
