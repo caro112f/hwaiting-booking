@@ -48,6 +48,32 @@
     box-shadow: 0px 0px 22px vars.$lightneonpink;
   }
 
+  #home-information {
+    background-color: #e1d9e9;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1200px) auto;
+
+    padding-block: 5rem;
+  }
+
+  .home-info-container {
+    grid-column: 2/3;
+  }
+
+  .home-info-img {
+    margin-block: auto;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .home-info-wrapper {
+    @include mixins.bp-large {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+
   h2 {
     text-align: center;
     padding: 3rem 0rem 10px 0rem;
@@ -55,6 +81,11 @@
       padding: 6rem 0rem 10px 0rem;
     }
   }
+
+  .dark-text {
+    color: vars.$background-blue;
+  }
+
   #highlights {
     background-color: vars.$background-blue;
   }
